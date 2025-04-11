@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://d8f880h8ddw5"]
+
+[ext_resource type="PackedScene" uid="uid://bkgeyx3owgjlf" path="res://scenes/player_scene.tscn" id="1_w2twt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w2twt"]
+albedo_color = Color(0.615686, 0.254902, 0.596078, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_pw63i"]
+material = SubResource("StandardMaterial3D_w2twt")
+size = Vector2(25, 25)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pw63i"]
+albedo_color = Color(0.160784, 0.4, 1, 1)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_und3l"]
+
+[sub_resource type="Sky" id="Sky_w2twt"]
+sky_material = SubResource("ProceduralSkyMaterial_und3l")
+
+[sub_resource type="Environment" id="Environment_pw63i"]
+background_mode = 2
+sky = SubResource("Sky_w2twt")
+
+[node name="main_scene" type="Node3D"]
+
+[node name="level" type="Node3D" parent="."]
+
+[node name="GridMap" type="GridMap" parent="level"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="level"]
+mesh = SubResource("PlaneMesh_pw63i")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="level"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -8)
+size = Vector3(2, 2, 2)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="level"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, 0)
+size = Vector3(2, 2, 2)
+material = SubResource("StandardMaterial3D_pw63i")
+
+[node name="player_scene" parent="." instance=ExtResource("1_w2twt")]
+
+[node name="lighting" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="lighting"]
+environment = SubResource("Environment_pw63i")
+
+[node name="sun" type="DirectionalLight3D" parent="lighting"]
+transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 0, 0)

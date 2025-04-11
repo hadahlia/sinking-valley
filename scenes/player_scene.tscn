@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkgeyx3owgjlf"]
+
+[ext_resource type="Script" uid="uid://ccs7bwn28hhyc" path="res://scripts/player_script.gd" id="1_crmta"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_crmta"]
+
+[node name="player_scene" type="Node3D"]
+script = ExtResource("1_crmta")
+
+[node name="head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="Camera3D" type="Camera3D" parent="head"]
+current = true
+fov = 70.0
+
+[node name="turn_timer" type="Timer" parent="head"]
+wait_time = 0.8
+one_shot = true
+
+[node name="step_to" type="Node3D" parent="."]
+
+[node name="step_time" type="Timer" parent="step_to"]
+wait_time = 0.21
+one_shot = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="step_to"]
+mesh = SubResource("SphereMesh_crmta")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
