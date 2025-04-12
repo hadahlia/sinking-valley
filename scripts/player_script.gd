@@ -53,7 +53,7 @@ func _input(event: InputEvent) -> void:
 		turn_timer.start()
 	
 	#if !can_step: return
-	
+	if turning: return
 	if event.is_action_pressed("forward"):
 		direction_state = FRONT
 		#if !check_collision(cast_forward):
@@ -76,7 +76,7 @@ func _input(event: InputEvent) -> void:
 
 func _physics_process(delta: float) -> void:
 	delta_time = delta
-	label.text = str(step_time.time_left)
+	label.text = "step timer" + str(step_time.time_left) + "\n turn timer: " + str(turn_timer.time_left)
 	
 	
 	head.global_position.x = lerpf(head.global_position.x, step_to.global_position.x, MOVESPEED * delta_time)
