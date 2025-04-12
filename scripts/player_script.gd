@@ -20,7 +20,7 @@ class_name Player
 
 
 #i havent decided 
-const MOVESPEED : float = 10.0 
+const MOVESPEED : float = 8.0 
 const TURNSPEED : float = 6.0
 const STEP_AMT : float = 2.0
 

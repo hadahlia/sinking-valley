@@ -16,7 +16,7 @@ script = ExtResource("1_crmta")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="Camera3D" type="Camera3D" parent="head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.8)
 current = true
 fov = 70.0
 
@@ -50,6 +50,7 @@ wait_time = 0.21
 one_shot = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="step_to"]
+visible = false
 mesh = SubResource("SphereMesh_crmta")
 
 [node name="Label" type="Label" parent="."]
@@ -72,7 +73,7 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -72.0
+offset_top = -88.0
 grow_horizontal = 2
 grow_vertical = 0
 color = Color(0.69, 0.61088, 0.3933, 1)
@@ -84,10 +85,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -447.0
-offset_top = -104.0
-offset_right = -247.0
-offset_bottom = -16.0
+offset_left = -448.0
+offset_top = -128.0
+offset_right = -248.0
+offset_bottom = -40.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_constants/separation = 30
@@ -116,11 +117,15 @@ theme = SubResource("Theme_crmta")
 theme_override_styles/panel = SubResource("StyleBoxFlat_vefth")
 
 [node name="Label" type="Label" parent="hud/p_screen/status_bar/equipment_bar/slot/CenterContainer/Panel"]
-layout_mode = 0
-offset_left = -11.5
-offset_top = 28.0
-offset_right = 28.5
-offset_bottom = 51.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -18.5
+offset_top = 44.0
+offset_right = 21.5
+offset_bottom = 72.0
+grow_horizontal = 2
 theme_override_font_sizes/font_size = 20
 text = "1"
 
@@ -148,11 +153,15 @@ theme = SubResource("Theme_crmta")
 theme_override_styles/panel = SubResource("StyleBoxFlat_vefth")
 
 [node name="Label2" type="Label" parent="hud/p_screen/status_bar/equipment_bar/slot2/CenterContainer/Panel"]
-layout_mode = 0
-offset_left = -14.5
-offset_top = 28.0
-offset_right = 25.5
-offset_bottom = 51.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -21.5
+offset_top = 44.0
+offset_right = 18.5
+offset_bottom = 72.0
+grow_horizontal = 2
 theme_override_font_sizes/font_size = 20
 text = "2"
 

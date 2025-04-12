@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cq20owbi703fr"]
+
+[ext_resource type="PackedScene" uid="uid://1ri1bdw7tbqd" path="res://assets/meshes/tileset_0.glb" id="1_revm0"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_revm0"]
+data = PackedVector3Array(1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1)
+
+[node name="tileset_0" instance=ExtResource("1_revm0")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="wall_" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall_/StaticBody3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_revm0")
