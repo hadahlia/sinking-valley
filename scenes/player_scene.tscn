@@ -11,6 +11,7 @@ script = ExtResource("1_crmta")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="Camera3D" type="Camera3D" parent="head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 current = true
 fov = 70.0
 
@@ -18,7 +19,26 @@ fov = 70.0
 wait_time = 0.8
 one_shot = true
 
+[node name="cast_forward" type="RayCast3D" parent="head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+target_position = Vector3(0, 0, -2)
+hit_from_inside = true
+
+[node name="cast_behind" type="RayCast3D" parent="head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+target_position = Vector3(0, 0, 2)
+
+[node name="cast_right" type="RayCast3D" parent="head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+target_position = Vector3(2, 0, 0)
+
+[node name="cast_left" type="RayCast3D" parent="head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+target_position = Vector3(-2, 0, 0)
+hit_from_inside = true
+
 [node name="step_to" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="step_time" type="Timer" parent="step_to"]
 wait_time = 0.21

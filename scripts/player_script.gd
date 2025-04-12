@@ -6,6 +6,13 @@ class_name Player
 @onready var head: Node3D = $head
 @onready var camera_3d: Camera3D = $head/Camera3D
 
+# COL RAYS <3
+@onready var cast_forward: RayCast3D = $head/cast_forward
+@onready var cast_behind: RayCast3D = $head/cast_behind
+@onready var cast_right: RayCast3D = $head/cast_right
+@onready var cast_left: RayCast3D = $head/cast_left
+
+
 @onready var step_to: Node3D = $step_to
 @onready var step_time: Timer = $step_to/step_time
 
@@ -18,6 +25,9 @@ const TURNSPEED : float = 6.0
 const STEP_AMT : float = 2.0
 
 var delta_time: float = 0.0
+
+enum { FRONT, LEFT, BACK, RIGHT }
+var direction_state = 0
 
 #var lookdir :Vector3 = Vector3.ZERO
 var wishdir : Vector3 = Vector3.ZERO
@@ -45,15 +55,19 @@ func _input(event: InputEvent) -> void:
 	#if !can_step: return
 	
 	if event.is_action_pressed("forward"):
+		direction_state = FRONT
+		#if !check_collision(cast_forward):
 		wishdir = Vector3.FORWARD.rotated(Vector3.UP, head.rotation.y)
-		
 	if event.is_action_pressed("backward"):
+		direction_state = BACK
+		#if !check_collision(cast_behind):
 		wishdir = Vector3.BACK.rotated(Vector3.UP, head.rotation.y)
-		
 	if event.is_action_pressed("left"):
+		direction_state = LEFT
+		#if !check_collision(cast_left):
 		wishdir = Vector3.LEFT.rotated(Vector3.UP, head.rotation.y)
-		
 	if event.is_action_pressed("right"):
+		direction_state = RIGHT
 		wishdir = Vector3.RIGHT.rotated(Vector3.UP, head.rotation.y)
 	
 	if event.is_action_released("movement"):
@@ -74,6 +88,9 @@ func _physics_process(delta: float) -> void:
 	handle_turn()
 	step_forth()
 
+func check_collision(ray: RayCast3D) -> bool:
+	return ray.is_colliding()
+	# access the 4 raycasts check if they collide with anything return a bool, uh test the bool before stepping. if false, bump animation? for the future xd
 
 func handle_turn():
 	if !turning or !can_step: return
@@ -91,6 +108,18 @@ func handle_turn():
 
 func step_forth():
 	if !can_step or turning: return
+	
+	var ray: RayCast3D
+	match direction_state:
+		FRONT:
+			ray = cast_forward
+		BACK:
+			ray = cast_behind
+		LEFT:
+			ray = cast_left
+		RIGHT:
+			ray = cast_right
+	if check_collision(ray): return
 	
 	step_to.global_position.x += wishdir.x * STEP_AMT
 	step_to.global_position.z += wishdir.z * STEP_AMT
