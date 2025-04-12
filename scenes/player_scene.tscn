@@ -1,8 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://bkgeyx3owgjlf"]
+[gd_scene load_steps=5 format=3 uid="uid://bkgeyx3owgjlf"]
 
 [ext_resource type="Script" uid="uid://ccs7bwn28hhyc" path="res://scripts/player_script.gd" id="1_crmta"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_crmta"]
+
+[sub_resource type="Theme" id="Theme_crmta"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vefth"]
+bg_color = Color(0.09, 0.09, 0.09, 1)
 
 [node name="player_scene" type="Node3D"]
 script = ExtResource("1_crmta")
@@ -50,3 +55,116 @@ mesh = SubResource("SphereMesh_crmta")
 [node name="Label" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="hud" type="CanvasLayer" parent="."]
+
+[node name="p_screen" type="Control" parent="hud"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="status_bar" type="ColorRect" parent="hud/p_screen"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -72.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.69, 0.61088, 0.3933, 1)
+
+[node name="equipment_bar" type="HBoxContainer" parent="hud/p_screen/status_bar"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -447.0
+offset_top = -104.0
+offset_right = -247.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/separation = 30
+
+[node name="slot" type="Button" parent="hud/p_screen/status_bar/equipment_bar"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="hud/p_screen/status_bar/equipment_bar/slot"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="hud/p_screen/status_bar/equipment_bar/slot/CenterContainer"]
+layout_mode = 2
+theme = SubResource("Theme_crmta")
+theme_override_styles/panel = SubResource("StyleBoxFlat_vefth")
+
+[node name="Label" type="Label" parent="hud/p_screen/status_bar/equipment_bar/slot/CenterContainer/Panel"]
+layout_mode = 0
+offset_left = -11.5
+offset_top = 28.0
+offset_right = 28.5
+offset_bottom = 51.0
+theme_override_font_sizes/font_size = 20
+text = "1"
+
+[node name="slot2" type="Button" parent="hud/p_screen/status_bar/equipment_bar"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="hud/p_screen/status_bar/equipment_bar/slot2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="hud/p_screen/status_bar/equipment_bar/slot2/CenterContainer"]
+layout_mode = 2
+theme = SubResource("Theme_crmta")
+theme_override_styles/panel = SubResource("StyleBoxFlat_vefth")
+
+[node name="Label2" type="Label" parent="hud/p_screen/status_bar/equipment_bar/slot2/CenterContainer/Panel"]
+layout_mode = 0
+offset_left = -14.5
+offset_top = 28.0
+offset_right = 25.5
+offset_bottom = 51.0
+theme_override_font_sizes/font_size = 20
+text = "2"
+
+[node name="not yet" type="Label" parent="hud/p_screen/status_bar"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 80.0
+offset_top = -48.0
+offset_right = 177.0
+offset_bottom = -20.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 20
+text = "health: lol"
