@@ -74,6 +74,9 @@ func _input(event: InputEvent) -> void:
 	
 	if event.is_action_released("movement"):
 		wishdir = Vector3.ZERO
+	
+	if Input.is_action_just_pressed("interact"):
+		interact_tile()
 
 
 func _physics_process(delta: float) -> void:
@@ -93,6 +96,13 @@ func _physics_process(delta: float) -> void:
 func check_collision(ray: RayCast3D) -> bool:
 	return ray.is_colliding()
 	# access the 4 raycasts check if they collide with anything return a bool, uh test the bool before stepping. if false, bump animation? for the future xd
+
+
+func check_forward_tile_id():
+	pass
+
+func interact_tile():
+	GlobalAudio.play_sound(GlobalAudio.SFX_INTERACT)
 
 func handle_turn():
 	if !turning or !can_step: return
