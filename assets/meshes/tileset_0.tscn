@@ -1,44 +1,14 @@
-[gd_scene load_steps=17 format=4 uid="uid://cq20owbi703fr"]
+[gd_scene load_steps=18 format=4 uid="uid://cq20owbi703fr"]
 
 [ext_resource type="PackedScene" uid="uid://1ri1bdw7tbqd" path="res://assets/meshes/tileset_0.glb" id="1_revm0"]
+[ext_resource type="ArrayMesh" uid="uid://dujv4c512ubm7" path="res://assets/meshes/tiles/wall_tile.res" id="2_wsqgk"]
+[ext_resource type="Texture2D" uid="uid://bsvwmygykpkkw" path="res://assets/textures/PedraJam2.png" id="3_p05x6"]
+[ext_resource type="Texture2D" uid="uid://di6v1pulsveuw" path="res://assets/textures/normals/PedraJam2_n.png" id="4_p05x6"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ujm8e"]
-resource_name = "temple_brick"
-cull_mode = 2
-albedo_color = Color(0.26413, 0.107545, 0.90705, 1)
-roughness = 0.5
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_revm0"]
-_surfaces = [{
-"aabb": AABB(-1, -1.66667, -1, 2, 2.66667, 2),
-"format": 34359742465,
-"index_count": 36,
-"index_data": PackedByteArray("AAABAAIAAwACAAEAAAAEAAEAAwAFAAIABQAAAAIABgAEAAAABQAGAAAABwABAAQABwADAAEABgAHAAQABQADAAcABQAHAAYA"),
-"name": "temple_brick",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 8,
-"vertex_data": PackedByteArray("AACAPwAAgD8AAIC/AACAvwAAgD8AAIA/AACAvwAAgD8AAIC/AACAv1ZV1b8AAIA/AACAPwAAgD8AAIA/AACAv1ZV1b8AAIC/AACAP1ZV1b8AAIC/AACAP1ZV1b8AAIA/")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_e2qi3"]
-resource_name = "tileset_0_Cube"
-lightmap_size_hint = Vector2i(206, 174)
-_surfaces = [{
-"aabb": AABB(-1, -1.66667, -1, 2, 2.66667, 2),
-"attribute_data": PackedByteArray("AAAgPwAAAD9cbUw/SvFCPwAAYD8AAIA+72B/P65Dfz8AAGA/AAAAP+9gfz9K8UI/AAAgPwAAgD5cbUw/rkN/PwAAwD4AAIA+ZhEfO0rxgj4AACA/AAAAAPSySD8Slvs+AAAgPwAAgD70skg/SvGCPgAAwD4AAAAAZhEfOxKW+z4AAMA+AACAP/SySD+uQ38/AAAgPwAAQD9mER87SvFCPwAAID8AAIA/ZhEfO65Dfz8AAMA+AABAP/SySD9K8UI/AAAAPgAAAD9cbUw/k+KFPgAAwD4AAIA+72B/P7Hc0zwAAMA+AAAAP1xtTD+x3NM8AAAAPgAAgD7vYH8/k+KFPgAAwD4AAAA/9LJIP2RSPDsAACA/AACAPmYRHzvaOnQ+AAAgPwAAAD9mER87ZFI8OwAAwD4AAIA+9LJIP9o6dD4AAMA+AABAP5Pzsjz3NAI/AAAgPwAAAD9/q00/W4c+PwAAID8AAEA/f6tNP/c0Aj8AAMA+AAAAP5Pzsjxbhz4/"),
-"format": 34359742519,
-"index_count": 36,
-"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
-"material": SubResource("StandardMaterial3D_ujm8e"),
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 24,
-"vertex_data": PackedByteArray("AACAPwAAgD8AAIC/AACAvwAAgD8AAIA/AACAvwAAgD8AAIC/AACAPwAAgD8AAIA/AACAP1ZV1b8AAIA/AACAvwAAgD8AAIA/AACAPwAAgD8AAIA/AACAv1ZV1b8AAIA/AACAv1ZV1b8AAIA/AACAvwAAgD8AAIC/AACAvwAAgD8AAIA/AACAv1ZV1b8AAIC/AACAv1ZV1b8AAIC/AACAP1ZV1b8AAIA/AACAP1ZV1b8AAIC/AACAv1ZV1b8AAIA/AACAP1ZV1b8AAIC/AACAPwAAgD8AAIA/AACAPwAAgD8AAIC/AACAP1ZV1b8AAIA/AACAv1ZV1b8AAIC/AACAPwAAgD8AAIC/AACAvwAAgD8AAIC/AACAP1ZV1b8AAIC/AID//wAA/78AgP//AAD/vwCA//8AAP+/AID//wAA/7//f/9/AID///9//38AgP///3//fwCA////f/9/AID//wAAAIAAgP//AAAAgACA//8AAACAAID//wAAAIAAgP//AIAAAP///78AgAAA////vwCAAAD///+/AIAAAP///7///wCAAID/////AIAAgP////8AgACA/////wCAAID///////8AgP///////wCA////////AID///////8AgP//")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_revm0")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wsqgk"]
+albedo_texture = ExtResource("3_p05x6")
+normal_enabled = true
+normal_texture = ExtResource("4_p05x6")
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_revm0"]
 data = PackedVector3Array(1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1, 1, -1.6667, 1, -1, 1, 1, 1, 1, 1, 1, -1.6667, 1, -1, -1.6667, 1, -1, 1, 1, -1, -1.6667, 1, -1, 1, -1, -1, 1, 1, -1, -1.6667, 1, -1, -1.6667, -1, -1, 1, -1, -1, -1.6667, -1, 1, -1.6667, 1, 1, -1.6667, -1, -1, -1.6667, -1, -1, -1.6667, 1, 1, -1.6667, 1, 1, -1.6667, -1, 1, 1, 1, 1, 1, -1, 1, -1.6667, -1, 1, -1.6667, 1, 1, 1, 1, -1, -1.6667, -1, 1, 1, -1, -1, 1, -1, -1, -1.6667, -1, 1, -1.6667, -1, 1, 1, -1)
@@ -162,7 +132,8 @@ size = Vector3(2, 6, 2)
 [node name="tileset_0" instance=ExtResource("1_revm0")]
 
 [node name="wall_" parent="." index="0"]
-mesh = SubResource("ArrayMesh_e2qi3")
+mesh = ExtResource("2_wsqgk")
+surface_material_override/0 = SubResource("StandardMaterial3D_wsqgk")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="wall_" index="0"]
 

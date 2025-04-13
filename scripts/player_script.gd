@@ -28,8 +28,10 @@ const STEP_AMT : float = 2.0
 
 var delta_time: float = 0.0
 
-enum { FRONT, LEFT, BACK, RIGHT }
-var direction_state = 0
+enum { FRONT , LEFT, BACK , RIGHT }
+var direction_state = 0 # 0,1,2,3 
+
+var turn_id : int = 0
 
 #var lookdir :Vector3 = Vector3.ZERO
 var wishdir : Vector3 = Vector3.ZERO
@@ -46,10 +48,12 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("turn_left"):
+		turn_id += 1 if turn_id < 3 else 0
 		dest_angle += 90.000
 		turning = true
 		turn_timer.start()
 	if Input.is_action_just_pressed("turn_right"):
+		turn_id -= 1 if turn_id > 0 else 3
 		dest_angle -= 90.000
 		turning = true
 		turn_timer.start()
@@ -98,6 +102,7 @@ func check_collision(ray: RayCast3D) -> bool:
 	# access the 4 raycasts check if they collide with anything return a bool, uh test the bool before stepping. if false, bump animation? for the future xd
 
 
+# perhaps this is unnecessary
 func check_forward_tile_id():
 	pass
 
@@ -165,3 +170,16 @@ func on_step_timeout():
 
 func on_camturn_timeout():
 	turning = false
+	match turn_id:
+		0:
+			#dest_angle = 0
+			head.rotation.y = deg_to_rad(0)
+		1:
+			#dest_angle = 90
+			head.rotation.y = deg_to_rad(90)
+		2:
+			#dest_angle = 180
+			head.rotation.y = deg_to_rad(180)
+		3:
+			#dest_angle = -90
+			head.rotation.y = deg_to_rad(-90)

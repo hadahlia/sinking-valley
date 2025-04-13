@@ -27,7 +27,9 @@ one_shot = true
 [node name="cast_forward" type="RayCast3D" parent="head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 target_position = Vector3(0, 0, -2)
+collision_mask = 17
 hit_from_inside = true
+collide_with_areas = true
 
 [node name="cast_behind" type="RayCast3D" parent="head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)

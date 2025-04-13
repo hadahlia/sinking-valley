@@ -40,7 +40,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 60.0,
 "save_to_file/enabled": true,
-"save_to_file/path": "res://assets/meshes/wall_tile.res"
+"save_to_file/path": "uid://dujv4c512ubm7"
 },
 "tileset_0_Plane": {
 "generate/lightmap_uv": 0,
