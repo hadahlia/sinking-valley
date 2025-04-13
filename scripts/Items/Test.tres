@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="blockData" load_steps=3 format=3 uid="uid://bv6s3pjng87y"]
+[gd_resource type="Resource" script_class="BlockData" load_steps=3 format=3 uid="uid://bv6s3pjng87y"]
 
 [ext_resource type="Script" uid="uid://cusff1inhall4" path="res://scripts/Grid inventory/BlockData.gd" id="1_pg13o"]
 [ext_resource type="Texture2D" uid="uid://cdkb00pr0a8ws" path="res://icon.svg" id="1_uvcxp"]
