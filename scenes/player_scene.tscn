@@ -13,10 +13,10 @@ bg_color = Color(0.09, 0.09, 0.09, 1)
 script = ExtResource("1_crmta")
 
 [node name="head" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="Camera3D" type="Camera3D" parent="head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 0, 1)
 current = true
 fov = 90.0
 
@@ -46,12 +46,13 @@ hit_from_inside = true
 
 [node name="lantern" type="OmniLight3D" parent="head"]
 light_color = Color(1.2, 1, 1.05, 1)
-light_energy = 0.45
+light_energy = 3.0
 shadow_enabled = true
 shadow_blur = 0.5
 distance_fade_enabled = true
 distance_fade_length = 20.0
-omni_range = 10.0
+omni_range = 50.0
+omni_attenuation = 2.0
 
 [node name="step_to" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
