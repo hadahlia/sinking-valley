@@ -18,6 +18,8 @@ class_name Player
 
 @onready var turn_timer: Timer = $head/turn_timer
 
+@export_node_path("GridMap") var grid_map
+
 
 #i havent decided 
 const MOVESPEED : float = 8.0 
@@ -123,7 +125,9 @@ func step_forth():
 	
 	step_to.global_position.x += wishdir.x * STEP_AMT
 	step_to.global_position.z += wishdir.z * STEP_AMT
-	
+	step_to.global_position.x = round(step_to.global_position.x)
+	step_to.global_position.z = round(step_to.global_position.z)
+
 	#if step_cooldown.is_stopped():
 	step_delay()
 	#wishdir = Vector3.ZERO

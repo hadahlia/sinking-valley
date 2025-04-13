@@ -42,6 +42,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 target_position = Vector3(-2, 0, 0)
 hit_from_inside = true
 
+[node name="lantern" type="OmniLight3D" parent="head"]
+light_color = Color(1, 1, 1.05, 1)
+light_energy = 0.88
+omni_range = 8.0
+
 [node name="step_to" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
