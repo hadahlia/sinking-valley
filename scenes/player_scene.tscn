@@ -16,9 +16,9 @@ script = ExtResource("1_crmta")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="Camera3D" type="Camera3D" parent="head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 0, 1)
 current = true
-fov = 99.0
+fov = 90.0
 
 [node name="turn_timer" type="Timer" parent="head"]
 wait_time = 0.76
@@ -82,10 +82,10 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -88.0
+offset_top = -64.0
 grow_horizontal = 2
 grow_vertical = 0
-color = Color(0.69, 0.61088, 0.3933, 1)
+color = Color(0.54, 0.4113, 0.189, 1)
 
 [node name="equipment_bar" type="HBoxContainer" parent="hud/p_screen/status_bar"]
 layout_mode = 1
@@ -94,10 +94,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -448.0
-offset_top = -128.0
-offset_right = -248.0
-offset_bottom = -40.0
+offset_left = -360.0
+offset_top = -104.0
+offset_right = -176.0
+offset_bottom = -24.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_constants/separation = 30
@@ -131,12 +131,13 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -18.5
-offset_top = 44.0
+offset_top = 36.0
 offset_right = 21.5
-offset_bottom = 72.0
+offset_bottom = 64.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 20
 text = "1"
+horizontal_alignment = 1
 
 [node name="slot2" type="Button" parent="hud/p_screen/status_bar/equipment_bar"]
 layout_mode = 2
@@ -167,12 +168,13 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -21.5
-offset_top = 44.0
+offset_top = 36.0
 offset_right = 18.5
-offset_bottom = 72.0
+offset_bottom = 64.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 20
 text = "2"
+horizontal_alignment = 1
 
 [node name="not yet" type="Label" parent="hud/p_screen/status_bar"]
 layout_mode = 1
