@@ -16,9 +16,9 @@ script = ExtResource("1_crmta")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="Camera3D" type="Camera3D" parent="head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
 current = true
-fov = 70.0
+fov = 99.0
 
 [node name="turn_timer" type="Timer" parent="head"]
 wait_time = 0.76
@@ -43,9 +43,13 @@ target_position = Vector3(-2, 0, 0)
 hit_from_inside = true
 
 [node name="lantern" type="OmniLight3D" parent="head"]
-light_color = Color(1, 1, 1.05, 1)
-light_energy = 0.88
-omni_range = 8.0
+light_color = Color(1.2, 1, 1.05, 1)
+light_energy = 0.45
+shadow_enabled = true
+shadow_blur = 0.5
+distance_fade_enabled = true
+distance_fade_length = 20.0
+omni_range = 10.0
 
 [node name="step_to" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
