@@ -48,7 +48,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 60.0,
 "save_to_file/enabled": true,
-"save_to_file/path": "res://assets/meshes/floor_tile.res"
+"save_to_file/path": "uid://k6nwvva262nl"
 },
 "tileset_0_Plane_001": {
 "generate/lightmap_uv": 0,
@@ -56,7 +56,15 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 60.0,
 "save_to_file/enabled": true,
-"save_to_file/path": "res://assets/meshes/floor_ceiling_tile.res"
+"save_to_file/path": "uid://dqtxq04en4cyy"
+},
+"tileset_0_Plane_002": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/meshes/tiles/pit_tile.res"
 }
 }
 }

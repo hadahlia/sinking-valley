@@ -24,7 +24,7 @@ class_name Player
 #i havent decided 
 const MOVESPEED : float = 8.0 
 const TURNSPEED : float = 6.0
-const STEP_AMT : float = 2.0
+const STEP_AMT : float = 4.0
 
 var delta_time: float = 0.0
 

@@ -1,7 +1,7 @@
 extends Node
 
 # SFX
-const SFX_INTERACT : AudioStream = preload("res://sound/sfx/BNA_UI24.wav")
+const SFX_INTERACT : AudioStream = preload("res://sound/sfx/interact_deny.wav")
 
 
 # MUSIC

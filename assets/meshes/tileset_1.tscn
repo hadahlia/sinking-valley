@@ -1,0 +1,64 @@
+[gd_scene load_steps=12 format=3 uid="uid://3vk7v4n6moe0"]
+
+[ext_resource type="PackedScene" uid="uid://1ri1bdw7tbqd" path="res://assets/meshes/tileset_0.glb" id="1_1urno"]
+[ext_resource type="Material" uid="uid://cb5cp4erwpan0" path="res://shaders/materials/mat_bricks1.tres" id="2_ml5ml"]
+[ext_resource type="Texture2D" uid="uid://r280cdbkcau6" path="res://assets/textures/FloorCobblestone.png" id="3_0evy4"]
+[ext_resource type="Material" uid="uid://cpae81ha6262b" path="res://shaders/materials/mat_void_unlit.tres" id="4_0evy4"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_0evy4"]
+data = PackedVector3Array(1, 0.3333, -1, -1, 0.3333, 1, -1, 0.3333, -1, 1, 0.3333, -1, 1, 0.3333, 1, -1, 0.3333, 1, 1, -1.6667, 1, -1, 0.3333, 1, 1, 0.3333, 1, 1, -1.6667, 1, -1, -1.6667, 1, -1, 0.3333, 1, -1, -1.6667, 1, -1, 0.3333, -1, -1, 0.3333, 1, -1, -1.6667, 1, -1, -1.6667, -1, -1, 0.3333, -1, -1, -1.6667, -1, 1, -1.6667, 1, 1, -1.6667, -1, -1, -1.6667, -1, -1, -1.6667, 1, 1, -1.6667, 1, 1, -1.6667, -1, 1, 0.3333, 1, 1, 0.3333, -1, 1, -1.6667, -1, 1, -1.6667, 1, 1, 0.3333, 1, -1, -1.6667, -1, 1, 0.3333, -1, -1, 0.3333, -1, -1, -1.6667, -1, 1, -1.6667, -1, 1, 0.3333, -1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iacyt"]
+albedo_texture = ExtResource("3_0evy4")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_iacyt"]
+data = PackedVector3Array(-1, 0, 1, 1, 0, -1, 1, 0, 1, -1, 0, 1, -1, 0, -1, 1, 0, -1, -1, -2, 1, 1, -2, -1, -1, -2, -1, -1, -2, 1, 1, -2, 1, 1, -2, -1, 1, 0, 1, 1, -2, -1, 1, -2, 1, 1, 0, 1, 1, 0, -1, 1, -2, -1, -1, 0, -1, -1, -2, 1, -1, -2, -1, -1, 0, -1, -1, 0, 1, -1, -2, 1, 1, 0, -1, -1, -2, -1, 1, -2, -1, 1, 0, -1, -1, 0, -1, -1, -2, -1, -1, 0, 1, 1, -2, 1, -1, -2, 1, -1, 0, 1, 1, 0, 1, 1, -2, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ml5ml"]
+albedo_texture = ExtResource("3_0evy4")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0evy4"]
+albedo_color = Color(0.55, 0.143, 0.143, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_libqf"]
+data = PackedVector3Array(-1, 0, 1, 1, 0, -1, 1, 0, 1, -1, 0, 1, -1, 0, -1, 1, 0, -1, -1, -4, 1, 1, -4, -1, -1, -4, -1, -1, -4, 1, 1, -4, 1, 1, -4, -1, 1, 0, 1, 1, -4, -1, 1, -4, 1, 1, 0, 1, 1, 0, -1, 1, -4, -1, -1, 0, -1, -1, -4, 1, -1, -4, -1, -1, 0, -1, -1, 0, 1, -1, -4, 1, 1, 0, -1, -1, -4, -1, 1, -4, -1, 1, 0, -1, -1, 0, -1, -1, -4, -1, -1, 0, 1, 1, -4, 1, -1, -4, 1, -1, 0, 1, 1, 0, 1, 1, -4, 1, -1, 4, 1, 1, 4, -1, 1, 4, 1, -1, 4, 1, -1, 4, -1, 1, 4, -1, -1, 3, 1, 1, 3, -1, -1, 3, -1, -1, 3, 1, 1, 3, 1, 1, 3, -1, -1, 4, 1, -1, 3, -1, -1, 4, -1, -1, 4, 1, -1, 3, 1, -1, 3, -1, -1, 4, -1, 1, 3, -1, 1, 4, -1, -1, 4, -1, -1, 3, -1, 1, 3, -1, 1, 4, 1, -1, 3, 1, -1, 4, 1, 1, 4, 1, 1, 3, 1, -1, 3, 1, 1, 4, -1, 1, 3, 1, 1, 4, 1, 1, 4, -1, 1, 3, -1, 1, 3, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ml5ml"]
+size = Vector3(2, 6, 2)
+
+[node name="tileset_1" instance=ExtResource("1_1urno")]
+
+[node name="wall_" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_ml5ml")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="wall_" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall_/StaticBody3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_0evy4")
+
+[node name="floor_" parent="." index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_iacyt")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="floor_" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor_/StaticBody3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_iacyt")
+
+[node name="floor_ceiling_" parent="." index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_ml5ml")
+surface_material_override/1 = SubResource("StandardMaterial3D_0evy4")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="floor_ceiling_" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor_ceiling_/StaticBody3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_libqf")
+
+[node name="pit_" parent="." index="3"]
+visible = false
+surface_material_override/0 = ExtResource("4_0evy4")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="pit_" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="pit_/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+shape = SubResource("BoxShape3D_ml5ml")
