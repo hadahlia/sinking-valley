@@ -21,8 +21,9 @@ class_name Player
 
 @onready var turn_timer: Timer = $head/turn_timer
 
-@export_node_path("GridMap") var grid_map
+#@export_node_path("GridMap") var grid_map
 
+@onready var inventory: Control = $p_screen/Inventory
 
 #i havent decided 
 const MOVESPEED : float = 6.0 
@@ -93,7 +94,8 @@ func _input(event: InputEvent) -> void:
 		stepping = false
 		#var t : Timer = 
 		#t.timeout.connect( func() -> void: stepping)
-		
+	
+	
 	
 	if Input.is_action_just_pressed("interact"):
 		interact_tile()
@@ -101,7 +103,7 @@ func _input(event: InputEvent) -> void:
 
 func _physics_process(delta: float) -> void:
 	delta_time = delta
-	label.text = "step timer" + str(step_time.time_left) + "\n turn timer: " + str(turn_timer.time_left)
+	#label.text = "step timer" + str(step_time.time_left) + "\n turn timer: " + str(turn_timer.time_left)
 	
 	
 	head.global_position.x = lerpf(head.global_position.x, step_to.global_position.x, MOVESPEED * delta_time)
