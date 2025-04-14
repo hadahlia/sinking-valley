@@ -46,13 +46,11 @@ hit_from_inside = true
 
 [node name="lantern" type="OmniLight3D" parent="head"]
 light_color = Color(1.2, 1, 1.05, 1)
-light_energy = 3.0
+light_energy = 2.1
 shadow_enabled = true
-shadow_blur = 0.5
 distance_fade_enabled = true
 distance_fade_length = 20.0
 omni_range = 50.0
-omni_attenuation = 2.0
 
 [node name="step_to" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

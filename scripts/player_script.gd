@@ -31,14 +31,14 @@ var delta_time: float = 0.0
 enum { FRONT , LEFT, BACK , RIGHT }
 var direction_state = 0 # 0,1,2,3 
 
-var turn_id : int = 0
+#var turn_id : int = 0
 
 #var lookdir :Vector3 = Vector3.ZERO
 var wishdir : Vector3 = Vector3.ZERO
 var dest_angle : float = 0.0
 
 var can_step : bool = false
-#var stepping : bool = false
+var stepping : bool = false
 var turning: bool = false
 
 func _ready() -> void:
@@ -48,13 +48,15 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("turn_left"):
-		turn_id += 1 if turn_id < 3 else 0
+		#turn_id += 1 if turn_id < 3 else 0
 		dest_angle += 90.000
+		stepping = false
 		turning = true
 		turn_timer.start()
 	if Input.is_action_just_pressed("turn_right"):
-		turn_id -= 1 if turn_id > 0 else 3
+		#turn_id -= 1 if turn_id > 0 else 3
 		dest_angle -= 90.000
+		stepping = false
 		turning = true
 		turn_timer.start()
 	
@@ -64,20 +66,24 @@ func _input(event: InputEvent) -> void:
 		direction_state = FRONT
 		#if !check_collision(cast_forward):
 		wishdir = Vector3.FORWARD.rotated(Vector3.UP, head.rotation.y)
+		stepping = true
 	if event.is_action_pressed("backward"):
 		direction_state = BACK
 		#if !check_collision(cast_behind):
 		wishdir = Vector3.BACK.rotated(Vector3.UP, head.rotation.y)
+		stepping = true
 	if event.is_action_pressed("left"):
 		direction_state = LEFT
 		#if !check_collision(cast_left):
 		wishdir = Vector3.LEFT.rotated(Vector3.UP, head.rotation.y)
+		stepping = true
 	if event.is_action_pressed("right"):
 		direction_state = RIGHT
 		wishdir = Vector3.RIGHT.rotated(Vector3.UP, head.rotation.y)
-	
+		stepping = true
 	if event.is_action_released("movement"):
 		wishdir = Vector3.ZERO
+		stepping = false
 	
 	if Input.is_action_just_pressed("interact"):
 		interact_tile()
@@ -124,7 +130,7 @@ func handle_turn():
 	#elapsed += delta_time
 
 func step_forth():
-	if !can_step or turning: return
+	if !can_step or turning or !stepping: return
 	
 	var ray: RayCast3D
 	match direction_state:
@@ -136,13 +142,14 @@ func step_forth():
 			ray = cast_left
 		RIGHT:
 			ray = cast_right
-	if check_collision(ray): return
+	if ray.is_colliding(): return
+	#if check_collision(ray): return
 	
 	step_to.global_position.x += wishdir.x * STEP_AMT
 	step_to.global_position.z += wishdir.z * STEP_AMT
 	step_to.global_position.x = round(step_to.global_position.x)
 	step_to.global_position.z = round(step_to.global_position.z)
-
+	
 	#if step_cooldown.is_stopped():
 	step_delay()
 	#wishdir = Vector3.ZERO
@@ -169,17 +176,18 @@ func on_step_timeout():
 	#is_stepping = false
 
 func on_camturn_timeout():
+	
+	#match turn_id:
+		#0:
+			##dest_angle = 0
+			#head.rotation.y = deg_to_rad(0)
+		#1:
+			##dest_angle = 90
+			#head.rotation.y = deg_to_rad(90)
+		#2:
+			##dest_angle = -180
+			#head.rotation.y = deg_to_rad(180)
+		#3:
+			##dest_angle = -90
+			#head.rotation.y = deg_to_rad(-90)
 	turning = false
-	match turn_id:
-		0:
-			#dest_angle = 0
-			head.rotation.y = deg_to_rad(0)
-		1:
-			#dest_angle = 90
-			head.rotation.y = deg_to_rad(90)
-		2:
-			#dest_angle = 180
-			head.rotation.y = deg_to_rad(180)
-		3:
-			#dest_angle = -90
-			head.rotation.y = deg_to_rad(-90)
