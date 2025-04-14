@@ -12,6 +12,9 @@ class_name Player
 @onready var cast_right: RayCast3D = $head/cast_right
 @onready var cast_left: RayCast3D = $head/cast_left
 
+# i dont feel like manually putting invisible collision around the island, so ill make sure theres a floor
+@onready var cast_ground: RayCast3D = $step_to/cast_ground
+
 
 @onready var step_to: Node3D = $step_to
 @onready var step_time: Timer = $step_to/step_time
@@ -22,8 +25,8 @@ class_name Player
 
 
 #i havent decided 
-const MOVESPEED : float = 8.0 
-const TURNSPEED : float = 6.0
+const MOVESPEED : float = 6.0 
+const TURNSPEED : float = 8.0
 const STEP_AMT : float = 4.0
 
 var delta_time: float = 0.0
@@ -40,6 +43,10 @@ var dest_angle : float = 0.0
 var can_step : bool = false
 var stepping : bool = false
 var turning: bool = false
+
+var ray: RayCast3D
+var prev_pos : Vector3 
+var grounded : bool = true
 
 func _ready() -> void:
 	step_time.connect("timeout", on_step_timeout)
@@ -84,6 +91,9 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_released("movement"):
 		wishdir = Vector3.ZERO
 		stepping = false
+		#var t : Timer = 
+		#t.timeout.connect( func() -> void: stepping)
+		
 	
 	if Input.is_action_just_pressed("interact"):
 		interact_tile()
@@ -105,7 +115,6 @@ func _physics_process(delta: float) -> void:
 
 func check_collision(ray: RayCast3D) -> bool:
 	return ray.is_colliding()
-	# access the 4 raycasts check if they collide with anything return a bool, uh test the bool before stepping. if false, bump animation? for the future xd
 
 
 # perhaps this is unnecessary
@@ -130,50 +139,70 @@ func handle_turn():
 	#elapsed += delta_time
 
 func step_forth():
-	if !can_step or turning or !stepping: return
 	
-	var ray: RayCast3D
+	if !cast_ground.is_colliding() and prev_pos != Vector3.ZERO:
+		step_to.global_position = prev_pos
+	if !can_step or turning or !stepping: return
+	#if !grounded and prev_pos != Vector3.ZERO:
+	
+	#var ray: RayCast3D
 	match direction_state:
 		FRONT:
 			ray = cast_forward
+			#check_collision(ray)
 		BACK:
 			ray = cast_behind
+			#check_collision(ray)
 		LEFT:
 			ray = cast_left
+			#check_collision(ray)
 		RIGHT:
 			ray = cast_right
+			#check_collision(ray)
+	#if grounded:
+	prev_pos = step_to.global_position
+	
 	if ray.is_colliding(): return
 	#if check_collision(ray): return
 	
+	
+		
+		#grounded = true
+	#else:
+		#grounded = false
+	prev_pos = step_to.global_position
 	step_to.global_position.x += wishdir.x * STEP_AMT
 	step_to.global_position.z += wishdir.z * STEP_AMT
 	step_to.global_position.x = round(step_to.global_position.x)
 	step_to.global_position.z = round(step_to.global_position.z)
 	
-	#if step_cooldown.is_stopped():
+	
+	
+	# make sure theres a floor tile
+	
+		#print(prev_pos, step_to.global_position)
+		
+		#step_to.global_position.x -= wishdir.x * STEP_AMT
+		#step_to.global_position.z -= wishdir.z * STEP_AMT
+		#step_to.global_position.x = round(step_to.global_position.x)
+		#step_to.global_position.z = round(step_to.global_position.z)
+	
+	#if cast_ground.is_colliding():
+		
 	step_delay()
-	#wishdir = Vector3.ZERO
+	#else:
+		#step_to.global_position = prev_pos
 
-# ya stupidest most overcomplated dungeon crawler ever look at my gorey code. trying to deal with issues like getting off-grid if i press multiple consecutive directions
-#func unlock_step_timer():
-	#if !can_step: return
-	#step_cooldown.stop()
+
 func step_delay():
 	if !step_time.is_stopped(): return
-	#can_step = false
 	can_step = false
-	#stepping = true
-	#if can_step: return
-	#if !can_step: return
-	#if !can_step and step_time.is_stopped():
+	
+	
 	step_time.start()
 
 func on_step_timeout():
 	can_step = true
-	#step_cooldown.start()
-	#step_forth()
-	#turning = false
-	#is_stepping = false
 
 func on_camturn_timeout():
 	
