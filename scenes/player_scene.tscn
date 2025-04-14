@@ -10,7 +10,7 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vefth"]
 bg_color = Color(0.09, 0.09, 0.09, 1)
 
-[node name="player_scene" type="Node3D"]
+[node name="player_scene" type="Node3D" groups=["Player"]]
 script = ExtResource("1_crmta")
 
 [node name="head" type="Node3D" parent="."]

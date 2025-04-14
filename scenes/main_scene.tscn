@@ -1,21 +1,12 @@
-[gd_scene load_steps=16 format=4 uid="uid://d8f880h8ddw5"]
+[gd_scene load_steps=14 format=4 uid="uid://d8f880h8ddw5"]
 
+[ext_resource type="Script" uid="uid://b1tdhq6vm4oqh" path="res://scripts/level_controller.gd" id="1_c16ls"]
 [ext_resource type="MeshLibrary" uid="uid://qtj22ami5aun" path="res://assets/meshlibs/meshlibrary_dungeon_set.tres" id="1_pu3yx"]
 [ext_resource type="PackedScene" uid="uid://bkgeyx3owgjlf" path="res://scenes/player_scene.tscn" id="1_w2twt"]
 [ext_resource type="VoxelGIData" uid="uid://le7ogyfu6lyn" path="res://shaders/lightmaps/main_scene.VoxelGI_data.res" id="3_7ykc4"]
 [ext_resource type="Shader" uid="uid://bbswhlhaqig87" path="res://shaders/seawater.gdshader" id="3_gubc5"]
 [ext_resource type="Sky" uid="uid://dlmsbf00mp1d1" path="res://shaders/sky_pan.tres" id="4_pu3yx"]
 [ext_resource type="Texture2D" uid="uid://ob2x7p6gbkib" path="res://assets/textures/water_placeholder.png" id="4_rt2n2"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w2twt"]
-albedo_color = Color(0.615686, 0.254902, 0.596078, 1)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_pw63i"]
-material = SubResource("StandardMaterial3D_w2twt")
-size = Vector2(25, 25)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pw63i"]
-albedo_color = Color(0.160784, 0.4, 1, 1)
 
 [sub_resource type="VoxelGIData" id="VoxelGIData_7ykc4"]
 _data = {
@@ -91,23 +82,7 @@ volumetric_fog_sky_affect = 0.711
 [node name="main_scene" type="Node3D"]
 
 [node name="level_controller" type="Node3D" parent="."]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="level_controller"]
-visible = false
-mesh = SubResource("PlaneMesh_pw63i")
-
-[node name="CSGBox3D" type="CSGBox3D" parent="level_controller"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -8)
-visible = false
-use_collision = true
-size = Vector3(2, 2, 2)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="level_controller"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, 0)
-visible = false
-use_collision = true
-size = Vector3(2, 2, 2)
-material = SubResource("StandardMaterial3D_pw63i")
+script = ExtResource("1_c16ls")
 
 [node name="temple_level" type="Node3D" parent="level_controller"]
 
@@ -155,7 +130,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 138, 0, 0)
 mesh = SubResource("PlaneMesh_pu3yx")
 
-[node name="player_scene" parent="." instance=ExtResource("1_w2twt")]
+[node name="player_scene" parent="level_controller" instance=ExtResource("1_w2twt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 400, 2, 0)
 
 [node name="lighting_global" type="Node3D" parent="."]
