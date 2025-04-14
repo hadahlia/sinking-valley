@@ -38,6 +38,11 @@ folder_colors={
 
 import/blender/enabled=false
 
+[global_group]
+
+PlayerSpawnIsland=""
+PlayerSpawnTemple=""
+
 [importer_defaults]
 
 texture={
