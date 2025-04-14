@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://lxtnnc7nixed"]
+[gd_scene load_steps=6 format=3 uid="uid://lxtnnc7nixed"]
 
 [ext_resource type="PackedScene" uid="uid://rlhx2wi3lgqa" path="res://scripts/Grid inventory/Slot.tscn" id="1_08tj3"]
 [ext_resource type="Script" uid="uid://cc0u8dhvxbcbc" path="res://scripts/Grid inventory/inventory.gd" id="1_m1805"]
 [ext_resource type="Resource" uid="uid://bv6s3pjng87y" path="res://scripts/Items/Test.tres" id="2_ad4b0"]
 [ext_resource type="Script" uid="uid://bwrvbgh2jad5r" path="res://scripts/Grid inventory/overworld_slot.gd" id="3_ky2dr"]
+[ext_resource type="StyleBox" uid="uid://veqxu01u8xpu" path="res://shaders/materials/style_box_temp.tres" id="4_3ipvn"]
 
 [node name="Inventory" type="Control"]
 layout_mode = 3
@@ -43,41 +44,53 @@ columns = 3
 
 [node name="Slot" parent="CanvasLayer/GridContainer" instance=ExtResource("1_08tj3")]
 layout_mode = 2
+theme_override_styles/panel = ExtResource("4_3ipvn")
 item = ExtResource("2_ad4b0")
 amount = 1
 
 [node name="Slot2" parent="CanvasLayer/GridContainer" instance=ExtResource("1_08tj3")]
 layout_mode = 2
+theme_override_styles/panel = ExtResource("4_3ipvn")
 
 [node name="Slot3" parent="CanvasLayer/GridContainer" instance=ExtResource("1_08tj3")]
 layout_mode = 2
+theme_override_styles/panel = ExtResource("4_3ipvn")
 
 [node name="Slot4" parent="CanvasLayer/GridContainer" instance=ExtResource("1_08tj3")]
 layout_mode = 2
+theme_override_styles/panel = ExtResource("4_3ipvn")
 
 [node name="Slot5" parent="CanvasLayer/GridContainer" instance=ExtResource("1_08tj3")]
 layout_mode = 2
+theme_override_styles/panel = ExtResource("4_3ipvn")
 
 [node name="Slot6" parent="CanvasLayer/GridContainer" instance=ExtResource("1_08tj3")]
 layout_mode = 2
+theme_override_styles/panel = ExtResource("4_3ipvn")
 
 [node name="Slot7" parent="CanvasLayer/GridContainer" instance=ExtResource("1_08tj3")]
 layout_mode = 2
+theme_override_styles/panel = ExtResource("4_3ipvn")
 
 [node name="Slot8" parent="CanvasLayer/GridContainer" instance=ExtResource("1_08tj3")]
 layout_mode = 2
+theme_override_styles/panel = ExtResource("4_3ipvn")
 
 [node name="Slot9" parent="CanvasLayer/GridContainer" instance=ExtResource("1_08tj3")]
 layout_mode = 2
+theme_override_styles/panel = ExtResource("4_3ipvn")
 
 [node name="Slot10" parent="CanvasLayer/GridContainer" instance=ExtResource("1_08tj3")]
 layout_mode = 2
+theme_override_styles/panel = ExtResource("4_3ipvn")
 
 [node name="Slot11" parent="CanvasLayer/GridContainer" instance=ExtResource("1_08tj3")]
 layout_mode = 2
+theme_override_styles/panel = ExtResource("4_3ipvn")
 
 [node name="Slot12" parent="CanvasLayer/GridContainer" instance=ExtResource("1_08tj3")]
 layout_mode = 2
+theme_override_styles/panel = ExtResource("4_3ipvn")
 
 [node name="Hotbar" type="HBoxContainer" parent="CanvasLayer"]
 custom_minimum_size = Vector2(60, 60)
@@ -95,6 +108,8 @@ grow_vertical = 0
 
 [node name="Slot" parent="CanvasLayer/Hotbar" instance=ExtResource("1_08tj3")]
 layout_mode = 2
+theme_override_styles/panel = ExtResource("4_3ipvn")
 
 [node name="Slot2" parent="CanvasLayer/Hotbar" instance=ExtResource("1_08tj3")]
 layout_mode = 2
+theme_override_styles/panel = ExtResource("4_3ipvn")
