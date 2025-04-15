@@ -5,6 +5,8 @@ const SFX_INTERACT : AudioStream = preload("res://sound/sfx/interact_deny.wav")
 const INVENTORY_OPEN : AudioStream = preload("res://sound/sfx/inv_open_ui28.wav")
 const INVENTORY_CLOSE : AudioStream = preload("res://sound/sfx/inv_close_UI4.wav")
 
+const SEA_LOOP : AudioStream = preload("res://sound/sfx/Ambiance_Sea_Loop_Stereo.wav")
+
 # MUSIC
 const DUNGEON_THEME : AudioStream = preload("res://sound/music/dungeon.ogg")
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://d8f880h8ddw5"]
+[gd_scene load_steps=16 format=4 uid="uid://d8f880h8ddw5"]
 
 [ext_resource type="Script" uid="uid://b1tdhq6vm4oqh" path="res://scripts/level_controller.gd" id="1_c16ls"]
 [ext_resource type="MeshLibrary" uid="uid://qtj22ami5aun" path="res://assets/meshlibs/meshlibrary_dungeon_set.tres" id="1_pu3yx"]
@@ -8,6 +8,7 @@
 [ext_resource type="Sky" uid="uid://dlmsbf00mp1d1" path="res://shaders/sky_pan.tres" id="4_pu3yx"]
 [ext_resource type="Texture2D" uid="uid://ob2x7p6gbkib" path="res://assets/textures/water_placeholder.png" id="4_rt2n2"]
 [ext_resource type="PackedScene" uid="uid://bo8ihb4eyp5nv" path="res://scripts/Entities/monster_scene.tscn" id="6_18nlu"]
+[ext_resource type="AudioStream" uid="uid://bqd628y38mref" path="res://sound/sfx/Ambiance_Sea_Loop_Stereo.wav" id="7_c1pb6"]
 
 [sub_resource type="VoxelGIData" id="VoxelGIData_7ykc4"]
 _data = {
@@ -66,12 +67,10 @@ ssil_enabled = true
 sdfgi_enabled = true
 sdfgi_use_occlusion = true
 glow_enabled = true
-fog_enabled = true
 fog_light_color = Color(0.1323, 0.27, 0.208035, 1)
 fog_light_energy = 1.1
 fog_density = 0.005
 fog_sky_affect = 0.202
-volumetric_fog_enabled = true
 volumetric_fog_density = 0.01
 volumetric_fog_emission = Color(0.67, 0.67, 0.67, 1)
 volumetric_fog_emission_energy = 2.5
@@ -135,10 +134,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 138, 0, 0)
 mesh = SubResource("PlaneMesh_pu3yx")
 
-[node name="monster_holder" type="Node3D" parent="level_controller/island_level"]
+[node name="monster_node" type="Node3D" parent="level_controller/island_level"]
 
-[node name="monster_scene" parent="level_controller/island_level/monster_holder" instance=ExtResource("6_18nlu")]
+[node name="monster_scene" parent="level_controller/island_level/monster_node" instance=ExtResource("6_18nlu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -16)
+
+[node name="island_audio" type="Node3D" parent="level_controller/island_level"]
+
+[node name="sea_loop" type="AudioStreamPlayer3D" parent="level_controller/island_level/island_audio"]
+stream = ExtResource("7_c1pb6")
+unit_size = 100.0
 
 [node name="player_scene" parent="level_controller" instance=ExtResource("1_w2twt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 400, 2, 0)

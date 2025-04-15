@@ -22,6 +22,7 @@ func _ready() -> void:
 func check_location() -> void:
 	match location:
 		0:
+			GlobalAudio.play_music(GlobalAudio.SEA_LOOP)
 			spawn_entity(player_scene,island_spawnpoint)
 		1:
 			delay_music.timeout.connect(func() -> void: GlobalAudio.play_music(GlobalAudio.DUNGEON_THEME))
