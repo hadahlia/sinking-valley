@@ -20,6 +20,7 @@ class_name Player
 @onready var step_time: Timer = $step_to/step_time
 
 @onready var turn_timer: Timer = $head/turn_timer
+@onready var sound_timer: Timer = $head/sound_timer
 
 #@export_node_path("GridMap") var grid_map
 
@@ -144,7 +145,7 @@ func attack_tile():
 		#print("whatttt")
 
 func interact_tile():
-	GlobalAudio.play_sound(GlobalAudio.SFX_INTERACT)
+	GlobalAudio.play_sound(GlobalAudio.SFX_INTERACT_DENY)
 
 func handle_turn():
 	if !turning or !can_step: return
@@ -184,7 +185,14 @@ func step_forth():
 	#if grounded:
 	prev_pos = step_to.global_position
 	
-	if ray.is_colliding(): return
+	if ray.is_colliding(): 
+		if sound_timer.is_stopped():
+			GlobalAudio.play_sound(GlobalAudio.SFX_INTERACT_DENY)
+			sound_timer.start()
+		#step_delay()
+		return
+	#if ray.is_colliding() and prev_pos != Vector3.ZERO:
+		#step_to.global_position = prev_pos
 	#if check_collision(ray): return
 	
 	
@@ -192,7 +200,7 @@ func step_forth():
 		#grounded = true
 	#else:
 		#grounded = false
-	prev_pos = step_to.global_position
+	#prev_pos = step_to.global_position
 	step_to.global_position.x += wishdir.x * STEP_AMT
 	step_to.global_position.z += wishdir.z * STEP_AMT
 	step_to.global_position.x = round(step_to.global_position.x)
