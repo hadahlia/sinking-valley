@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bo8ihb4eyp5nv"]
+
+[ext_resource type="Script" uid="uid://djo38wvw1qfmk" path="res://scripts/Entities/monster_behavior.gd" id="1_u57oe"]
+[ext_resource type="Resource" uid="uid://c1ehk1d5a1u0m" path="res://assets/resources/monster/alectryon_stats.tres" id="2_qj347"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qj347"]
+size = Vector3(4, 4, 4)
+
+[node name="monster_scene" type="CharacterBody3D" groups=["EnemyMonster"]]
+collision_layer = 33
+script = ExtResource("1_u57oe")
+stats_resource = ExtResource("2_qj347")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_qj347")
+
+[node name="body" type="Node3D" parent="."]
+
+[node name="Sprite3D" type="Sprite3D" parent="body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+pixel_size = 0.015
+billboard = 1
+alpha_cut = 1
+
+[node name="step_to" type="Node3D" parent="."]
+visible = false

@@ -7,6 +7,7 @@ class_name Entity
 @export var level : int
 @export var maxHP : int
 @export var currentHP : int
+
 @export var isDead : bool = false
 
 func TakeDamage(amount : int):

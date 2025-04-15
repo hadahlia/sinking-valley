@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Monster" load_steps=3 format=3 uid="uid://c1ehk1d5a1u0m"]
+
+[ext_resource type="Texture2D" uid="uid://c7an2i7igmcqn" path="res://assets/textures/entities/placeholder_chicken.png" id="1_11vn7"]
+[ext_resource type="Script" uid="uid://okpjvxfuet1p" path="res://scripts/Entities/Monster.gd" id="1_mxo1l"]
+
+[resource]
+script = ExtResource("1_mxo1l")
+expGiven = 0
+goldGiven = 0
+icon = ExtResource("1_11vn7")
+unitName = ""
+level = 1
+maxHP = 20
+currentHP = 20
+isDead = false
+metadata/_custom_type_script = "uid://okpjvxfuet1p"

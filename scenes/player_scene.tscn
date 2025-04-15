@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bkgeyx3owgjlf"]
+[gd_scene load_steps=7 format=3 uid="uid://bkgeyx3owgjlf"]
 
 [ext_resource type="Script" uid="uid://ccs7bwn28hhyc" path="res://scripts/player_script.gd" id="1_crmta"]
+[ext_resource type="Resource" uid="uid://crkfk2ax3xtye" path="res://assets/resources/player/player_resource.tres" id="2_rbmgg"]
 [ext_resource type="PackedScene" uid="uid://lxtnnc7nixed" path="res://scripts/Grid inventory/inventory.tscn" id="2_vefth"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_crmta"]
@@ -12,12 +13,13 @@ bg_color = Color(0.09, 0.09, 0.09, 1)
 
 [node name="player_scene" type="Node3D" groups=["Player"]]
 script = ExtResource("1_crmta")
+stats = ExtResource("2_rbmgg")
 
 [node name="head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="Camera3D" type="Camera3D" parent="head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+transform = Transform3D(1, 0, 0, 0, 0.996195, 0.0871557, 0, -0.0871557, 0.996195, 0, 0, 2)
 current = true
 fov = 90.0
 
@@ -88,7 +90,7 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -64.0
+offset_top = -112.0
 grow_horizontal = 2
 grow_vertical = 0
 color = Color(0.54, 0.4113, 0.189, 1)
@@ -161,12 +163,25 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 80.0
-offset_top = -48.0
+offset_top = -96.0
 offset_right = 177.0
-offset_bottom = -20.0
+offset_bottom = -68.0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 20
 text = "health: lol"
+
+[node name="lv" type="Label" parent="p_screen/hud/footer"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 80.0
+offset_top = -56.0
+offset_right = 177.0
+offset_bottom = -28.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 20
+text = "lv1"
 
 [node name="slot_num1" type="Label" parent="p_screen/hud/footer"]
 layout_mode = 1
@@ -175,9 +190,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 240.0
+offset_left = 280.0
 offset_top = -32.0
-offset_right = 280.0
+offset_right = 320.0
 offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -192,9 +207,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 304.0
+offset_left = 360.0
 offset_top = -32.0
-offset_right = 344.0
+offset_right = 400.0
 offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 0

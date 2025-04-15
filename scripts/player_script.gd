@@ -25,6 +25,8 @@ class_name Player
 
 @onready var inventory: Control = $p_screen/Inventory
 
+@export var stats : GameOver
+
 #i havent decided 
 const MOVESPEED : float = 6.0 
 const TURNSPEED : float = 8.0
@@ -44,6 +46,7 @@ var dest_angle : float = 0.0
 var can_step : bool = false
 var stepping : bool = false
 var turning: bool = false
+var can_attack:bool = true
 
 var ray: RayCast3D
 var prev_pos : Vector3 
@@ -96,9 +99,14 @@ func _input(event: InputEvent) -> void:
 		#t.timeout.connect( func() -> void: stepping)
 	
 	
-	
 	if Input.is_action_just_pressed("interact"):
 		interact_tile()
+	
+	if Input.is_action_just_pressed("attack"):
+		attack_tile()
+	
+	if Input.is_action_just_pressed("magic chalice"):
+		print("welp. this doesnt do anything yet")
 
 
 func _physics_process(delta: float) -> void:
@@ -120,8 +128,20 @@ func check_collision(ray: RayCast3D) -> bool:
 
 
 # perhaps this is unnecessary
-func check_forward_tile_id():
-	pass
+#func check_forward_tile_id():
+	#pass
+
+func attack_tile():
+	
+	print("attack!!")
+	if !cast_forward.is_colliding(): return
+	var col = cast_forward.get_collider()
+	if col.is_in_group("EnemyMonster"):
+		#print(col.currentHP)
+		col.stats_resource.TakeDamage(2)
+		print(col.stats_resource.currentHP)
+		col.assess_life()
+		#print("whatttt")
 
 func interact_tile():
 	GlobalAudio.play_sound(GlobalAudio.SFX_INTERACT)
