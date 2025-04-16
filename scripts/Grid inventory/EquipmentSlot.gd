@@ -1,51 +1,26 @@
 extends Panel
 
-@export var item : Item = null:
+@export var item : Equipment = null:
 	set(value):
 		item = value
-		
 		if(value) == null:
-			%Icon.texture = null
-			%Amount.text = ""
+			%"Equipment icon".texture = null
 			return
-		%Icon.texture = value.picture
-		
-@export var amount : int = 0:
-	set(value):
-		amount = value
-		%Amount.text = str(value)
-		if(amount <= 0):
-			item = null
+		%"Equipment icon".texture = value.picture
 
-func SetAmount(value : int):
-	amount = value
+var amount : int = 1
 
-func AddAmount(value : int):
-	amount += value
-	
-func SubtractAmount(value : int):
-	if(amount > value):
-		print("Not enough of this item")
-	else:
-		amount -= value
-		
 func _can_drop_data(at_position, data):
 	if(data.item != null):
 		if "item" in data:
 			if(data.item.TYPE == "Equipment"):
 				return is_instance_of(data.item, Equipment)
-			else:
-				return is_instance_of(data.item, Item)
 	return false
 
 func _drop_data(at_position, data):
 	var temp = item
 	item = data.item
 	data.item = temp
-	
-	temp = amount
-	amount = data.amount
-	data.amount = temp
 
 func _get_drag_data(at_position):
 	if(item):

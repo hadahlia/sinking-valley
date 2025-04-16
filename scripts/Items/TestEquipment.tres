@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Equipment" load_steps=3 format=3 uid="uid://bcmgimgthpwjv"]
+
+[ext_resource type="Texture2D" uid="uid://bsisjs6w553eu" path="res://assets/textures/items/SwordSprite.png" id="1_3vfb8"]
+[ext_resource type="Script" uid="uid://dpen4enufknun" path="res://scripts/Items/Equipment.gd" id="1_q3jxx"]
+
+[resource]
+script = ExtResource("1_q3jxx")
+EquipmentType = "Weapon"
+attackValue = 5
+defValue = 0
+name = "Sword"
+picture = ExtResource("1_3vfb8")
+TYPE = "Equipment"
+metadata/_custom_type_script = "uid://dpen4enufknun"
