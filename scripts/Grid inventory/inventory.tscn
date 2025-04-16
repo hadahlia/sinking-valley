@@ -1,5 +1,9 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 [gd_scene load_steps=3 format=3 uid="uid://lxtnnc7nixed"]
+=======
+[gd_scene load_steps=8 format=3 uid="uid://lxtnnc7nixed"]
+>>>>>>> Stashed changes
 =======
 [gd_scene load_steps=8 format=3 uid="uid://lxtnnc7nixed"]
 >>>>>>> Stashed changes
@@ -12,6 +16,9 @@
 [ext_resource type="StyleBox" uid="uid://veqxu01u8xpu" path="res://shaders/materials/style_box_temp.tres" id="4_3ipvn"]
 [ext_resource type="PackedScene" uid="uid://b4uahcrdgflpf" path="res://scripts/Grid inventory/EquipmentSlot.tscn" id="6_3f168"]
 [ext_resource type="Resource" uid="uid://bcmgimgthpwjv" path="res://scripts/Items/TestEquipment.tres" id="6_oqdvf"]
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 [node name="Inventory" type="Control"]
@@ -26,6 +33,7 @@ grow_vertical = 2
 
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer"]
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 anchors_preset = -1
 anchor_left = 0.335069
 anchor_top = 0.123457
@@ -35,6 +43,8 @@ grow_horizontal = 2
 columns = 6
 metadata/_edit_use_anchors_ = true
 =======
+=======
+>>>>>>> Stashed changes
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -61,6 +71,9 @@ layout_mode = 2
 theme_override_styles/panel = ExtResource("4_3ipvn")
 item = ExtResource("6_oqdvf")
 amount = 1
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 [node name="Slot3" parent="CanvasLayer/GridContainer" instance=ExtResource("1_08tj3")]
@@ -138,4 +151,7 @@ anchor_right = 0.493924
 anchor_bottom = 0.492284
 offset_top = -1.52588e-05
 metadata/_edit_use_anchors_ = true
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
