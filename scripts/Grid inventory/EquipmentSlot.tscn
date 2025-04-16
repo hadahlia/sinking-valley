@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4uahcrdgflpf"]
+
+[ext_resource type="Script" uid="uid://bndh21k4vrho8" path="res://scripts/Grid inventory/EquipmentSlot.gd" id="1_xbual"]
+
+[node name="Equipment Slot" type="Panel"]
+z_index = -1
+custom_minimum_size = Vector2(60, 60)
+anchors_preset = -1
+anchor_right = 0.0651042
+anchor_bottom = 0.115741
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xbual")
+
+[node name="Equipment icon" type="TextureRect" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+expand_mode = 1
+stretch_mode = 4
+metadata/_edit_use_anchors_ = true

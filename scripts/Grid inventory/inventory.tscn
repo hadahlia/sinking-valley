@@ -1,10 +1,25 @@
-[gd_scene load_steps=6 format=3 uid="uid://lxtnnc7nixed"]
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+[gd_scene load_steps=3 format=3 uid="uid://lxtnnc7nixed"]
+=======
+[gd_scene load_steps=8 format=3 uid="uid://lxtnnc7nixed"]
+>>>>>>> Stashed changes
+=======
+[gd_scene load_steps=8 format=3 uid="uid://lxtnnc7nixed"]
+>>>>>>> Stashed changes
 
 [ext_resource type="PackedScene" uid="uid://rlhx2wi3lgqa" path="res://scripts/Grid inventory/Slot.tscn" id="1_08tj3"]
-[ext_resource type="Script" uid="uid://cc0u8dhvxbcbc" path="res://scripts/Grid inventory/inventory.gd" id="1_m1805"]
 [ext_resource type="Resource" uid="uid://bv6s3pjng87y" path="res://scripts/Items/Test.tres" id="2_ad4b0"]
+<<<<<<< Updated upstream
+=======
 [ext_resource type="Script" uid="uid://bwrvbgh2jad5r" path="res://scripts/Grid inventory/overworld_slot.gd" id="3_ky2dr"]
 [ext_resource type="StyleBox" uid="uid://veqxu01u8xpu" path="res://shaders/materials/style_box_temp.tres" id="4_3ipvn"]
+[ext_resource type="PackedScene" uid="uid://b4uahcrdgflpf" path="res://scripts/Grid inventory/EquipmentSlot.tscn" id="6_3f168"]
+[ext_resource type="Resource" uid="uid://bcmgimgthpwjv" path="res://scripts/Items/TestEquipment.tres" id="6_oqdvf"]
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 
 [node name="Inventory" type="Control"]
 layout_mode = 3
@@ -13,24 +28,23 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_m1805")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Overworld_Slot" parent="CanvasLayer" instance=ExtResource("1_08tj3")]
-visible = false
-visibility_layer = 0
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 0.0
-offset_bottom = 0.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("3_ky2dr")
-
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer"]
-visible = false
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+anchors_preset = -1
+anchor_left = 0.335069
+anchor_top = 0.123457
+anchor_right = 0.664931
+anchor_bottom = 0.314815
+grow_horizontal = 2
+columns = 6
+metadata/_edit_use_anchors_ = true
+=======
+=======
+>>>>>>> Stashed changes
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -43,76 +57,101 @@ offset_bottom = 56.0
 grow_horizontal = 0
 grow_vertical = 2
 columns = 3
+>>>>>>> Stashed changes
 
 [node name="Slot" parent="CanvasLayer/GridContainer" instance=ExtResource("1_08tj3")]
 layout_mode = 2
-theme_override_styles/panel = ExtResource("4_3ipvn")
 item = ExtResource("2_ad4b0")
-amount = 1
+amount = 2
 
 [node name="Slot2" parent="CanvasLayer/GridContainer" instance=ExtResource("1_08tj3")]
 layout_mode = 2
+<<<<<<< Updated upstream
+=======
 theme_override_styles/panel = ExtResource("4_3ipvn")
+item = ExtResource("6_oqdvf")
+amount = 1
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 
 [node name="Slot3" parent="CanvasLayer/GridContainer" instance=ExtResource("1_08tj3")]
 layout_mode = 2
-theme_override_styles/panel = ExtResource("4_3ipvn")
 
 [node name="Slot4" parent="CanvasLayer/GridContainer" instance=ExtResource("1_08tj3")]
 layout_mode = 2
-theme_override_styles/panel = ExtResource("4_3ipvn")
 
 [node name="Slot5" parent="CanvasLayer/GridContainer" instance=ExtResource("1_08tj3")]
 layout_mode = 2
-theme_override_styles/panel = ExtResource("4_3ipvn")
 
 [node name="Slot6" parent="CanvasLayer/GridContainer" instance=ExtResource("1_08tj3")]
 layout_mode = 2
-theme_override_styles/panel = ExtResource("4_3ipvn")
 
 [node name="Slot7" parent="CanvasLayer/GridContainer" instance=ExtResource("1_08tj3")]
 layout_mode = 2
-theme_override_styles/panel = ExtResource("4_3ipvn")
 
 [node name="Slot8" parent="CanvasLayer/GridContainer" instance=ExtResource("1_08tj3")]
 layout_mode = 2
-theme_override_styles/panel = ExtResource("4_3ipvn")
 
 [node name="Slot9" parent="CanvasLayer/GridContainer" instance=ExtResource("1_08tj3")]
 layout_mode = 2
-theme_override_styles/panel = ExtResource("4_3ipvn")
 
 [node name="Slot10" parent="CanvasLayer/GridContainer" instance=ExtResource("1_08tj3")]
 layout_mode = 2
-theme_override_styles/panel = ExtResource("4_3ipvn")
 
 [node name="Slot11" parent="CanvasLayer/GridContainer" instance=ExtResource("1_08tj3")]
 layout_mode = 2
-theme_override_styles/panel = ExtResource("4_3ipvn")
 
 [node name="Slot12" parent="CanvasLayer/GridContainer" instance=ExtResource("1_08tj3")]
 layout_mode = 2
-theme_override_styles/panel = ExtResource("4_3ipvn")
 
 [node name="Hotbar" type="HBoxContainer" parent="CanvasLayer"]
+visible = false
 custom_minimum_size = Vector2(60, 60)
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 288.0
-offset_top = -104.0
-offset_right = 428.0
-offset_bottom = -29.0
+offset_left = -37.5
+offset_top = -75.0
+offset_right = 37.5
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/separation = 20
 
 [node name="Slot" parent="CanvasLayer/Hotbar" instance=ExtResource("1_08tj3")]
 layout_mode = 2
-theme_override_styles/panel = ExtResource("4_3ipvn")
 
 [node name="Slot2" parent="CanvasLayer/Hotbar" instance=ExtResource("1_08tj3")]
 layout_mode = 2
+<<<<<<< Updated upstream
+
+[node name="Slot3" parent="CanvasLayer/Hotbar" instance=ExtResource("1_08tj3")]
+layout_mode = 2
+
+[node name="Slot4" parent="CanvasLayer/Hotbar" instance=ExtResource("1_08tj3")]
+layout_mode = 2
+
+[node name="Slot5" parent="CanvasLayer/Hotbar" instance=ExtResource("1_08tj3")]
+layout_mode = 2
+
+[node name="Slot6" parent="CanvasLayer/Hotbar" instance=ExtResource("1_08tj3")]
+layout_mode = 2
+
+[node name="Slot7" parent="CanvasLayer/Hotbar" instance=ExtResource("1_08tj3")]
+layout_mode = 2
+=======
 theme_override_styles/panel = ExtResource("4_3ipvn")
+
+[node name="Equipment Slot" parent="CanvasLayer" instance=ExtResource("6_3f168")]
+anchor_left = 0.428819
+anchor_top = 0.376543
+anchor_right = 0.493924
+anchor_bottom = 0.492284
+offset_top = -1.52588e-05
+metadata/_edit_use_anchors_ = true
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
