@@ -1,17 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://bkgeyx3owgjlf"]
+[gd_scene load_steps=9 format=3 uid="uid://bkgeyx3owgjlf"]
 
 [ext_resource type="Script" uid="uid://ccs7bwn28hhyc" path="res://scripts/player_script.gd" id="1_crmta"]
 [ext_resource type="Resource" uid="uid://crkfk2ax3xtye" path="res://assets/resources/player/player_resource.tres" id="2_rbmgg"]
 [ext_resource type="PackedScene" uid="uid://lxtnnc7nixed" path="res://scripts/Grid inventory/inventory.tscn" id="2_vefth"]
+[ext_resource type="Script" uid="uid://bv6na32o33jdv" path="res://scripts/turn_counter.gd" id="3_icjpm"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_crmta"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_icjpm"]
+size = Vector3(4, 4, 4)
 
 [sub_resource type="Theme" id="Theme_crmta"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vefth"]
 bg_color = Color(0.09, 0.09, 0.09, 1)
 
-[node name="player_scene" type="Node3D" groups=["Player"]]
+[node name="player_scene" type="Node3D"]
 script = ExtResource("1_crmta")
 stats = ExtResource("2_rbmgg")
 
@@ -21,6 +25,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 [node name="Camera3D" type="Camera3D" parent="head"]
 transform = Transform3D(1, 0, 0, 0, 0.996195, 0.0871557, 0, -0.0871557, 0.996195, 0, 0, 1.8)
 current = true
+fov = 80.0
 
 [node name="turn_timer" type="Timer" parent="head"]
 process_callback = 0
@@ -60,8 +65,10 @@ process_callback = 0
 wait_time = 0.5
 one_shot = true
 
-[node name="step_to" type="Node3D" parent="."]
+[node name="step_to" type="CharacterBody3D" parent="." groups=["Player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_layer = 2
+collision_mask = 0
 
 [node name="step_time" type="Timer" parent="step_to"]
 wait_time = 0.21
@@ -75,8 +82,10 @@ mesh = SubResource("SphereMesh_crmta")
 target_position = Vector3(0, -2, 0)
 hit_from_inside = true
 
+[node name="CollisionShape3D" type="CollisionShape3D" parent="step_to"]
+shape = SubResource("BoxShape3D_icjpm")
+
 [node name="Label" type="Label" parent="."]
-visible = false
 offset_right = 40.0
 offset_bottom = 23.0
 
@@ -221,6 +230,18 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 20
 text = "2"
 horizontal_alignment = 1
+
+[node name="turn_counter" type="Label" parent="p_screen/hud"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -16.0
+offset_top = 56.0
+offset_right = 24.0
+offset_bottom = 79.0
+grow_horizontal = 2
+text = "test"
+script = ExtResource("3_icjpm")
 
 [node name="Inventory" parent="p_screen" instance=ExtResource("2_vefth")]
 top_level = true

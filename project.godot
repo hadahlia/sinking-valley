@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 
 GlobalAudio="*res://scripts/global/GlobalAudio.gd"
 SceneManager="*res://scripts/global/SceneManager.gd"
+GameFlags="*res://scripts/global/GameFlags.gd"
 
 [dotnet]
 
@@ -45,6 +46,7 @@ PlayerSpawnIsland=""
 PlayerSpawnTemple=""
 Player=""
 EnemyMonster=""
+EnemyRoot=""
 
 [importer_defaults]
 
@@ -134,6 +136,7 @@ inventory={
 [layer_names]
 
 3d_physics/layer_1="COLLISION"
+3d_physics/layer_2="PLAYER"
 3d_physics/layer_5="AREAS_INTERACTABLE"
 3d_physics/layer_6="ATTACKABLE"
 

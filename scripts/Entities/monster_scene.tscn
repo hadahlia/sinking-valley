@@ -6,14 +6,9 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_qj347"]
 size = Vector3(4, 4, 4)
 
-[node name="monster_scene" type="CharacterBody3D" groups=["EnemyMonster"]]
-collision_layer = 33
+[node name="monster_scene" type="Node3D" groups=["EnemyRoot"]]
 script = ExtResource("1_u57oe")
 stats_resource = ExtResource("2_qj347")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-shape = SubResource("BoxShape3D_qj347")
 
 [node name="body" type="Node3D" parent="."]
 
@@ -23,5 +18,37 @@ pixel_size = 0.015
 billboard = 1
 alpha_cut = 1
 
-[node name="step_to" type="Node3D" parent="."]
-visible = false
+[node name="step_to" type="CharacterBody3D" parent="." groups=["EnemyMonster"]]
+
+[node name="ground" type="RayCast3D" parent="step_to"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+target_position = Vector3(0, -2, 0)
+hit_from_inside = true
+
+[node name="right" type="RayCast3D" parent="step_to"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+target_position = Vector3(4, 0, 0)
+collision_mask = 2
+hit_from_inside = true
+
+[node name="left" type="RayCast3D" parent="step_to"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+target_position = Vector3(-4, 0, 0)
+collision_mask = 2
+hit_from_inside = true
+
+[node name="forward" type="RayCast3D" parent="step_to"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+target_position = Vector3(0, 0, -4)
+collision_mask = 2
+hit_from_inside = true
+
+[node name="behind" type="RayCast3D" parent="step_to"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+target_position = Vector3(0, 0, 4)
+collision_mask = 2
+hit_from_inside = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="step_to"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_qj347")
