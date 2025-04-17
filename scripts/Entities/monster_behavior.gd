@@ -4,10 +4,8 @@ class_name EntityMonster
 @onready var body: Node3D = $body
 @onready var step_to: Node3D = $step_to
 
-#@onready var sprite_: Sprite3D = $Sprite3D
 @onready var sprite_: Sprite3D = $body/Sprite3D
 @onready var collision_shape_3d: CollisionShape3D = $step_to/CollisionShape3D
-
 
 @onready var ground: RayCast3D = $step_to/ground
 @onready var right: RayCast3D = $step_to/right
@@ -23,12 +21,20 @@ const LERP_SPEED : float = 4.0
 
 var has_moved : bool = false
 
-# AI Stuff
+# state Stuff
 enum { WANDERING, CHASING, RETREATING }
-var intention = WANDERING
+var intention = CHASING
 
 var d : Vector3 = Vector3.ZERO
 var prev_pos : Vector3
+
+# pathing stuff
+var path : PackedVector2Array = []
+var path_id : int = 0
+var personal_astar := AStar2D.new()
+
+@onready var amap = get_tree().get_first_node_in_group("AMap")
+@onready var player : CharacterBody3D = get_tree().get_first_node_in_group("Player")
 
 func _ready() -> void:
 	#stats_resource.TakeDamage()
@@ -46,6 +52,10 @@ func _physics_process(delta: float) -> void:
 
 func take_turn():
 	match intention:
+		CHASING:
+			move_astar()
+			
+			
 		WANDERING:
 			var ri : int = randi() % 5
 			var cast : RayCast3D
@@ -98,6 +108,29 @@ func check_move(ri : int, dir: Vector3, cast: RayCast3D) -> void:
 			
 		#print("collision! new ri")
 
+func move_astar() -> void:
+	
+	path = amap.get_astar_avoid_units(step_to.global_position, player.global_position)
+	#personal_astar = amap.connect_as_points()
+	path_id = 0
+	#
+	print(path)
+	#path = amap.get_as_path(step_to.global_position, player.global_position)
+	##print(path[0])
+	#print("monster pos: ", step_to.global_position, "player pos: ", player.global_position)
+	if path_id < path.size():
+		var target: Vector3 = Vector3(path[0].x, step_to.global_position.y, path[0].y)
+		step_to.global_position = target
+		print(target)
+	
+		#var new_target = Vector3((path[path_id].x * STEP_SIZE), step_to.global_position.y, path[path_id].y * STEP_SIZE)
+		#var target_len = (path[path_id] - Vector2(step_to.global_position.x, step_to.global_position.z)).length()
+		#if target_len < 0.1:
+			#path_id += 1
+		#new_target.y = step_to.global_position.y
+		#step_to.global_position = new_target
+		#print("target: ",new_target)
+	
 
 func take_step(dir: Vector3):
 	

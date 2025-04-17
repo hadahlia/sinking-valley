@@ -24,30 +24,35 @@ alpha_cut = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 target_position = Vector3(0, -2, 0)
 hit_from_inside = true
+collide_with_areas = true
 
 [node name="right" type="RayCast3D" parent="step_to"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 target_position = Vector3(4, 0, 0)
 collision_mask = 2
 hit_from_inside = true
+collide_with_areas = true
 
 [node name="left" type="RayCast3D" parent="step_to"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 target_position = Vector3(-4, 0, 0)
 collision_mask = 2
 hit_from_inside = true
+collide_with_areas = true
 
 [node name="forward" type="RayCast3D" parent="step_to"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 target_position = Vector3(0, 0, -4)
 collision_mask = 2
 hit_from_inside = true
+collide_with_areas = true
 
 [node name="behind" type="RayCast3D" parent="step_to"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 target_position = Vector3(0, 0, 4)
 collision_mask = 2
 hit_from_inside = true
+collide_with_areas = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="step_to"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)

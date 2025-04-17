@@ -1,8 +1,7 @@
 extends Control
 
-#@onready var canvas_layer: CanvasLayer = $CanvasLayer
-@onready var overworld_slot: Panel = $CanvasLayer/Overworld_Slot
 @onready var grid_container: GridContainer = $CanvasLayer/GridContainer
+@onready var overworld_slot: Panel = $CanvasLayer/overworld_slot
 
 
 func _input(event: InputEvent) -> void:

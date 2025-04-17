@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://ccs7bwn28hhyc" path="res://scripts/player_script.gd" id="1_crmta"]
 [ext_resource type="Resource" uid="uid://crkfk2ax3xtye" path="res://assets/resources/player/player_resource.tres" id="2_rbmgg"]
-[ext_resource type="PackedScene" uid="uid://lxtnnc7nixed" path="res://scripts/Grid inventory/inventory.tscn" id="2_vefth"]
 [ext_resource type="Script" uid="uid://bv6na32o33jdv" path="res://scripts/turn_counter.gd" id="3_icjpm"]
+[ext_resource type="PackedScene" uid="uid://lxtnnc7nixed" path="res://scripts/Grid inventory/inventory.tscn" id="4_icjpm"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_crmta"]
 
@@ -176,9 +176,9 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 80.0
+offset_left = 96.0
 offset_top = -96.0
-offset_right = 177.0
+offset_right = 193.0
 offset_bottom = -68.0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 20
@@ -189,9 +189,9 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 80.0
+offset_left = 96.0
 offset_top = -56.0
-offset_right = 177.0
+offset_right = 193.0
 offset_bottom = -28.0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 20
@@ -243,6 +243,5 @@ grow_horizontal = 2
 text = "test"
 script = ExtResource("3_icjpm")
 
-[node name="Inventory" parent="p_screen" instance=ExtResource("2_vefth")]
-top_level = true
+[node name="Inventory" parent="p_screen" instance=ExtResource("4_icjpm")]
 layout_mode = 1

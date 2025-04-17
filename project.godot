@@ -47,6 +47,7 @@ PlayerSpawnTemple=""
 Player=""
 EnemyMonster=""
 EnemyRoot=""
+AMap=""
 
 [importer_defaults]
 

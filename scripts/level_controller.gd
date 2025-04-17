@@ -30,8 +30,8 @@ func get_monsters() -> void:
 			m.take_turn()
 			mid += 1
 	
-	if mid == monster_count:
-		gameturn_delay.timeout.connect(end_turn)
+	if mid == monster_count and gameturn_delay.is_stopped():
+		
 		gameturn_delay.start()
 		#end_turn()
 
@@ -47,7 +47,7 @@ func end_turn() -> void:
 func _ready() -> void:
 	GameFlags.player_turn = true
 	player_scene.moved.connect(end_turn)
-	
+	gameturn_delay.timeout.connect(end_turn)
 	GameFlags.turn_id = 0
 	#player_ref = get_tree().get_first_node_in_group("Player")
 	#player_scene.ready.connect(check_location)

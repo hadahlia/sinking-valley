@@ -201,7 +201,7 @@ func step_forth():
 	step_to.global_position.x = round(step_to.global_position.x)
 	step_to.global_position.z = round(step_to.global_position.z)
 	
-	
+	#print("player step: ", step_to.global_position)
 	step_delay()
 
 
