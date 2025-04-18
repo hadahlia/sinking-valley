@@ -286,17 +286,17 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -168.0
-offset_top = -112.0
+offset_top = -152.0
 offset_right = 168.0
 offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/normal_font = ExtResource("6_c3371")
 theme_override_font_sizes/normal_font_size = 32
-text = "debug line
-debug line
-debug line
-debug line"
+text = "You did 8 damage to Alectryon
+You did 8 damage to Alectryon
+You did 8 damage to Alectryon
+You did 8 damage to Alectryon"
 scroll_following = true
 horizontal_alignment = 1
 vertical_alignment = 2

@@ -1,6 +1,6 @@
 [gd_scene load_steps=23 format=4 uid="uid://blxw41546bbo1"]
 
-[ext_resource type="Script" uid="uid://he75b54qr1uf" path="res://scripts/pathfinding.gd" id="1_j7oq4"]
+[ext_resource type="Script" uid="uid://ie16s4bkmumh" path="res://scripts/pathfinding_new.gd" id="1_02k67"]
 [ext_resource type="MeshLibrary" uid="uid://dj3ibhsaug4u" path="res://assets/meshlibs/pathtile.tres" id="2_4fmwh"]
 [ext_resource type="PackedScene" uid="uid://bo8ihb4eyp5nv" path="res://scripts/Entities/monster_scene.tscn" id="3_dbbqp"]
 [ext_resource type="Texture2D" uid="uid://c7an2i7igmcqn" path="res://assets/textures/entities/placeholder_chicken.png" id="4_02k67"]
@@ -137,7 +137,7 @@ subdivide_depth = 50
 [node name="island_level" type="Node3D" groups=["Levels"]]
 
 [node name="AMap" type="Node3D" parent="." groups=["AMap"]]
-script = ExtResource("1_j7oq4")
+script = ExtResource("1_02k67")
 
 [node name="GridMap" type="GridMap" parent="AMap"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2)

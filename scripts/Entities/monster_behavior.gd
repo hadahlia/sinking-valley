@@ -110,8 +110,8 @@ func check_move(ri : int, dir: Vector3, cast: RayCast3D) -> void:
 		#print("collision! new ri")
 
 func move_astar() -> void:
-	
-	var path :Array= amap.get_astar_avoid_units(step_to.global_position, player.global_position)
+	pass
+	#var path :Array= amap.get_astar_avoid_units(step_to.global_position, player.global_position)
 	#personal_astar = amap.connect_as_points()
 	#path_id = 0
 	#
@@ -119,10 +119,10 @@ func move_astar() -> void:
 	#path = amap.get_as_path(step_to.global_position, player.global_position)
 	##print(path[0])
 	#print("monster pos: ", step_to.global_position, "player pos: ", player.global_position)
-	if path.size() > 2:
-		var target: Vector3 = Vector3(path[0].x , step_to.global_position.y, path[0].y )
-		step_to.global_position = target
-		print("target: ", target)
+	#if path.size() > 2:
+		#var target: Vector3 = Vector3(path[0].x , step_to.global_position.y, path[0].y )
+		#step_to.global_position = target
+		#print("target: ", target)
 	
 		#var new_target = Vector3((path[path_id].x * STEP_SIZE), step_to.global_position.y, path[path_id].y * STEP_SIZE)
 		#var target_len = (path[path_id] - Vector2(step_to.global_position.x, step_to.global_position.z)).length()

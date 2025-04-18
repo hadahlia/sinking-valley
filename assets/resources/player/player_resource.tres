@@ -5,8 +5,8 @@
 [resource]
 script = ExtResource("1_8bf1w")
 unitName = "SELF"
-level = 1
 maxHP = 20
 currentHP = 20
+defense = 0
 isDead = false
 metadata/_custom_type_script = "uid://b1tb6rtyws7jw"

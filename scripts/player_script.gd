@@ -28,9 +28,12 @@ signal ending_emit
 
 #@export_node_path("GridMap") var grid_map
 
+@onready var hud: PlayerUI = $p_screen
+
 @onready var inventory: Control = $p_screen/Inventory
 
 @export var stats : GameOver
+#@export_node_path("PlayerUI") var hud
 
 #i havent decided 
 const MOVESPEED : float = 6.0 
@@ -145,7 +148,9 @@ func attack_tile():
 		return
 	var col = cast_forward.get_collider()
 	if col.is_in_group("EnemyMonster"):
-		col.get_parent().stats_resource.TakeDamage(8)
+		var dmg :int = col.get_parent().stats_resource.TakeDamage(8)
+		var monster_name := str(col.get_parent().stats_resource.unitName)
+		hud.send_event_message("You did " + str(dmg) + " damage to " + monster_name)
 		print(col.get_parent().stats_resource.currentHP)
 		col.get_parent().assess_life()
 	end_turn()
