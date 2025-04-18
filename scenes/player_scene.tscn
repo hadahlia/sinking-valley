@@ -23,7 +23,7 @@ stats = ExtResource("2_rbmgg")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="Camera3D" type="Camera3D" parent="head"]
-transform = Transform3D(1, 0, 0, 0, 0.996195, 0.0871557, 0, -0.0871557, 0.996195, 0, 0, 1.8)
+transform = Transform3D(1, 0, 0, 0, 0.996195, 0.0871557, 0, -0.0871557, 0.996195, 0, 0, 1.6)
 current = true
 fov = 80.0
 
@@ -230,6 +230,41 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 20
 text = "2"
 horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="p_screen/hud/footer"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -184.0
+offset_top = -120.0
+offset_right = 184.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.38, 0.17461, 0.1178, 1)
+
+[node name="status_text" type="RichTextLabel" parent="p_screen/hud/footer"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -168.0
+offset_top = -112.0
+offset_right = 168.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "debug line
+debug line
+debug line
+debug line"
+scroll_following = true
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="turn_counter" type="Label" parent="p_screen/hud"]
 anchors_preset = 5

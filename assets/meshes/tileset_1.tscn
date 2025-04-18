@@ -3,15 +3,13 @@
 [ext_resource type="PackedScene" uid="uid://1ri1bdw7tbqd" path="res://assets/meshes/tileset_0.glb" id="1_1urno"]
 [ext_resource type="Material" uid="uid://cb5cp4erwpan0" path="res://shaders/materials/mat_bricks1.tres" id="2_ml5ml"]
 [ext_resource type="Texture2D" uid="uid://r280cdbkcau6" path="res://assets/textures/FloorCobblestone.png" id="3_0evy4"]
+[ext_resource type="Material" uid="uid://dklkdijybwb3d" path="res://shaders/materials/mat_floor.tres" id="3_0ksd7"]
 [ext_resource type="Material" uid="uid://cpae81ha6262b" path="res://shaders/materials/mat_void_unlit.tres" id="4_0evy4"]
 [ext_resource type="Texture2D" uid="uid://d2x2udhiiyyg1" path="res://assets/textures/CeilingSprite.png" id="4_iacyt"]
 [ext_resource type="Material" uid="uid://c0prm6taecfry" path="res://shaders/materials/mat_sand.tres" id="4_libqf"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_0evy4"]
 data = PackedVector3Array(1, 0.3333, -1, -1, 0.3333, 1, -1, 0.3333, -1, 1, 0.3333, -1, 1, 0.3333, 1, -1, 0.3333, 1, 1, -1.6667, 1, -1, 0.3333, 1, 1, 0.3333, 1, 1, -1.6667, 1, -1, -1.6667, 1, -1, 0.3333, 1, -1, -1.6667, 1, -1, 0.3333, -1, -1, 0.3333, 1, -1, -1.6667, 1, -1, -1.6667, -1, -1, 0.3333, -1, -1, -1.6667, -1, 1, -1.6667, 1, 1, -1.6667, -1, -1, -1.6667, -1, -1, -1.6667, 1, 1, -1.6667, 1, 1, -1.6667, -1, 1, 0.3333, 1, 1, 0.3333, -1, 1, -1.6667, -1, 1, -1.6667, 1, 1, 0.3333, 1, -1, -1.6667, -1, 1, 0.3333, -1, -1, 0.3333, -1, -1, -1.6667, -1, 1, -1.6667, -1, 1, 0.3333, -1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iacyt"]
-albedo_texture = ExtResource("3_0evy4")
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_iacyt"]
 data = PackedVector3Array(-1, 0, 1, 1, 0, -1, 1, 0, 1, -1, 0, 1, -1, 0, -1, 1, 0, -1, -1, -2, 1, 1, -2, -1, -1, -2, -1, -1, -2, 1, 1, -2, 1, 1, -2, -1, 1, 0, 1, 1, -2, -1, 1, -2, 1, 1, 0, 1, 1, 0, -1, 1, -2, -1, -1, 0, -1, -1, -2, 1, -1, -2, -1, -1, 0, -1, -1, 0, 1, -1, -2, 1, 1, 0, -1, -1, -2, -1, 1, -2, -1, 1, 0, -1, -1, 0, -1, -1, -2, -1, -1, 0, 1, 1, -2, 1, -1, -2, 1, -1, 0, 1, 1, 0, 1, 1, -2, 1)
@@ -72,7 +70,7 @@ surface_material_override/0 = ExtResource("2_ml5ml")
 shape = SubResource("ConcavePolygonShape3D_0evy4")
 
 [node name="floor_" parent="." index="1"]
-surface_material_override/0 = SubResource("StandardMaterial3D_iacyt")
+surface_material_override/0 = ExtResource("3_0ksd7")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="floor_" index="0"]
 
