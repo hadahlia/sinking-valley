@@ -32,9 +32,7 @@ func SubtractAmount(value : int):
 func _can_drop_data(at_position, data):
 	if(data.item != null):
 		if "item" in data:
-			if(data.item.TYPE == "Equipment"):
-				return is_instance_of(data.item, Equipment)
-			else:
+			if(data.item.TYPE == "Item"):
 				return is_instance_of(data.item, Item)
 	return false
 
@@ -42,6 +40,9 @@ func _drop_data(at_position, data):
 	var temp = item
 	item = data.item
 	data.item = temp
+	
+	# check item data here?
+	print("check")
 	
 	temp = amount
 	amount = data.amount
@@ -57,9 +58,3 @@ func _get_drag_data(at_position):
 		preview.add_child(preview_texture)
 		set_drag_preview(preview)
 	return self
-
-func _get_item_attack()->int:
-	if(item != null):
-		if(item.TYPE == "Equipment"):
-			return item.attackValue
-	return 0

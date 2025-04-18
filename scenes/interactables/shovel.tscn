@@ -1,10 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://bahf84moa3rqk"]
+[gd_scene load_steps=13 format=3 uid="uid://bahf84moa3rqk"]
 
-[ext_resource type="Script" uid="uid://h56wh5xdsp4l" path="res://scripts/actors/interactable.gd" id="1_8e735"]
+[ext_resource type="Script" uid="uid://b115sfmvvcu2l" path="res://scripts/actor_scripts/take_shovel.gd" id="1_hratn"]
 [ext_resource type="ArrayMesh" uid="uid://do3isac7r21qx" path="res://assets/meshes/items/dirt.res" id="2_8v3gx"]
 [ext_resource type="ArrayMesh" uid="uid://clslx8g7n8nut" path="res://assets/meshes/items/shovel.res" id="2_m32di"]
 [ext_resource type="Texture2D" uid="uid://8levb5j4q5v" path="res://assets/textures/items/shovel.png" id="3_b0jow"]
 [ext_resource type="Texture2D" uid="uid://bxaw5xg4ocijr" path="res://assets/textures/items/dirt_mound_value.png" id="3_ew2kg"]
+[ext_resource type="PackedScene" uid="uid://rlhx2wi3lgqa" path="res://scripts/Grid inventory/Slot.tscn" id="6_sahvx"]
+[ext_resource type="StyleBox" uid="uid://dt2xyqvhauy2k" path="res://shaders/materials/slot_style_0.tres" id="7_cdj5l"]
+[ext_resource type="Script" uid="uid://c6ye12lk1la45" path="res://scripts/Grid inventory/SlotReward.gd" id="8_ak3j6"]
+[ext_resource type="Resource" uid="uid://coygu6e084yef" path="res://assets/resources/items/shovel_item.tres" id="9_hratn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hc8qp"]
 albedo_color = Color(0.48, 0.30864, 0.1776, 1)
@@ -18,7 +22,7 @@ albedo_texture = ExtResource("3_b0jow")
 size = Vector3(5, 5, 5)
 
 [node name="shovel_" type="Node3D"]
-script = ExtResource("1_8e735")
+script = ExtResource("1_hratn")
 event_text = "you took the shovel"
 is_door = false
 
@@ -39,3 +43,22 @@ monitoring = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
 shape = SubResource("BoxShape3D_7mmql")
+
+[node name="reward slot" type="CanvasLayer" parent="."]
+
+[node name="Slot" parent="reward slot" instance=ExtResource("6_sahvx")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.5
+offset_top = -37.5
+offset_right = 37.5
+offset_bottom = 37.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("7_cdj5l")
+script = ExtResource("8_ak3j6")
+item = ExtResource("9_hratn")

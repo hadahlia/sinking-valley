@@ -35,6 +35,8 @@ signal ending_emit
 @export var stats : GameOver
 #@export_node_path("PlayerUI") var hud
 
+var my_damage : int = 0
+
 #i havent decided 
 const MOVESPEED : float = 6.0 
 const TURNSPEED : float = 8.0
@@ -131,7 +133,7 @@ func _physics_process(delta: float) -> void:
 	head.global_position.x = lerpf(head.global_position.x, step_to.global_position.x, MOVESPEED * delta_time)
 	head.global_position.z = lerpf(head.global_position.z, step_to.global_position.z, MOVESPEED * delta_time)
 	
-	if !GameFlags.player_turn: return
+	if !GameFlags.can_move or !GameFlags.player_turn : return
 	
 	
 	handle_turn()
@@ -142,13 +144,20 @@ func _physics_process(delta: float) -> void:
 
 func attack_tile():
 	
-	print("attack!!")
+	#print("attack!!")
 	if !cast_forward.is_colliding(): 
 		end_turn()
 		return
 	var col = cast_forward.get_collider()
 	if col.is_in_group("EnemyMonster"):
-		var dmg :int = col.get_parent().stats_resource.TakeDamage(8)
+		
+		var slots = get_tree().get_nodes_in_group("EquipSlots")
+		my_damage = 0
+		for s in slots:
+			var rdmg : int = s._get_item_attack()
+			my_damage += rdmg
+		
+		var dmg :int = col.get_parent().stats_resource.TakeDamage(my_damage)
 		var monster_name := str(col.get_parent().stats_resource.unitName)
 		hud.send_event_message("You did " + str(dmg) + " damage to " + monster_name)
 		print(col.get_parent().stats_resource.currentHP)
@@ -169,9 +178,16 @@ func interact_tile():
 		#ending_emit.emit()
 		GlobalAudio.stop_music()
 		SceneManager.ChangeScene(SceneManager.ENDING_SCENE)
-	elif col.is_in_group("ItemShovel"):
-		print("oh man i sure wish i could grab the shovel")
-		col.get_parent().queue_free()
+	if col.is_in_group("ItemShovel"):
+		#print("oh man i sure wish i could grab the shovel")
+		GameFlags.can_move = false
+		col.get_parent().dig()
+	if col.is_in_group("DigMound"):
+		if !GameFlags.has_shovel:
+			hud.send_event_message("If only I had a shovel.")
+		else:
+			GameFlags.can_move = false
+			col.get_parent().dig()
 		#col.get_parent().trigger()
 		#col.get_parent().stats_resource.TakeDamage(2)
 		#print(col.get_parent().stats_resource.currentHP)

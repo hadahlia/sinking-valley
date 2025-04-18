@@ -1,12 +1,19 @@
 extends Panel
 
+@onready var dig_mound: Node3D = $"../.."
+
+
 @export var item : Item = null:
 	set(value):
 		item = value
-		
+		#print("set")
 		if(value) == null:
 			%Icon.texture = null
 			%Amount.text = ""
+			if dig_mound:
+				GameFlags.can_move = true
+				dig_mound.queue_free()
+			#get_tree().get_parent().get_parent().queue_free()
 			return
 		%Icon.texture = value.picture
 		
@@ -36,6 +43,7 @@ func _can_drop_data(at_position, data):
 				return is_instance_of(data.item, Equipment)
 			else:
 				return is_instance_of(data.item, Item)
+	#print("cant drop data!")
 	return false
 
 func _drop_data(at_position, data):
@@ -46,6 +54,7 @@ func _drop_data(at_position, data):
 	temp = amount
 	amount = data.amount
 	data.amount = temp
+	#print("data dropped")
 
 func _get_drag_data(at_position):
 	if(item):
@@ -56,10 +65,5 @@ func _get_drag_data(at_position):
 		var preview = Control.new()
 		preview.add_child(preview_texture)
 		set_drag_preview(preview)
+		#print("get drag data")
 	return self
-
-func _get_item_attack()->int:
-	if(item != null):
-		if(item.TYPE == "Equipment"):
-			return item.attackValue
-	return 0

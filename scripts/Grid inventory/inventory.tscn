@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://cc0u8dhvxbcbc" path="res://scripts/Grid inventory/inventory.gd" id="1_3f168"]
 [ext_resource type="PackedScene" uid="uid://rlhx2wi3lgqa" path="res://scripts/Grid inventory/Slot.tscn" id="1_08tj3"]
-[ext_resource type="Resource" uid="uid://bv6s3pjng87y" path="res://scripts/Items/Test.tres" id="2_ad4b0"]
 [ext_resource type="StyleBox" uid="uid://dt2xyqvhauy2k" path="res://shaders/materials/slot_style_0.tres" id="3_3f168"]
+[ext_resource type="Resource" uid="uid://c246y8obvmlls" path="res://assets/resources/items/adventure_sword.tres" id="5_3f168"]
 [ext_resource type="PackedScene" uid="uid://b4uahcrdgflpf" path="res://scripts/Grid inventory/EquipmentSlot.tscn" id="6_3f168"]
-[ext_resource type="Resource" uid="uid://bcmgimgthpwjv" path="res://scripts/Items/TestEquipment.tres" id="6_oqdvf"]
+[ext_resource type="Resource" uid="uid://vsht5jph5rkb" path="res://assets/resources/items/shovel_item_2.tres" id="6_oqdvf"]
 
 [node name="Inventory" type="Control"]
 layout_mode = 3
@@ -18,18 +18,8 @@ script = ExtResource("1_3f168")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="overworld_slot" parent="CanvasLayer" instance=ExtResource("1_08tj3")]
-light_mask = 0
-visibility_layer = 0
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 0.0
-offset_bottom = 0.0
-grow_horizontal = 2
-grow_vertical = 2
-
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer"]
+visible = false
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -50,8 +40,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("3_3f168")
-item = ExtResource("2_ad4b0")
-amount = 2
+item = ExtResource("5_3f168")
 
 [node name="Slot2" parent="CanvasLayer/GridContainer" instance=ExtResource("1_08tj3")]
 layout_mode = 2
@@ -59,55 +48,42 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("3_3f168")
 item = ExtResource("6_oqdvf")
-amount = 1
 
 [node name="Slot3" parent="CanvasLayer/GridContainer" instance=ExtResource("1_08tj3")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("3_3f168")
-item = ExtResource("6_oqdvf")
-amount = 1
 
 [node name="Slot4" parent="CanvasLayer/GridContainer" instance=ExtResource("1_08tj3")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("3_3f168")
-item = ExtResource("6_oqdvf")
-amount = 1
 
 [node name="Slot5" parent="CanvasLayer/GridContainer" instance=ExtResource("1_08tj3")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("3_3f168")
-item = ExtResource("6_oqdvf")
-amount = 1
 
 [node name="Slot6" parent="CanvasLayer/GridContainer" instance=ExtResource("1_08tj3")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("3_3f168")
-item = ExtResource("6_oqdvf")
-amount = 1
 
 [node name="Slot7" parent="CanvasLayer/GridContainer" instance=ExtResource("1_08tj3")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("3_3f168")
-item = ExtResource("6_oqdvf")
-amount = 1
 
 [node name="Slot8" parent="CanvasLayer/GridContainer" instance=ExtResource("1_08tj3")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("3_3f168")
-item = ExtResource("6_oqdvf")
-amount = 1
 
 [node name="Hotbar" type="HBoxContainer" parent="CanvasLayer"]
 custom_minimum_size = Vector2(60, 60)
@@ -126,19 +102,19 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 25
 
-[node name="Slot1" parent="CanvasLayer/Hotbar" instance=ExtResource("1_08tj3")]
+[node name="Slot1" parent="CanvasLayer/Hotbar" groups=["EquipSlots"] instance=ExtResource("1_08tj3")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("3_3f168")
 
-[node name="Slot2" parent="CanvasLayer/Hotbar" instance=ExtResource("1_08tj3")]
+[node name="Slot2" parent="CanvasLayer/Hotbar" groups=["EquipSlots"] instance=ExtResource("1_08tj3")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("3_3f168")
 
-[node name="Equipment Slot2" parent="CanvasLayer" instance=ExtResource("6_3f168")]
+[node name="Equipment Slot2" parent="CanvasLayer" groups=["EquipSlots"] instance=ExtResource("6_3f168")]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_right = 0.0

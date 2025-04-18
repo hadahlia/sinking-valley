@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://blxw41546bbo1"]
+[gd_scene load_steps=24 format=4 uid="uid://blxw41546bbo1"]
 
 [ext_resource type="Script" uid="uid://ie16s4bkmumh" path="res://scripts/pathfinding_new.gd" id="1_02k67"]
 [ext_resource type="MeshLibrary" uid="uid://dj3ibhsaug4u" path="res://assets/meshlibs/pathtile.tres" id="2_4fmwh"]
@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://bqd628y38mref" path="res://sound/sfx/Ambiance_Sea_Loop_Stereo.wav" id="9_tuoy7"]
 [ext_resource type="PackedScene" uid="uid://cwghya4t7r11h" path="res://scenes/interactables/doorway_actor.tscn" id="10_4fmwh"]
 [ext_resource type="PackedScene" uid="uid://bahf84moa3rqk" path="res://scenes/interactables/shovel.tscn" id="12_02k67"]
+[ext_resource type="PackedScene" uid="uid://j20twups6y4n" path="res://scenes/interactables/dig_mound.tscn" id="13_4n8li"]
 
 [sub_resource type="Resource" id="Resource_e1cbu"]
 script = ExtResource("5_4n8li")
@@ -203,3 +204,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108, 0, -202)
 
 [node name="shovel_" parent="objects" instance=ExtResource("12_02k67")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 192, 0, 12)
+
+[node name="dig_mound" parent="objects" instance=ExtResource("13_4n8li")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 0)

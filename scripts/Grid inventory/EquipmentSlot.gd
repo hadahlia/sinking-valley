@@ -32,3 +32,9 @@ func _get_drag_data(at_position):
 		preview.add_child(preview_texture)
 		set_drag_preview(preview)
 	return self
+
+func _get_item_attack()->int:
+	if(item != null):
+		if(item.TYPE == "Equipment"):
+			return item.attackValue
+	return 0

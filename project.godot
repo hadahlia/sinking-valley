@@ -54,6 +54,9 @@ Temple=""
 Levels=""
 Ending=""
 ItemShovel=""
+DigMound=""
+EventMessager=""
+EquipSlots=""
 
 [importer_defaults]
 
