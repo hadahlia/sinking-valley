@@ -1,0 +1,12 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://dt2xyqvhauy2k"]
+
+[ext_resource type="Texture2D" uid="uid://f843e8sgecem" path="res://assets/textures/GoldTrimSprite.png" id="1_d1m7w"]
+
+[resource]
+texture = ExtResource("1_d1m7w")
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2

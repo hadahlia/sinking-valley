@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cc0u8dhvxbcbc" path="res://scripts/Grid inventory/inventory.gd" id="1_3f168"]
 [ext_resource type="PackedScene" uid="uid://rlhx2wi3lgqa" path="res://scripts/Grid inventory/Slot.tscn" id="1_08tj3"]
 [ext_resource type="Resource" uid="uid://bv6s3pjng87y" path="res://scripts/Items/Test.tres" id="2_ad4b0"]
-[ext_resource type="StyleBox" uid="uid://veqxu01u8xpu" path="res://shaders/materials/style_box_temp.tres" id="4_3ipvn"]
+[ext_resource type="StyleBox" uid="uid://dt2xyqvhauy2k" path="res://shaders/materials/slot_style_0.tres" id="3_3f168"]
 [ext_resource type="PackedScene" uid="uid://b4uahcrdgflpf" path="res://scripts/Grid inventory/EquipmentSlot.tscn" id="6_3f168"]
 [ext_resource type="Resource" uid="uid://bcmgimgthpwjv" path="res://scripts/Items/TestEquipment.tres" id="6_oqdvf"]
 
@@ -49,7 +49,7 @@ columns = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_styles/panel = ExtResource("4_3ipvn")
+theme_override_styles/panel = ExtResource("3_3f168")
 item = ExtResource("2_ad4b0")
 amount = 2
 
@@ -57,7 +57,7 @@ amount = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_styles/panel = ExtResource("4_3ipvn")
+theme_override_styles/panel = ExtResource("3_3f168")
 item = ExtResource("6_oqdvf")
 amount = 1
 
@@ -65,7 +65,7 @@ amount = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_styles/panel = ExtResource("4_3ipvn")
+theme_override_styles/panel = ExtResource("3_3f168")
 item = ExtResource("6_oqdvf")
 amount = 1
 
@@ -73,7 +73,7 @@ amount = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_styles/panel = ExtResource("4_3ipvn")
+theme_override_styles/panel = ExtResource("3_3f168")
 item = ExtResource("6_oqdvf")
 amount = 1
 
@@ -81,7 +81,7 @@ amount = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_styles/panel = ExtResource("4_3ipvn")
+theme_override_styles/panel = ExtResource("3_3f168")
 item = ExtResource("6_oqdvf")
 amount = 1
 
@@ -89,7 +89,7 @@ amount = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_styles/panel = ExtResource("4_3ipvn")
+theme_override_styles/panel = ExtResource("3_3f168")
 item = ExtResource("6_oqdvf")
 amount = 1
 
@@ -97,7 +97,7 @@ amount = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_styles/panel = ExtResource("4_3ipvn")
+theme_override_styles/panel = ExtResource("3_3f168")
 item = ExtResource("6_oqdvf")
 amount = 1
 
@@ -105,7 +105,7 @@ amount = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_styles/panel = ExtResource("4_3ipvn")
+theme_override_styles/panel = ExtResource("3_3f168")
 item = ExtResource("6_oqdvf")
 amount = 1
 
@@ -117,9 +117,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = 240.0
-offset_top = -136.0
+offset_top = -120.0
 offset_right = 425.0
-offset_bottom = -48.0
+offset_bottom = -32.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 3
@@ -130,13 +130,13 @@ theme_override_constants/separation = 25
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_styles/panel = ExtResource("4_3ipvn")
+theme_override_styles/panel = ExtResource("3_3f168")
 
 [node name="Slot2" parent="CanvasLayer/Hotbar" instance=ExtResource("1_08tj3")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_styles/panel = ExtResource("4_3ipvn")
+theme_override_styles/panel = ExtResource("3_3f168")
 
 [node name="Equipment Slot2" parent="CanvasLayer" instance=ExtResource("6_3f168")]
 anchors_preset = 2
@@ -144,9 +144,9 @@ anchor_top = 1.0
 anchor_right = 0.0
 anchor_bottom = 1.0
 offset_left = 24.0
-offset_top = -104.0
+offset_top = -96.0
 offset_right = 104.0
-offset_bottom = -28.0
+offset_bottom = -20.0
 grow_horizontal = 1
 grow_vertical = 0
-theme_override_styles/panel = ExtResource("4_3ipvn")
+theme_override_styles/panel = ExtResource("3_3f168")

@@ -1,0 +1,41 @@
+[gd_scene load_steps=9 format=3 uid="uid://bahf84moa3rqk"]
+
+[ext_resource type="Script" uid="uid://h56wh5xdsp4l" path="res://scripts/actors/interactable.gd" id="1_8e735"]
+[ext_resource type="ArrayMesh" uid="uid://do3isac7r21qx" path="res://assets/meshes/items/dirt.res" id="2_8v3gx"]
+[ext_resource type="ArrayMesh" uid="uid://clslx8g7n8nut" path="res://assets/meshes/items/shovel.res" id="2_m32di"]
+[ext_resource type="Texture2D" uid="uid://8levb5j4q5v" path="res://assets/textures/items/shovel.png" id="3_b0jow"]
+[ext_resource type="Texture2D" uid="uid://bxaw5xg4ocijr" path="res://assets/textures/items/dirt_mound_value.png" id="3_ew2kg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hc8qp"]
+albedo_color = Color(0.48, 0.30864, 0.1776, 1)
+albedo_texture = ExtResource("3_ew2kg")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7mmql"]
+albedo_color = Color(0.44, 1, 0.766667, 1)
+albedo_texture = ExtResource("3_b0jow")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7mmql"]
+size = Vector3(5, 5, 5)
+
+[node name="shovel_" type="Node3D"]
+script = ExtResource("1_8e735")
+event_text = "you took the shovel"
+is_door = false
+
+[node name="dirt_mesh" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2_8v3gx")
+surface_material_override/0 = SubResource("StandardMaterial3D_hc8qp")
+
+[node name="shovel_mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.44889, -0.388229, 0, 0.375, -1.39952, -0.388229, 0.100481, -0.375, 1.44889, 0.9, 3.7, 0.8)
+mesh = ExtResource("2_m32di")
+surface_material_override/0 = SubResource("StandardMaterial3D_7mmql")
+
+[node name="Area3D" type="Area3D" parent="." groups=["ItemShovel"]]
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+shape = SubResource("BoxShape3D_7mmql")

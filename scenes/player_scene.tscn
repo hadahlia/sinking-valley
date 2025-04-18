@@ -1,9 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://bkgeyx3owgjlf"]
+[gd_scene load_steps=14 format=3 uid="uid://bkgeyx3owgjlf"]
 
 [ext_resource type="Script" uid="uid://ccs7bwn28hhyc" path="res://scripts/player_script.gd" id="1_crmta"]
 [ext_resource type="Resource" uid="uid://crkfk2ax3xtye" path="res://assets/resources/player/player_resource.tres" id="2_rbmgg"]
 [ext_resource type="Script" uid="uid://bv6na32o33jdv" path="res://scripts/turn_counter.gd" id="3_icjpm"]
+[ext_resource type="Script" uid="uid://bbo0jv302mixf" path="res://scripts/player_ui.gd" id="3_yuc3v"]
 [ext_resource type="PackedScene" uid="uid://lxtnnc7nixed" path="res://scripts/Grid inventory/inventory.tscn" id="4_icjpm"]
+[ext_resource type="Texture2D" uid="uid://bqvcfp3tyv747" path="res://assets/textures/FooterHud.png" id="4_iya25"]
+[ext_resource type="Texture2D" uid="uid://lxg8hq2xwsfe" path="res://assets/textures/FooterHudUpdate.png" id="5_dgtyx"]
+[ext_resource type="Texture2D" uid="uid://k2kkfuv410vm" path="res://assets/textures/FooterHud2.png" id="5_lvcr2"]
+[ext_resource type="FontFile" uid="uid://urm2qwhg7j7k" path="res://assets/textures/font/m5x7.ttf" id="6_c3371"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_crmta"]
 
@@ -96,10 +101,25 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("3_yuc3v")
 
 [node name="hud" type="CanvasLayer" parent="p_screen"]
 
-[node name="footer" type="ColorRect" parent="p_screen/hud"]
+[node name="NinePatchRect" type="NinePatchRect" parent="p_screen/hud"]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("4_iya25")
+
+[node name="footer" type="NinePatchRect" parent="p_screen/hud"]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -107,7 +127,11 @@ anchor_bottom = 1.0
 offset_top = -112.0
 grow_horizontal = 2
 grow_vertical = 0
-color = Color(0.54, 0.4113, 0.189, 1)
+texture = ExtResource("5_dgtyx")
+patch_margin_left = 17
+patch_margin_right = 17
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
 
 [node name="equipment_bar" type="HBoxContainer" parent="p_screen/hud/footer"]
 visible = false
@@ -171,31 +195,33 @@ layout_mode = 2
 theme = SubResource("Theme_crmta")
 theme_override_styles/panel = SubResource("StyleBoxFlat_vefth")
 
-[node name="not yet" type="Label" parent="p_screen/hud/footer"]
+[node name="hp" type="Label" parent="p_screen/hud/footer"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 96.0
+offset_left = 128.0
 offset_top = -96.0
-offset_right = 193.0
+offset_right = 225.0
 offset_bottom = -68.0
 grow_vertical = 0
-theme_override_font_sizes/font_size = 20
-text = "health: lol"
+theme_override_fonts/font = ExtResource("6_c3371")
+theme_override_font_sizes/font_size = 32
+text = "HP :"
 
-[node name="lv" type="Label" parent="p_screen/hud/footer"]
+[node name="def" type="Label" parent="p_screen/hud/footer"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 96.0
+offset_left = 128.0
 offset_top = -56.0
-offset_right = 193.0
+offset_right = 225.0
 offset_bottom = -28.0
 grow_vertical = 0
-theme_override_font_sizes/font_size = 20
-text = "lv1"
+theme_override_fonts/font = ExtResource("6_c3371")
+theme_override_font_sizes/font_size = 32
+text = "DEF : "
 
 [node name="slot_num1" type="Label" parent="p_screen/hud/footer"]
 layout_mode = 1
@@ -204,13 +230,14 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 280.0
+offset_left = 232.0
 offset_top = -32.0
-offset_right = 320.0
+offset_right = 272.0
 offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_font_sizes/font_size = 20
+theme_override_fonts/font = ExtResource("6_c3371")
+theme_override_font_sizes/font_size = 32
 text = "1"
 horizontal_alignment = 1
 
@@ -221,17 +248,19 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 360.0
+offset_left = 336.0
 offset_top = -32.0
-offset_right = 400.0
+offset_right = 376.0
 offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_font_sizes/font_size = 20
+theme_override_fonts/font = ExtResource("6_c3371")
+theme_override_font_sizes/font_size = 32
 text = "2"
 horizontal_alignment = 1
 
-[node name="ColorRect" type="ColorRect" parent="p_screen/hud/footer"]
+[node name="event_window" type="NinePatchRect" parent="p_screen/hud/footer"]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -243,7 +272,11 @@ offset_top = -120.0
 offset_right = 184.0
 grow_horizontal = 2
 grow_vertical = 0
-color = Color(0.38, 0.17461, 0.1178, 1)
+texture = ExtResource("5_lvcr2")
+patch_margin_left = 17
+patch_margin_right = 17
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
 
 [node name="status_text" type="RichTextLabel" parent="p_screen/hud/footer"]
 layout_mode = 1
@@ -255,9 +288,11 @@ anchor_bottom = 1.0
 offset_left = -168.0
 offset_top = -112.0
 offset_right = 168.0
-offset_bottom = -16.0
+offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_fonts/normal_font = ExtResource("6_c3371")
+theme_override_font_sizes/normal_font_size = 32
 text = "debug line
 debug line
 debug line
@@ -275,6 +310,8 @@ offset_top = 56.0
 offset_right = 24.0
 offset_bottom = 79.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("6_c3371")
+theme_override_font_sizes/font_size = 48
 text = "test"
 script = ExtResource("3_icjpm")
 

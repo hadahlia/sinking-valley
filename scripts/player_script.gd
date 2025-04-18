@@ -145,7 +145,7 @@ func attack_tile():
 		return
 	var col = cast_forward.get_collider()
 	if col.is_in_group("EnemyMonster"):
-		col.get_parent().stats_resource.TakeDamage(2)
+		col.get_parent().stats_resource.TakeDamage(8)
 		print(col.get_parent().stats_resource.currentHP)
 		col.get_parent().assess_life()
 	end_turn()
@@ -164,6 +164,10 @@ func interact_tile():
 		#ending_emit.emit()
 		GlobalAudio.stop_music()
 		SceneManager.ChangeScene(SceneManager.ENDING_SCENE)
+	elif col.is_in_group("ItemShovel"):
+		print("oh man i sure wish i could grab the shovel")
+		col.get_parent().queue_free()
+		#col.get_parent().trigger()
 		#col.get_parent().stats_resource.TakeDamage(2)
 		#print(col.get_parent().stats_resource.currentHP)
 		#col.get_parent().assess_life()

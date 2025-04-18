@@ -17,7 +17,7 @@ var from_temple_spawnpoint : Marker3D #unused, for now
 @onready var island_spawnpoint : Marker3D = get_tree().get_first_node_in_group("PlayerSpawnIsland")
 
 enum ELocations { ISLAND = 0, DUNGEON = 1}
-var location : int = 1
+var location : int = 0
 
 # GameRule
 #var turn_num : int = 0
