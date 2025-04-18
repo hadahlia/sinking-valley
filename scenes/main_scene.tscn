@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://d8f880h8ddw5"]
+[gd_scene load_steps=5 format=3 uid="uid://d8f880h8ddw5"]
 
 [ext_resource type="Script" uid="uid://b1tdhq6vm4oqh" path="res://scripts/level_controller.gd" id="1_c16ls"]
 [ext_resource type="PackedScene" uid="uid://bkgeyx3owgjlf" path="res://scenes/player_scene.tscn" id="1_w2twt"]
 [ext_resource type="Sky" uid="uid://dlmsbf00mp1d1" path="res://shaders/sky_pan.tres" id="4_pu3yx"]
-[ext_resource type="PackedScene" uid="uid://blxw41546bbo1" path="res://scenes/island_level.tscn" id="4_rt2n2"]
 
 [sub_resource type="Environment" id="Environment_pw63i"]
 background_mode = 2
@@ -39,8 +38,6 @@ adjustment_saturation = 1.2
 [node name="level_controller" type="Node3D" parent="."]
 script = ExtResource("1_c16ls")
 
-[node name="island_level" parent="level_controller" instance=ExtResource("4_rt2n2")]
-
 [node name="player_scene" parent="level_controller" instance=ExtResource("1_w2twt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
@@ -50,6 +47,12 @@ one_shot = true
 [node name="gameturn_delay" type="Timer" parent="level_controller"]
 wait_time = 0.2
 one_shot = true
+
+[node name="player_start_island" type="Marker3D" parent="level_controller" groups=["PlayerSpawnIsland"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="player_start_temple" type="Marker3D" parent="level_controller" groups=["PlayerSpawnTemple"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="lighting_global" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)

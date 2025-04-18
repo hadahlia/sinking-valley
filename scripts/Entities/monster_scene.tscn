@@ -19,6 +19,7 @@ billboard = 1
 alpha_cut = 1
 
 [node name="step_to" type="CharacterBody3D" parent="." groups=["EnemyMonster"]]
+unique_name_in_owner = true
 
 [node name="ground" type="RayCast3D" parent="step_to"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

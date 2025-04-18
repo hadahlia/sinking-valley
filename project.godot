@@ -48,6 +48,10 @@ Player=""
 EnemyMonster=""
 EnemyRoot=""
 AMap=""
+Doorway=""
+Island=""
+Temple=""
+Levels=""
 
 [importer_defaults]
 
@@ -138,6 +142,7 @@ inventory={
 
 3d_physics/layer_1="COLLISION"
 3d_physics/layer_2="PLAYER"
+3d_physics/layer_3="INTERACTABLE"
 3d_physics/layer_5="AREAS_INTERACTABLE"
 3d_physics/layer_6="ATTACKABLE"
 

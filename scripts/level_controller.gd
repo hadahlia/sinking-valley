@@ -1,6 +1,9 @@
 extends Node3D
 class_name GameRule
 
+const island_level = preload("res://scenes/island_level.tscn")
+const temple_level = preload("res://scenes/temple_level.tscn")
+
 #@export_node_path("Player") var player_ref
 #@onready var player_scene: Player = $"../player_scene"
 @onready var player_scene: Player = $player_scene
@@ -14,7 +17,7 @@ var from_temple_spawnpoint : Marker3D #unused, for now
 @onready var island_spawnpoint : Marker3D = get_tree().get_first_node_in_group("PlayerSpawnIsland")
 
 enum ELocations { ISLAND = 0, DUNGEON = 1}
-var location = 0
+var location : int = 0
 
 # GameRule
 #var turn_num : int = 0
@@ -45,23 +48,53 @@ func end_turn() -> void:
 		GameFlags.turn_id += 1
 
 func _ready() -> void:
+	#location = GameFlags.player_location
 	GameFlags.player_turn = true
 	player_scene.moved.connect(end_turn)
+	player_scene.door_emit.connect(switch_map)
 	gameturn_delay.timeout.connect(end_turn)
 	GameFlags.turn_id = 0
 	#player_ref = get_tree().get_first_node_in_group("Player")
 	#player_scene.ready.connect(check_location)
 	check_location()
 
+func switch_map()->void:
+	var old := get_tree().get_first_node_in_group("Levels")
+	if old:
+		old.queue_free()
+		GlobalAudio.stop_music()
+	if location == 0:
+		location = 1
+		get_tree().create_timer(1.0).timeout.connect(func()->void:
+			instance_map(temple_level)
+			delay_music.timeout.connect(func() -> void: GlobalAudio.play_music(GlobalAudio.DUNGEON_THEME))
+			delay_music.start()
+			)
+	else:
+		location = 0
+		get_tree().create_timer(1.0).timeout.connect(func()->void:
+			instance_map(island_level)
+			
+			GlobalAudio.play_music(GlobalAudio.SEA_LOOP)
+			)
+	
+	
+
+func instance_map(level) -> void:
+	var c = level.instantiate()
+	add_child(c)
+
 func check_location() -> void:
 	match location:
 		0:
 			GlobalAudio.play_music(GlobalAudio.SEA_LOOP)
 			spawn_entity(player_scene,island_spawnpoint)
+			instance_map(island_level)
 		1:
 			delay_music.timeout.connect(func() -> void: GlobalAudio.play_music(GlobalAudio.DUNGEON_THEME))
 			delay_music.start()
 			spawn_entity(player_scene,temple_spawnpoint)
+			instance_map(temple_level)
 
 func spawn_entity(entity_: Player, point: Marker3D) -> void:
 	entity_.global_position = point.global_position

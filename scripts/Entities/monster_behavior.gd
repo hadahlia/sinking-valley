@@ -2,7 +2,8 @@ extends Node3D
 class_name EntityMonster
 
 @onready var body: Node3D = $body
-@onready var step_to: Node3D = $step_to
+#@onready var step_to: Node3D = $step_to
+@onready var step_to: CharacterBody3D = %step_to
 
 @onready var sprite_: Sprite3D = $body/Sprite3D
 @onready var collision_shape_3d: CollisionShape3D = $step_to/CollisionShape3D
@@ -29,9 +30,9 @@ var d : Vector3 = Vector3.ZERO
 var prev_pos : Vector3
 
 # pathing stuff
-var path : PackedVector2Array = []
+#var path : Array = []
 var path_id : int = 0
-var personal_astar := AStar2D.new()
+#var personal_astar := AStar2D.new()
 
 @onready var amap = get_tree().get_first_node_in_group("AMap")
 @onready var player : CharacterBody3D = get_tree().get_first_node_in_group("Player")
@@ -110,18 +111,18 @@ func check_move(ri : int, dir: Vector3, cast: RayCast3D) -> void:
 
 func move_astar() -> void:
 	
-	path = amap.get_astar_avoid_units(step_to.global_position, player.global_position)
+	var path :Array= amap.get_astar_avoid_units(step_to.global_position, player.global_position)
 	#personal_astar = amap.connect_as_points()
-	path_id = 0
+	#path_id = 0
 	#
-	print(path)
+	#print(path)
 	#path = amap.get_as_path(step_to.global_position, player.global_position)
 	##print(path[0])
 	#print("monster pos: ", step_to.global_position, "player pos: ", player.global_position)
-	if path_id < path.size():
-		var target: Vector3 = Vector3(path[0].x, step_to.global_position.y, path[0].y)
+	if path.size() > 2:
+		var target: Vector3 = Vector3(path[0].x , step_to.global_position.y, path[0].y )
 		step_to.global_position = target
-		print(target)
+		print("target: ", target)
 	
 		#var new_target = Vector3((path[path_id].x * STEP_SIZE), step_to.global_position.y, path[path_id].y * STEP_SIZE)
 		#var target_len = (path[path_id] - Vector2(step_to.global_position.x, step_to.global_position.z)).length()

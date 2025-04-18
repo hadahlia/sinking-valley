@@ -43,7 +43,7 @@ omni_range = 50.0
 [node name="cast_forward" type="RayCast3D" parent="head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 target_position = Vector3(0, 0, -4)
-collision_mask = 17
+collision_mask = 21
 hit_from_inside = true
 collide_with_areas = true
 

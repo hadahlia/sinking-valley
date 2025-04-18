@@ -33,7 +33,8 @@ func generate_astar() -> void:
 	
 
 func connect_as_points() -> AStar2D:
-	for c in get_cell_positions():
+	var cells := get_cell_positions()
+	for c in cells:
 		for x in [-1, 0, 1]:
 			for z in [-1,0,1]:
 				var v2 = Vector2(x, z)
@@ -77,7 +78,7 @@ func get_as_path(start: Vector3, end: Vector3) -> PackedVector2Array:
 func vec_to_id(world: Vector2) -> String:
 	return str(int(round(world.x))) + "," + str(int(round(world.y)))
 
-func world_to_grid(world: Vector3) -> Vector3i:
+func world_to_grid(world: Vector3) -> Vector3:
 	
 	var x: int = int(round(world.x))
 	var z: int = int(round(world.z))
@@ -97,14 +98,14 @@ func get_cell_positions() -> Array:
 	var cells := board.get_used_cells()
 	var cell_positions := []
 	for cell in cells:
-		var cell_pos := board.global_position + board.map_to_local(cell)
-		cell_positions.append(cell_pos)
+		#var cell_pos := board.global_position + board.map_to_local(cell)
+		cell_positions.append(cell)
 	return cell_positions
 
 func create_path_points() -> void:
 	astar.clear()
 	var used_cell_pos = get_cell_positions()
-	
+	#print(used_cell_pos)
 	for cell in used_cell_pos:
 		#var ind := astar.get_available_point_id()
 		astar.add_point(get_point(cell), Vector2(cell.x, cell.z))
@@ -112,7 +113,7 @@ func create_path_points() -> void:
 	for cell in used_cell_pos:
 		connect_cardinals(cell)
 		
-	print("done")
+	#print("done")
 		#for x in [-4, 0, 4]:
 			#for z in [-4,0,4]:
 				#var v2 = Vector2(x, z)
@@ -142,12 +143,20 @@ func position_has_unit(unit_pos: Vector2, ignore_position = null) -> bool:
 		if Vector2(u.global_position.x,u.global_position.z) == unit_pos: return true
 	return false
 
-func get_astar_avoid_units(start: Vector3, end: Vector3) -> Array:
+func get_astar_avoid_units(start: Vector3, end: Vector3) -> PackedVector2Array:
+	#create_path_points()
+	var s_grid := world_to_grid(start)
+	var e_grid := world_to_grid(end)
+	#var s_ : Vector2 = Vector2(s_grid.x, s_grid.z)
+	#var e_ := Vector2(e_grid.x, e_grid.z)
+	#print(start, s_grid)
+	#print(end, e_grid)
 	set_unit_points_disabled(true)
-	var astar_path := astar.get_point_path(get_point(start), get_point(end))
+	var astar_path := astar.get_point_path(get_point(s_grid), get_point(e_grid))
 	set_unit_points_disabled(false)
+	#print("get astar avoid units!")
 	return astar_path
-	print("get astar avoid units!")
+	
 
 func stop_path_at_unit(potential_path: Array) -> Array:
 	for i in range(1, potential_path.size()):
@@ -159,11 +168,11 @@ func stop_path_at_unit(potential_path: Array) -> Array:
 
 func set_unit_points_disabled(value: bool) -> void:
 	for unit in units_array:
-		astar.set_point_disabled(get_point(unit.global_position),value)
+		astar.set_point_disabled(get_point(world_to_grid(unit.global_position)),value)
 
 func get_point(point: Vector3) -> int:
-	var x: int = int(point.x)
-	var z: int = int(point.z)
+	var x: int = int(round(point.x))
+	var z: int = int(round(point.z))
 	
 	return szudzik_pair_improved(x, z)
 
@@ -199,7 +208,7 @@ func connect_cardinals(point_pos: Vector3) -> void:
 	var dirs := DIRECTIONS
 	
 	for dir in dirs:
-		var cardinal_point := get_point(point_pos + board.map_to_local(dir))
+		var cardinal_point := get_point(point_pos + dir)
 		if cardinal_point != center and astar.has_point(cardinal_point):
 			astar.connect_points(center, cardinal_point, true)
 

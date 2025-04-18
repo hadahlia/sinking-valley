@@ -30,16 +30,15 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer"]
-visible = false
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -168.0
-offset_top = -124.0
+offset_left = -216.0
+offset_top = -196.0
 offset_right = -40.0
-offset_bottom = 128.0
+offset_bottom = 134.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_constants/h_separation = 8
@@ -48,48 +47,64 @@ columns = 2
 
 [node name="Slot" parent="CanvasLayer/GridContainer" instance=ExtResource("1_08tj3")]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("4_3ipvn")
 item = ExtResource("2_ad4b0")
 amount = 2
 
 [node name="Slot2" parent="CanvasLayer/GridContainer" instance=ExtResource("1_08tj3")]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("4_3ipvn")
 item = ExtResource("6_oqdvf")
 amount = 1
 
 [node name="Slot3" parent="CanvasLayer/GridContainer" instance=ExtResource("1_08tj3")]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("4_3ipvn")
 item = ExtResource("6_oqdvf")
 amount = 1
 
 [node name="Slot4" parent="CanvasLayer/GridContainer" instance=ExtResource("1_08tj3")]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("4_3ipvn")
 item = ExtResource("6_oqdvf")
 amount = 1
 
 [node name="Slot5" parent="CanvasLayer/GridContainer" instance=ExtResource("1_08tj3")]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("4_3ipvn")
 item = ExtResource("6_oqdvf")
 amount = 1
 
 [node name="Slot6" parent="CanvasLayer/GridContainer" instance=ExtResource("1_08tj3")]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("4_3ipvn")
 item = ExtResource("6_oqdvf")
 amount = 1
 
 [node name="Slot7" parent="CanvasLayer/GridContainer" instance=ExtResource("1_08tj3")]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("4_3ipvn")
 item = ExtResource("6_oqdvf")
 amount = 1
 
 [node name="Slot8" parent="CanvasLayer/GridContainer" instance=ExtResource("1_08tj3")]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("4_3ipvn")
 item = ExtResource("6_oqdvf")
 amount = 1
@@ -101,30 +116,36 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 280.0
-offset_top = -112.0
+offset_left = 240.0
+offset_top = -136.0
 offset_right = 425.0
-offset_bottom = -37.0
+offset_bottom = -48.0
 grow_horizontal = 2
 grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_constants/separation = 25
 
-[node name="Slot" parent="CanvasLayer/Hotbar" instance=ExtResource("1_08tj3")]
+[node name="Slot1" parent="CanvasLayer/Hotbar" instance=ExtResource("1_08tj3")]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("4_3ipvn")
 
 [node name="Slot2" parent="CanvasLayer/Hotbar" instance=ExtResource("1_08tj3")]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("4_3ipvn")
 
-[node name="Equipment Slot" parent="CanvasLayer" instance=ExtResource("6_3f168")]
+[node name="Equipment Slot2" parent="CanvasLayer" instance=ExtResource("6_3f168")]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_right = 0.0
 anchor_bottom = 1.0
 offset_left = 24.0
-offset_top = -88.0
-offset_right = 84.0
+offset_top = -104.0
+offset_right = 104.0
 offset_bottom = -28.0
 grow_horizontal = 1
 grow_vertical = 0

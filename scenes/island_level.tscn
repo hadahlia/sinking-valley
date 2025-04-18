@@ -9,20 +9,9 @@
 [ext_resource type="Shader" uid="uid://bbswhlhaqig87" path="res://shaders/seawater.gdshader" id="7_ai436"]
 [ext_resource type="Texture2D" uid="uid://ob2x7p6gbkib" path="res://assets/textures/water_placeholder.png" id="8_q6l1g"]
 [ext_resource type="AudioStream" uid="uid://bqd628y38mref" path="res://sound/sfx/Ambiance_Sea_Loop_Stereo.wav" id="9_tuoy7"]
+[ext_resource type="PackedScene" uid="uid://cwghya4t7r11h" path="res://scenes/interactables/doorway_actor.tscn" id="10_4fmwh"]
 
 [sub_resource type="Resource" id="Resource_e1cbu"]
-script = ExtResource("5_4n8li")
-expGiven = 0
-goldGiven = 0
-icon = ExtResource("4_02k67")
-unitName = "Alectryon"
-level = 1
-maxHP = 20
-currentHP = 20
-isDead = false
-metadata/_custom_type_script = "uid://okpjvxfuet1p"
-
-[sub_resource type="Resource" id="Resource_mngbo"]
 script = ExtResource("5_4n8li")
 expGiven = 0
 goldGiven = 0
@@ -116,7 +105,7 @@ size = Vector2(1000, 1000)
 subdivide_width = 50
 subdivide_depth = 50
 
-[node name="island_level" type="Node3D"]
+[node name="island_level" type="Node3D" groups=["Levels"]]
 
 [node name="AMap" type="Node3D" parent="." groups=["AMap"]]
 script = ExtResource("1_j7oq4")
@@ -136,10 +125,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 [node name="monster_scene" parent="AMap/monster_node" instance=ExtResource("3_dbbqp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, -16)
 stats_resource = SubResource("Resource_e1cbu")
-
-[node name="monster_scene2" parent="AMap/monster_node" instance=ExtResource("3_dbbqp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
-stats_resource = SubResource("Resource_mngbo")
 
 [node name="monster_scene3" parent="AMap/monster_node" instance=ExtResource("3_dbbqp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -12)
@@ -168,9 +153,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 141.5, 3.5, 2)
 size = Vector3(1000, 17, 1000)
 data = SubResource("VoxelGIData_jdt3e")
 
-[node name="player_start_island" type="Marker3D" parent="." groups=["PlayerSpawnIsland"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-
 [node name="sea_plane" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 138, 0, 0)
 mesh = SubResource("PlaneMesh_pu3yx")
@@ -180,3 +162,9 @@ mesh = SubResource("PlaneMesh_pu3yx")
 [node name="sea_loop" type="AudioStreamPlayer3D" parent="island_audio"]
 stream = ExtResource("9_tuoy7")
 unit_size = 100.0
+
+[node name="objects" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="doorway_actor" parent="objects" instance=ExtResource("10_4fmwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
