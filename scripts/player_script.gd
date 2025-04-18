@@ -3,6 +3,7 @@ class_name Player
 
 signal moved
 signal door_emit
+signal ending_emit
 
 @onready var label: Label = $Label #testing the stupid step timer
 
@@ -159,6 +160,10 @@ func interact_tile():
 	if col.is_in_group("Doorway"):
 		#if col.is_door:
 		door_emit.emit()
+	elif col.is_in_group("Ending"):
+		#ending_emit.emit()
+		GlobalAudio.stop_music()
+		SceneManager.ChangeScene(SceneManager.ENDING_SCENE)
 		#col.get_parent().stats_resource.TakeDamage(2)
 		#print(col.get_parent().stats_resource.currentHP)
 		#col.get_parent().assess_life()

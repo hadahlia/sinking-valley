@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://blxw41546bbo1"]
+[gd_scene load_steps=22 format=4 uid="uid://blxw41546bbo1"]
 
 [ext_resource type="Script" uid="uid://he75b54qr1uf" path="res://scripts/pathfinding.gd" id="1_j7oq4"]
 [ext_resource type="MeshLibrary" uid="uid://dj3ibhsaug4u" path="res://assets/meshlibs/pathtile.tres" id="2_4fmwh"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://okpjvxfuet1p" path="res://scripts/Entities/Monster.gd" id="5_4n8li"]
 [ext_resource type="MeshLibrary" uid="uid://c7ycu8os62yk0" path="res://assets/meshlibs/meshlib_island2.tres" id="6_j7oq4"]
 [ext_resource type="Shader" uid="uid://bbswhlhaqig87" path="res://shaders/seawater.gdshader" id="7_ai436"]
+[ext_resource type="Sky" uid="uid://dlmsbf00mp1d1" path="res://shaders/sky_pan.tres" id="7_dbbqp"]
 [ext_resource type="Texture2D" uid="uid://ob2x7p6gbkib" path="res://assets/textures/water_placeholder.png" id="8_q6l1g"]
 [ext_resource type="AudioStream" uid="uid://bqd628y38mref" path="res://sound/sfx/Ambiance_Sea_Loop_Stereo.wav" id="9_tuoy7"]
 [ext_resource type="PackedScene" uid="uid://cwghya4t7r11h" path="res://scenes/interactables/doorway_actor.tscn" id="10_4fmwh"]
@@ -70,6 +71,35 @@ _data = {
 "to_cell_xform": Transform3D(0.128, 0, 0, 0, 0.128, 0, 0, 0, 0.128, 64, 1.088, 64)
 }
 energy = 1.2
+
+[sub_resource type="Environment" id="Environment_02k67"]
+background_mode = 2
+background_energy_multiplier = 0.98
+sky = ExtResource("7_dbbqp")
+tonemap_mode = 4
+tonemap_exposure = 1.1
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_enabled = true
+sdfgi_use_occlusion = true
+glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.1323, 0.27, 0.208035, 1)
+fog_light_energy = 1.1
+fog_density = 0.005
+fog_sky_affect = 0.202
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.01
+volumetric_fog_emission = Color(0.67, 0.67, 0.67, 1)
+volumetric_fog_emission_energy = 2.5
+volumetric_fog_length = 128.0
+volumetric_fog_detail_spread = 2.2
+volumetric_fog_ambient_inject = 0.05
+volumetric_fog_sky_affect = 0.711
+adjustment_enabled = true
+adjustment_brightness = 0.87
+adjustment_contrast = 1.15
+adjustment_saturation = 1.2
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_rt2n2"]
 noise_type = 5
@@ -153,6 +183,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 141.5, 3.5, 2)
 size = Vector3(1000, 17, 1000)
 data = SubResource("VoxelGIData_jdt3e")
 
+[node name="island_environment" type="WorldEnvironment" parent="lighting_island"]
+environment = SubResource("Environment_02k67")
+
 [node name="sea_plane" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 138, 0, 0)
 mesh = SubResource("PlaneMesh_pu3yx")
@@ -167,4 +200,4 @@ unit_size = 100.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="doorway_actor" parent="objects" instance=ExtResource("10_4fmwh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108, 0, -202)

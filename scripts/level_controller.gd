@@ -17,7 +17,7 @@ var from_temple_spawnpoint : Marker3D #unused, for now
 @onready var island_spawnpoint : Marker3D = get_tree().get_first_node_in_group("PlayerSpawnIsland")
 
 enum ELocations { ISLAND = 0, DUNGEON = 1}
-var location : int = 0
+var location : int = 1
 
 # GameRule
 #var turn_num : int = 0
@@ -33,7 +33,7 @@ func get_monsters() -> void:
 			m.take_turn()
 			mid += 1
 	
-	if mid == monster_count and gameturn_delay.is_stopped():
+	if mid == monster_count:
 		
 		gameturn_delay.start()
 		#end_turn()

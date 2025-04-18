@@ -1,37 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://d8f880h8ddw5"]
+[gd_scene load_steps=3 format=3 uid="uid://d8f880h8ddw5"]
 
 [ext_resource type="Script" uid="uid://b1tdhq6vm4oqh" path="res://scripts/level_controller.gd" id="1_c16ls"]
 [ext_resource type="PackedScene" uid="uid://bkgeyx3owgjlf" path="res://scenes/player_scene.tscn" id="1_w2twt"]
-[ext_resource type="Sky" uid="uid://dlmsbf00mp1d1" path="res://shaders/sky_pan.tres" id="4_pu3yx"]
-
-[sub_resource type="Environment" id="Environment_pw63i"]
-background_mode = 2
-background_energy_multiplier = 0.98
-sky = ExtResource("4_pu3yx")
-tonemap_mode = 4
-tonemap_exposure = 1.1
-ssao_enabled = true
-ssil_enabled = true
-sdfgi_enabled = true
-sdfgi_use_occlusion = true
-glow_enabled = true
-fog_enabled = true
-fog_light_color = Color(0.1323, 0.27, 0.208035, 1)
-fog_light_energy = 1.1
-fog_density = 0.005
-fog_sky_affect = 0.202
-volumetric_fog_enabled = true
-volumetric_fog_density = 0.01
-volumetric_fog_emission = Color(0.67, 0.67, 0.67, 1)
-volumetric_fog_emission_energy = 2.5
-volumetric_fog_length = 128.0
-volumetric_fog_detail_spread = 2.2
-volumetric_fog_ambient_inject = 0.05
-volumetric_fog_sky_affect = 0.711
-adjustment_enabled = true
-adjustment_brightness = 0.87
-adjustment_contrast = 1.15
-adjustment_saturation = 1.2
 
 [node name="main_scene" type="Node3D"]
 
@@ -56,9 +26,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="lighting_global" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
-
-[node name="island_environment" type="WorldEnvironment" parent="lighting_global"]
-environment = SubResource("Environment_pw63i")
 
 [node name="sun" type="DirectionalLight3D" parent="lighting_global"]
 transform = Transform3D(0.866025, 0.433013, -0.25, 0, 0.5, 0.866026, 0.5, -0.75, 0.433013, 0, 0, 0)

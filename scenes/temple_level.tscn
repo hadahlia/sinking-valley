@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=4 uid="uid://b4uaub3oceldw"]
+[gd_scene load_steps=6 format=4 uid="uid://b4uaub3oceldw"]
 
 [ext_resource type="MeshLibrary" uid="uid://qtj22ami5aun" path="res://assets/meshlibs/meshlibrary_dungeon_set.tres" id="1_ubvjv"]
+[ext_resource type="Sky" uid="uid://dlmsbf00mp1d1" path="res://shaders/sky_pan.tres" id="2_gb06t"]
+[ext_resource type="PackedScene" uid="uid://vm2hsyt05s4q" path="res://scenes/interactables/ending_door.tscn" id="3_n5jgq"]
 
 [sub_resource type="VoxelGIData" id="VoxelGIData_gb06t"]
 _data = {
@@ -14,6 +16,34 @@ _data = {
 }
 energy = 1.1
 interior = true
+
+[sub_resource type="Environment" id="Environment_gb06t"]
+background_mode = 1
+background_color = Color(0, 0, 0.188235, 1)
+background_energy_multiplier = 0.98
+sky = ExtResource("2_gb06t")
+tonemap_mode = 4
+tonemap_exposure = 1.1
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_enabled = true
+sdfgi_use_occlusion = true
+glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.08, 0.32, 0.088, 1)
+fog_density = 0.009
+fog_sky_affect = 0.149
+volumetric_fog_density = 0.01
+volumetric_fog_emission = Color(0.67, 0.67, 0.67, 1)
+volumetric_fog_emission_energy = 2.5
+volumetric_fog_length = 128.0
+volumetric_fog_detail_spread = 2.2
+volumetric_fog_ambient_inject = 0.05
+volumetric_fog_sky_affect = 0.711
+adjustment_enabled = true
+adjustment_brightness = 0.87
+adjustment_contrast = 1.15
+adjustment_saturation = 1.2
 
 [node name="temple_level" type="Node3D" groups=["Levels"]]
 
@@ -33,5 +63,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5, 5.5, -26)
 size = Vector3(93, 13, 100)
 data = SubResource("VoxelGIData_gb06t")
 
+[node name="temple_environment" type="WorldEnvironment" parent="lighting_temple"]
+environment = SubResource("Environment_gb06t")
+
 [node name="monster_node" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="objects" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="ending_actor" parent="objects" instance=ExtResource("3_n5jgq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
