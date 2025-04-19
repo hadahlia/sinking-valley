@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bndrljd8rc62p"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_5m686"]
+size = Vector2(4, 4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_03ylb"]
+transparency = 1
+albedo_color = Color(1, 0.11, 0.11, 0.247059)
+
+[node name="attack_indicator" type="Node3D" groups=["AttackSquare"]]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1, 0)
+mesh = SubResource("QuadMesh_5m686")
+surface_material_override/0 = SubResource("StandardMaterial3D_03ylb")

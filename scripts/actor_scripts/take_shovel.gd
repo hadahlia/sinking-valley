@@ -12,10 +12,12 @@ func _ready() -> void:
 func dig():
 	#if GameFlags.has_shovel:
 	var event :Control= get_tree().get_first_node_in_group("EventMessager")
-	event.send_event_message("Do you take the shovel? ")
+	event.send_event_message("Do you take the shovel?... ")
 	slot.show()
 		# it would, give you the item export var and then delete itself ^-^
 		#pass
 
 func on_destroyed() -> void:
+	#var event :Control= get_tree().get_first_node_in_group("EventMessager")
+	#event.send_event_message("You take up the shovel.")
 	GameFlags.has_shovel = true

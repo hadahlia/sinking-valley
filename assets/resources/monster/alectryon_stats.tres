@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("1_mxo1l")
-expGiven = 0
 goldGiven = 0
+damage = 14
 icon = ExtResource("1_11vn7")
 unitName = "Alectryon"
 maxHP = 20

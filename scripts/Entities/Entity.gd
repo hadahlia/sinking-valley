@@ -14,6 +14,7 @@ func TakeDamage(amount : int) -> int:
 	var calcdmg : int = amount - (defense / 2)
 	if calcdmg <= 0:
 		calcdmg = 1
+	
 	if(calcdmg >= currentHP):
 		var ret :int = currentHP
 		currentHP = 0
@@ -24,7 +25,7 @@ func TakeDamage(amount : int) -> int:
 		return calcdmg
 
 func HealDamage(amount : int):
-	if(amount <= currentHP):
+	if(amount + currentHP >= maxHP):
 		currentHP = maxHP
 	else:
 		currentHP += amount

@@ -15,6 +15,8 @@ class_name EntityMonster
 @onready var behind: RayCast3D = $step_to/behind
 
 
+const ATTACK_INDICA = preload("res://scenes/attack_indicator.tscn")
+
 @export var stats_resource : Monster
 
 const STEP_SIZE : float = 4.0
@@ -30,12 +32,15 @@ var d : Vector3 = Vector3.ZERO
 var prev_pos : Vector3
 
 # pathing stuff
-#var path : Array = []
+var path : Array = []
 var path_id : int = 0
 #var personal_astar := AStar2D.new()
 
 @onready var amap = get_tree().get_first_node_in_group("AMap")
 @onready var player : CharacterBody3D = get_tree().get_first_node_in_group("Player")
+
+var attack_queued : bool = false
+var attack_position : Vector3
 
 func _ready() -> void:
 	#stats_resource.TakeDamage()
@@ -44,7 +49,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	
 	body.global_position = lerp(body.global_position, step_to.global_position, LERP_SPEED * delta)
-	if GameFlags.player_turn: return
+	#if GameFlags.player_turn: return
 	if !ground.is_colliding() and prev_pos != Vector3.ZERO:
 		#print("correctingggg")
 		step_to.global_position = prev_pos
@@ -52,9 +57,19 @@ func _physics_process(delta: float) -> void:
 	# logic for what the monster would like to do!!!!!
 
 func take_turn():
+	#if attack_queued:
+		#queue_attack(player.global_position)
+		#return
+	#intention = CHASING
+	#else:
+		#intention = WANDERING
 	match intention:
 		CHASING:
-			move_astar()
+			var los : bool = line_of_sight_test()
+			if los:
+				move_astar()
+			else:
+				print(":3")
 			
 			
 		WANDERING:
@@ -109,29 +124,83 @@ func check_move(ri : int, dir: Vector3, cast: RayCast3D) -> void:
 			
 		#print("collision! new ri")
 
-func move_astar() -> void:
-	pass
-	#var path :Array= amap.get_astar_avoid_units(step_to.global_position, player.global_position)
-	#personal_astar = amap.connect_as_points()
-	#path_id = 0
-	#
-	#print(path)
-	#path = amap.get_as_path(step_to.global_position, player.global_position)
-	##print(path[0])
-	#print("monster pos: ", step_to.global_position, "player pos: ", player.global_position)
-	#if path.size() > 2:
-		#var target: Vector3 = Vector3(path[0].x , step_to.global_position.y, path[0].y )
-		#step_to.global_position = target
-		#print("target: ", target)
+func line_of_sight_test() -> bool:
+	#var los : RayCast3D = RayCast3D.new()
+	#los.exclude_parent = true
+	#los.position = step_to.global_position
+	#los.target_position = player.global_position
+	#los.hit_from_inside
+	#los.force_raycast_update()
+	var space_state = get_world_3d().direct_space_state
+	var query = PhysicsRayQueryParameters3D.create(step_to.global_position, player.global_position)
+	query.exclude = [self, step_to, player]
+	var result = space_state.intersect_ray(query)
+	if result:
+		return false
+		#print(result)
+	#if los.is_colliding():
+		#var col = los.get_collider()
+		#if col and col.is_in_group("Player"):
+		#return true
 	
-		#var new_target = Vector3((path[path_id].x * STEP_SIZE), step_to.global_position.y, path[path_id].y * STEP_SIZE)
-		#var target_len = (path[path_id] - Vector2(step_to.global_position.x, step_to.global_position.z)).length()
-		#if target_len < 0.1:
-			#path_id += 1
-		#new_target.y = step_to.global_position.y
+	return true
+
+func move_astar() -> void:
+	#player = get_tree().get_first_node_in_group("Player")
+	path = amap.get_astar_avoid_units(self.step_to.global_position, player.global_position)
+	print(path)
+	if path.size() > 2:
+		var target: Vector3 = Vector3(path[1].x * STEP_SIZE, step_to.global_position.y, path[1].y * STEP_SIZE)
+		#var target_length = (target - step_to.global_position).length()
+		#print(target_length)
+		#if target_length <= 4:
+			#queue_attack(target)
+		#if (player.global_postion - step_to.global_position).length() < 6:
+			#do_attack()
+		step_to.global_position = target
+		#print("target pos:", target , "path destination: ", Vector3(path[-1].x * STEP_SIZE, step_to.global_position.y, path[-1].y * STEP_SIZE))
+	elif path.size() == 2 :
+		#var target: Vector3 = Vector3(path[-1].x * STEP_SIZE, 0, path[-1].y * STEP_SIZE)
+		do_attack()
+		#queue_attack(target)
+	
+	#path = amap.get_as_path(step_to.global_position, player.global_position)
+	##print("monster pos: ", step_to.global_position, "player pos: ", player.global_position)
+	#print(path)
+	#if path.size() > 2:
+		#var new_target = Vector3(path[1].x * 4, step_to.global_position.y, path[1].y * 4)
+		##var target_len = (path[path_id] - Vector2(step_to.global_position.x, step_to.global_position.z)).length()
+		#
+		##new_target.y = step_to.global_position.y
 		#step_to.global_position = new_target
 		#print("target: ",new_target)
+	#elif path.size() == 2:
+		#var target: Vector3 = Vector3(path[-1].x * STEP_SIZE, step_to.global_position.y, path[-1].y * STEP_SIZE)
+		#queue_attack(target)
+
+func queue_attack(pos: Vector3 ) -> void:
 	
+	
+	if attack_queued:
+		
+		for f in get_tree().get_nodes_in_group("AttackSquare"):
+			f.queue_free()
+		if pos == attack_position:
+			do_attack()
+		#attack_queued = false
+	else:
+		attack_position = pos
+		var attack = ATTACK_INDICA.instantiate()
+		attack.global_position = pos
+		get_parent().add_child(attack)
+		attack_queued = true
+	
+	print("attacked u :3")
+
+func do_attack():
+	var damage : int = stats_resource.damage
+	player.get_parent().take_damage(damage)
+	#attack_queued = false
 
 func take_step(dir: Vector3):
 	
@@ -153,5 +222,6 @@ func set_sprite(new_sprite: Texture2D) -> void:
 	sprite_.texture = new_sprite
 
 func die() -> void:
-	self.visible = !self.visible
-	collision_shape_3d.disabled = true
+	queue_free()
+	#self.visible = !self.visible
+	#collision_shape_3d.disabled = true

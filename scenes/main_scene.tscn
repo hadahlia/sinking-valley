@@ -15,7 +15,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 one_shot = true
 
 [node name="gameturn_delay" type="Timer" parent="level_controller"]
-wait_time = 0.2
+wait_time = 0.18
 one_shot = true
 
 [node name="player_start_island" type="Marker3D" parent="level_controller" groups=["PlayerSpawnIsland"]]

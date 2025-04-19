@@ -16,6 +16,8 @@ const temple_level = preload("res://scenes/temple_level.tscn")
 var from_temple_spawnpoint : Marker3D #unused, for now
 @onready var island_spawnpoint : Marker3D = get_tree().get_first_node_in_group("PlayerSpawnIsland")
 
+@onready var amap = get_tree().get_first_node_in_group("AMap")
+
 enum ELocations { ISLAND = 0, DUNGEON = 1}
 var location : int = 0
 
@@ -39,10 +41,14 @@ func get_monsters() -> void:
 		#end_turn()
 
 func end_turn() -> void:
-	
+	if !amap:
+		amap = get_tree().get_first_node_in_group("AMap")
+	amap.create_path_points()
+	#amap.generate_astar()
 	GameFlags.player_turn = !GameFlags.player_turn
 	#print(GameFlags.player_turn)
-	if !GameFlags.player_turn:
+	if amap and !GameFlags.player_turn:
+		
 		get_monsters()
 	else:
 		GameFlags.turn_id += 1

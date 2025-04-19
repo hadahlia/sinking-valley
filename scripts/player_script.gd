@@ -67,6 +67,9 @@ var grounded : bool = true
 func _ready() -> void:
 	step_time.connect("timeout", on_step_timeout)
 	turn_timer.connect("timeout", on_camturn_timeout)
+	hud.set_health(stats.currentHP, stats.maxHP)
+	hud.set_defense(0)
+	hud.set_dmg(0)
 	can_step = true
 
 func _input(event: InputEvent) -> void:
@@ -156,7 +159,7 @@ func attack_tile():
 		for s in slots:
 			var rdmg : int = s._get_item_attack()
 			my_damage += rdmg
-		
+		#hud.set
 		var dmg :int = col.get_parent().stats_resource.TakeDamage(my_damage)
 		var monster_name := str(col.get_parent().stats_resource.unitName)
 		hud.send_event_message("You did " + str(dmg) + " damage to " + monster_name)
@@ -165,6 +168,25 @@ func attack_tile():
 	end_turn()
 		#took_turn = true
 
+func set_hud()->void:
+	var temp_dmg : int = 0
+	stats.defense = 0
+	var slots = get_tree().get_nodes_in_group("EquipSlots")
+	for s in slots:
+		var rdmg : int = s._get_item_attack()
+		var rdef : int = s._get_item_defense()
+		temp_dmg += rdmg
+		stats.defense += rdef
+	hud.set_dmg(temp_dmg)
+	hud.set_defense(stats.defense)
+
+func take_damage(amt: int)->void:
+	var dmg :int= stats.TakeDamage(amt)
+	hud.send_event_message("You took " + str(dmg) + " damage!")
+	hud.set_health(stats.currentHP, stats.maxHP)
+	#print("took dmg")
+	if stats.currentHP == 0:
+		stats.GameOver()
 
 func interact_tile():
 	if !cast_forward.is_colliding(): 
@@ -251,11 +273,13 @@ func step_delay():
 	took_turn = true
 	
 	step_time.start()
+	
 	#if cast_ground.is_colliding():
 		#took_turn = true
 
 func on_step_timeout():
 	can_step = true
+	set_hud()
 
 func on_camturn_timeout():
 	

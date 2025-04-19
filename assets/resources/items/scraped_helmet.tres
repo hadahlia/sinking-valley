@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Equipment" load_steps=3 format=3 uid="uid://bd4sn2sijgr7r"]
+
+[ext_resource type="Script" path="res://scripts/Items/Equipment.gd" id="1_owo5y"]
+[ext_resource type="Texture2D" uid="uid://mlahhe6e4gi1" path="res://assets/textures/items/helmet_placeholder.png" id="1_weqlj"]
+
+[resource]
+script = ExtResource("1_owo5y")
+EquipmentType = "Armor"
+attackValue = 0
+defValue = 15
+name = "Scraped Helmet"
+picture = ExtResource("1_weqlj")
+TYPE = "Equipment"
+item_id = 5

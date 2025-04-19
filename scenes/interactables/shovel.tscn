@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bahf84moa3rqk"]
+[gd_scene load_steps=14 format=3 uid="uid://bahf84moa3rqk"]
 
 [ext_resource type="Script" uid="uid://b115sfmvvcu2l" path="res://scripts/actor_scripts/take_shovel.gd" id="1_hratn"]
 [ext_resource type="ArrayMesh" uid="uid://do3isac7r21qx" path="res://assets/meshes/items/dirt.res" id="2_8v3gx"]
@@ -19,6 +19,9 @@ albedo_color = Color(0.44, 1, 0.766667, 1)
 albedo_texture = ExtResource("3_b0jow")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7mmql"]
+size = Vector3(4.9, 5, 4.9)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hratn"]
 size = Vector3(5, 5, 5)
 
 [node name="shovel_" type="Node3D"]
@@ -35,6 +38,12 @@ transform = Transform3D(-1.44889, -0.388229, 0, 0.375, -1.39952, -0.388229, 0.10
 mesh = ExtResource("2_m32di")
 surface_material_override/0 = SubResource("StandardMaterial3D_7mmql")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+shape = SubResource("BoxShape3D_7mmql")
+
 [node name="Area3D" type="Area3D" parent="." groups=["ItemShovel"]]
 collision_layer = 4
 collision_mask = 0
@@ -42,7 +51,7 @@ monitoring = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
-shape = SubResource("BoxShape3D_7mmql")
+shape = SubResource("BoxShape3D_hratn")
 
 [node name="reward slot" type="CanvasLayer" parent="."]
 

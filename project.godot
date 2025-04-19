@@ -57,6 +57,7 @@ ItemShovel=""
 DigMound=""
 EventMessager=""
 EquipSlots=""
+AttackSquare=""
 
 [importer_defaults]
 

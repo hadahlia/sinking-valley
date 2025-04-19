@@ -38,3 +38,9 @@ func _get_item_attack()->int:
 		if(item.TYPE == "Equipment"):
 			return item.attackValue
 	return 0
+
+func _get_item_defense()->int:
+	if(item != null):
+		if(item.TYPE == "Equipment"):
+			return item.defValue
+	return 0
