@@ -24,6 +24,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 [node name="player_start_temple" type="Marker3D" parent="level_controller" groups=["PlayerSpawnTemple"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
+[node name="island_return_spawn" type="Marker3D" parent="level_controller" groups=["PlayerSpawnRetIsland"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108, 2, -196)
+
 [node name="lighting_global" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
 
@@ -32,3 +35,13 @@ transform = Transform3D(0.866025, 0.433013, -0.25, 0, 0.5, 0.866026, 0.5, -0.75,
 light_color = Color(0.84, 0.936, 1, 1)
 light_bake_mode = 1
 shadow_enabled = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0265362, 0.0572144, 0.120017, 1)

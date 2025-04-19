@@ -64,6 +64,11 @@ var ray: RayCast3D
 var prev_pos : Vector3 
 var grounded : bool = true
 
+func reposition_me(pos: Vector3)->void:
+	pos.y = step_to.global_position.y
+	step_to.global_position = pos
+	prev_pos = pos
+
 func _ready() -> void:
 	step_time.connect("timeout", on_step_timeout)
 	turn_timer.connect("timeout", on_camturn_timeout)
@@ -216,6 +221,8 @@ func interact_tile():
 	if col.is_in_group("Doorway"):
 		#if col.is_door:
 		door_emit.emit()
+		SceneTransition.fade_out(0.8, Color(0,0,0,1))
+		GameFlags.player_turn = false
 	elif col.is_in_group("Ending"):
 		#ending_emit.emit()
 		GlobalAudio.stop_music()

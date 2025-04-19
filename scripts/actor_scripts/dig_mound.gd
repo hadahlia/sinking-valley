@@ -13,7 +13,7 @@ class_name DirtMound
 func dig():
 	#if GameFlags.has_shovel:
 	var event :Control= get_tree().get_first_node_in_group("EventMessager")
-	event.send_event_message("You dig the dirt, revealing...")
+	event.send_event_message(event_text)
 	slot.show()
 		# it would, give you the item export var and then delete itself ^-^
 		#pass

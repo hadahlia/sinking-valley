@@ -56,11 +56,13 @@ collide_with_areas = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 target_position = Vector3(0, 0, 4)
 collision_mask = 21
+hit_from_inside = true
 
 [node name="cast_right" type="RayCast3D" parent="head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 target_position = Vector3(4, 0, 0)
 collision_mask = 21
+hit_from_inside = true
 
 [node name="cast_left" type="RayCast3D" parent="head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)

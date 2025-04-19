@@ -1,15 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://vm2hsyt05s4q"]
+[gd_scene load_steps=6 format=3 uid="uid://vm2hsyt05s4q"]
 
 [ext_resource type="Script" uid="uid://h56wh5xdsp4l" path="res://scripts/actors/interactable.gd" id="1_f4ph1"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_7mmql"]
-size = Vector3(4, 4, 1)
+size = Vector3(4, 4, 3)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f4ph1"]
 albedo_color = Color(0.12, 1, 0.692, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7mmql"]
 size = Vector3(5, 5, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f4ph1"]
+size = Vector3(4.9, 5, 4.9)
 
 [node name="ending_actor" type="Node3D"]
 script = ExtResource("1_f4ph1")
@@ -27,3 +30,9 @@ monitoring = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
 shape = SubResource("BoxShape3D_7mmql")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+shape = SubResource("BoxShape3D_f4ph1")

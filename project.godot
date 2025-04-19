@@ -59,6 +59,7 @@ EventMessager=""
 EquipSlots=""
 AttackSquare=""
 ItemSlots=""
+PlayerSpawnRetIsland=""
 
 [importer_defaults]
 

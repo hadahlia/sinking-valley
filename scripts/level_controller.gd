@@ -11,14 +11,17 @@ const temple_level = preload("res://scenes/temple_level.tscn")
 @onready var delay_music: Timer = $delay_music
 @onready var gameturn_delay: Timer = $gameturn_delay
 
+@onready var fullrect: ColorRect = $"../CanvasLayer/ColorRect"
+
 
 @onready var temple_spawnpoint : Marker3D = get_tree().get_first_node_in_group("PlayerSpawnTemple")
-var from_temple_spawnpoint : Marker3D #unused, for now
+@onready var return_spawnpoint: Marker3D = get_tree().get_first_node_in_group("PlayerSpawnRetIsland")
+
 @onready var island_spawnpoint : Marker3D = get_tree().get_first_node_in_group("PlayerSpawnIsland")
 
 @onready var amap = get_tree().get_first_node_in_group("AMap")
 
-enum ELocations { ISLAND = 0, DUNGEON = 1}
+enum ELocations { ISLAND = 0, DUNGEON = 1, ISLAND_RET = 2}
 var location : int = 1
 
 # GameRule
@@ -54,6 +57,7 @@ func end_turn() -> void:
 		GameFlags.turn_id += 1
 
 func _ready() -> void:
+	#SceneTransition.fade_in(2.0, Color.BLACK)
 	#location = GameFlags.player_location
 	GameFlags.has_shovel = false
 	GameFlags.player_turn = true
@@ -66,25 +70,40 @@ func _ready() -> void:
 	check_location()
 
 func switch_map()->void:
+	fullrect.show()
 	var old := get_tree().get_first_node_in_group("Levels")
 	if old:
 		old.queue_free()
 		GlobalAudio.stop_music()
-	if location == 0:
-		location = 1
-		get_tree().create_timer(1.0).timeout.connect(func()->void:
-			instance_map(temple_level)
-			delay_music.timeout.connect(func() -> void: GlobalAudio.play_music(GlobalAudio.DUNGEON_THEME))
-			delay_music.start()
-			)
-	else:
-		location = 0
-		get_tree().create_timer(1.0).timeout.connect(func()->void:
-			instance_map(island_level)
-			
-			GlobalAudio.play_music(GlobalAudio.SEA_LOOP)
-			)
+		location += 1
+		if location > 2:
+			location = 1
 	
+	#if location == 1:
+		##location = 1
+		#get_tree().create_timer(1.0).timeout.connect(func()->void:
+			#instance_map(temple_level)
+			#delay_music.timeout.connect(func() -> void: GlobalAudio.play_music(GlobalAudio.DUNGEON_THEME))
+			#delay_music.start()
+			#)
+	#if location == 2:
+		##location = 2
+		#get_tree().create_timer(1.0).timeout.connect(func()->void:
+			#instance_map(island_level)
+			#
+			#GlobalAudio.play_music(GlobalAudio.SEA_LOOP)
+			#)
+	#elif location == 0:
+		##location = 0
+		#get_tree().create_timer(1.0).timeout.connect(func()->void:
+			#instance_map(island_level)
+			#
+			#GlobalAudio.play_music(GlobalAudio.SEA_LOOP)
+			#)
+	get_tree().create_timer(0.5).timeout.connect(func()->void:
+		
+		check_location()
+		)
 	
 
 func instance_map(level) -> void:
@@ -92,17 +111,53 @@ func instance_map(level) -> void:
 	add_child(c)
 
 func check_location() -> void:
+	
 	match location:
 		0:
 			GlobalAudio.play_music(GlobalAudio.SEA_LOOP)
 			spawn_entity(player_scene,island_spawnpoint)
-			instance_map(island_level)
+			get_tree().create_timer(0.5).timeout.connect(func()->void:
+				instance_map(island_level)
+				GameFlags.player_turn = true
+				
+				SceneTransition.fade_in(3.0, Color.BLACK)
+				get_tree().create_timer(1.0).timeout.connect(func()->void:
+					fullrect.hide()
+					)
+				)
 		1:
 			delay_music.timeout.connect(func() -> void: GlobalAudio.play_music(GlobalAudio.DUNGEON_THEME))
 			delay_music.start()
 			spawn_entity(player_scene,temple_spawnpoint)
-			instance_map(temple_level)
+			get_tree().create_timer(0.5).timeout.connect(func()->void:
+				instance_map(temple_level)
+				GameFlags.player_turn = true
+				
+				SceneTransition.fade_in(3.0, Color.BLACK)
+				get_tree().create_timer(1.0).timeout.connect(func()->void:
+					fullrect.hide()
+					)
+				)
+		2:
+			GlobalAudio.play_music(GlobalAudio.SEA_LOOP)
+			spawn_entity(player_scene,return_spawnpoint)
+			get_tree().create_timer(0.5).timeout.connect(func()->void:
+				instance_map(island_level)
+				GameFlags.player_turn = true
+				
+				SceneTransition.fade_in(3.0, Color.BLACK)
+				get_tree().create_timer(1.0).timeout.connect(func()->void:
+					fullrect.hide()
+					)
+				)
+	print(location)
+
+
 
 func spawn_entity(entity_: Player, point: Marker3D) -> void:
-	entity_.global_position = point.global_position
+	#var p = get_tree().get_first_node_in_group("Player")
+	entity_.reposition_me(point.global_position)
+	#entity_.global_position.x = point.global_position.x
+	#entity_.global_position.z = point.global_position.z
+	#print(entity_.global_position)
 	#print("YAYYYYYY")
