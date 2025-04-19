@@ -55,6 +55,7 @@ func end_turn() -> void:
 
 func _ready() -> void:
 	#location = GameFlags.player_location
+	GameFlags.has_shovel = false
 	GameFlags.player_turn = true
 	player_scene.moved.connect(end_turn)
 	player_scene.door_emit.connect(switch_map)

@@ -186,7 +186,15 @@ func take_damage(amt: int)->void:
 	hud.set_health(stats.currentHP, stats.maxHP)
 	#print("took dmg")
 	if stats.currentHP == 0:
-		stats.GameOver()
+		#stats.GameOver()
+		die()
+
+func die()->void:
+	get_tree().create_timer(0.1).timeout.connect(func()->void:
+		GlobalAudio.stop_music()
+		SceneManager.ChangeScene(SceneManager.GAME_OVER)
+		)
+	#SceneManager.ChangeScene(SceneManager.GAME_OVER)
 
 func interact_tile():
 	if !cast_forward.is_colliding(): 
