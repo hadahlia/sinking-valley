@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://m14atr2ob8io"]
+[gd_scene load_steps=5 format=3 uid="uid://m14atr2ob8io"]
 
 [ext_resource type="Script" uid="uid://bwhvoa4msaij2" path="res://scripts/MainMenu.gd" id="1_11hie"]
+[ext_resource type="Texture2D" uid="uid://k2kkfuv410vm" path="res://assets/textures/FooterHud2.png" id="2_3h7gc"]
+[ext_resource type="Texture2D" uid="uid://bx6yu770i4dvc" path="res://assets/textures/title_img_mapped.png" id="2_58fj5"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4vh8y"]
+texture = ExtResource("2_3h7gc")
+expand_margin_left = 17.0
+expand_margin_right = 17.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+modulate_color = Color(0.648667, 1, 0.32, 1)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -20,15 +30,18 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_4vh8y")
 
-[node name="Label" type="Label" parent="CanvasLayer/Panel"]
+[node name="title" type="Label" parent="CanvasLayer/Panel"]
+visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -149.0
-offset_right = 149.0
-offset_bottom = 60.0
+offset_left = -168.0
+offset_top = 88.0
+offset_right = 164.0
+offset_bottom = 157.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 50
 text = "Sinking Valley"
@@ -40,10 +53,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -46.0
-offset_top = -118.0
-offset_right = 46.0
-offset_bottom = 118.0
+offset_left = -48.0
+offset_top = 4.0
+offset_right = 44.0
+offset_bottom = 240.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -64,6 +77,20 @@ theme_override_font_sizes/font_size = 40
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Quit"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -296.0
+offset_top = 8.0
+offset_right = 728.0
+offset_bottom = 320.0
+grow_horizontal = 2
+texture = ExtResource("2_58fj5")
+expand_mode = 1
+stretch_mode = 4
 
 [connection signal="pressed" from="CanvasLayer/Panel/Button holder/VBoxContainer/Play button" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Panel/Button holder/VBoxContainer/Quit Button" to="." method="_on_quit_button_pressed"]
