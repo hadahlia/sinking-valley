@@ -68,8 +68,8 @@ func take_turn():
 			var los : bool = line_of_sight_test()
 			if los:
 				move_astar()
-			else:
-				print(":3")
+			#else:
+				#print(":3")
 			
 			
 		WANDERING:
@@ -148,7 +148,7 @@ func line_of_sight_test() -> bool:
 func move_astar() -> void:
 	#player = get_tree().get_first_node_in_group("Player")
 	path = amap.get_astar_avoid_units(self.step_to.global_position, player.global_position)
-	print(path)
+	#print(path)
 	if path.size() > 2:
 		var target: Vector3 = Vector3(path[1].x * STEP_SIZE, step_to.global_position.y, path[1].y * STEP_SIZE)
 		#var target_length = (target - step_to.global_position).length()
@@ -161,7 +161,12 @@ func move_astar() -> void:
 		#print("target pos:", target , "path destination: ", Vector3(path[-1].x * STEP_SIZE, step_to.global_position.y, path[-1].y * STEP_SIZE))
 	elif path.size() == 2 :
 		#var target: Vector3 = Vector3(path[-1].x * STEP_SIZE, 0, path[-1].y * STEP_SIZE)
-		do_attack()
+		var i: int = randi() % (stats_resource.aggression + 1)
+		#print(i)
+		if i > 3:
+			do_attack()
+		#else:
+			#print(":3")
 		#queue_attack(target)
 	
 	#path = amap.get_as_path(step_to.global_position, player.global_position)
@@ -195,7 +200,7 @@ func queue_attack(pos: Vector3 ) -> void:
 		get_parent().add_child(attack)
 		attack_queued = true
 	
-	print("attacked u :3")
+	#print("attacked u :3")
 
 func do_attack():
 	var damage : int = stats_resource.damage

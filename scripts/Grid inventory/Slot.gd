@@ -58,6 +58,15 @@ func _get_drag_data(at_position):
 		set_drag_preview(preview)
 	return self
 
+func _get_item_healing()->int:
+	if(item != null):
+		if(item.TYPE == "Item"):
+			var ret_hp : int = item.heal_amount
+			if ret_hp > 0:
+				item = null
+			return ret_hp
+	return 0
+
 func _get_item_attack()->int:
 	if(item != null):
 		if(item.TYPE == "Equipment"):

@@ -1,22 +1,22 @@
-[gd_scene load_steps=16 format=3 uid="uid://j20twups6y4n"]
+[gd_scene load_steps=16 format=3 uid="uid://camqw5lb56hki"]
 
-[ext_resource type="Script" uid="uid://b20kfbukifds3" path="res://scripts/actor_scripts/dig_mound.gd" id="1_ithxi"]
-[ext_resource type="ArrayMesh" uid="uid://do3isac7r21qx" path="res://assets/meshes/items/dirt.res" id="2_28v6x"]
-[ext_resource type="Texture2D" uid="uid://bxaw5xg4ocijr" path="res://assets/textures/items/dirt_mound_value.png" id="3_h85pp"]
-[ext_resource type="ArrayMesh" uid="uid://clslx8g7n8nut" path="res://assets/meshes/items/shovel.res" id="4_dyu3d"]
-[ext_resource type="Texture2D" uid="uid://8levb5j4q5v" path="res://assets/textures/items/shovel.png" id="5_pmkei"]
-[ext_resource type="PackedScene" uid="uid://rlhx2wi3lgqa" path="res://scripts/Grid inventory/Slot.tscn" id="6_dy0ak"]
-[ext_resource type="StyleBox" uid="uid://dt2xyqvhauy2k" path="res://shaders/materials/slot_style_0.tres" id="7_wdef5"]
-[ext_resource type="Script" uid="uid://c6ye12lk1la45" path="res://scripts/Grid inventory/SlotReward.gd" id="8_wdef5"]
-[ext_resource type="Resource" uid="uid://c246y8obvmlls" path="res://assets/resources/items/weapons/adventure_sword.tres" id="9_w2uoy"]
+[ext_resource type="Script" uid="uid://b20kfbukifds3" path="res://scripts/actor_scripts/dig_mound.gd" id="1_f3vd1"]
+[ext_resource type="ArrayMesh" uid="uid://do3isac7r21qx" path="res://assets/meshes/items/dirt.res" id="2_1a2r0"]
+[ext_resource type="Texture2D" uid="uid://bxaw5xg4ocijr" path="res://assets/textures/items/dirt_mound_value.png" id="3_di7c2"]
+[ext_resource type="ArrayMesh" uid="uid://clslx8g7n8nut" path="res://assets/meshes/items/shovel.res" id="4_wu2vt"]
+[ext_resource type="Texture2D" uid="uid://8levb5j4q5v" path="res://assets/textures/items/shovel.png" id="5_c8hjl"]
+[ext_resource type="PackedScene" uid="uid://rlhx2wi3lgqa" path="res://scripts/Grid inventory/Slot.tscn" id="6_hqfdt"]
+[ext_resource type="StyleBox" uid="uid://dt2xyqvhauy2k" path="res://shaders/materials/slot_style_0.tres" id="7_okq1m"]
+[ext_resource type="Script" uid="uid://c6ye12lk1la45" path="res://scripts/Grid inventory/SlotReward.gd" id="8_iapfp"]
+[ext_resource type="Resource" uid="uid://bd4sn2sijgr7r" path="res://assets/resources/items/armor/scraped_helmet.tres" id="9_f3vd1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hc8qp"]
 albedo_color = Color(0.48, 0.30864, 0.1776, 1)
-albedo_texture = ExtResource("3_h85pp")
+albedo_texture = ExtResource("3_di7c2")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7mmql"]
 albedo_color = Color(0.44, 1, 0.766667, 1)
-albedo_texture = ExtResource("5_pmkei")
+albedo_texture = ExtResource("5_c8hjl")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w2uoy"]
 size = Vector3(4.9, 5, 4.9)
@@ -32,18 +32,18 @@ _data = {
 &"dig_mound": SubResource("Animation_ithxi")
 }
 
-[node name="dig_mound" type="Node3D"]
-script = ExtResource("1_ithxi")
+[node name="dig_mound_helmet" type="Node3D"]
+script = ExtResource("1_f3vd1")
 event_text = "you took the shovel"
 is_door = false
 
 [node name="dirt_mesh" type="MeshInstance3D" parent="."]
-mesh = ExtResource("2_28v6x")
+mesh = ExtResource("2_1a2r0")
 surface_material_override/0 = SubResource("StandardMaterial3D_hc8qp")
 
 [node name="shovel_mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1.44889, -0.388229, 0, 0.375, -1.39952, -0.388229, 0.100481, -0.375, 1.44889, 0.9, -3.3, 0.8)
-mesh = ExtResource("4_dyu3d")
+mesh = ExtResource("4_wu2vt")
 surface_material_override/0 = SubResource("StandardMaterial3D_7mmql")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
@@ -68,7 +68,7 @@ libraries = {
 
 [node name="reward slot" type="CanvasLayer" parent="."]
 
-[node name="Slot" parent="reward slot" instance=ExtResource("6_dy0ak")]
+[node name="Slot" parent="reward slot" instance=ExtResource("6_hqfdt")]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -81,6 +81,6 @@ offset_right = 37.5
 offset_bottom = 37.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = ExtResource("7_wdef5")
-script = ExtResource("8_wdef5")
-item = ExtResource("9_w2uoy")
+theme_override_styles/panel = ExtResource("7_okq1m")
+script = ExtResource("8_iapfp")
+item = ExtResource("9_f3vd1")

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://he75b54qr1uf" path="res://scripts/pathfinding.gd" id="1_j7oq4"]
 [ext_resource type="MeshLibrary" uid="uid://dj3ibhsaug4u" path="res://assets/meshlibs/pathtile.tres" id="2_4fmwh"]
 [ext_resource type="PackedScene" uid="uid://bo8ihb4eyp5nv" path="res://scripts/Entities/monster_scene.tscn" id="3_dbbqp"]
-[ext_resource type="Texture2D" uid="uid://c7an2i7igmcqn" path="res://assets/textures/entities/placeholder_chicken.png" id="4_02k67"]
+[ext_resource type="Texture2D" uid="uid://bp3b7f5i3c705" path="res://assets/textures/entities/WarriorChickenSprite.png" id="4_4n8li"]
 [ext_resource type="Script" uid="uid://okpjvxfuet1p" path="res://scripts/Entities/Monster.gd" id="5_4n8li"]
 [ext_resource type="MeshLibrary" uid="uid://c7ycu8os62yk0" path="res://assets/meshlibs/meshlib_island2.tres" id="6_j7oq4"]
 [ext_resource type="Shader" uid="uid://bbswhlhaqig87" path="res://shaders/seawater.gdshader" id="7_ai436"]
@@ -14,51 +14,55 @@
 [ext_resource type="PackedScene" uid="uid://bahf84moa3rqk" path="res://scenes/interactables/shovel.tscn" id="12_02k67"]
 [ext_resource type="PackedScene" uid="uid://j20twups6y4n" path="res://scenes/interactables/dig_mound.tscn" id="13_4n8li"]
 
-[sub_resource type="Resource" id="Resource_e1cbu"]
-script = ExtResource("5_4n8li")
-goldGiven = 0
-damage = 11
-icon = ExtResource("4_02k67")
-unitName = "Alectryon"
-maxHP = 20
-currentHP = 20
-defense = 10
-isDead = false
-metadata/_custom_type_script = "uid://okpjvxfuet1p"
-
-[sub_resource type="Resource" id="Resource_4w45t"]
-script = ExtResource("5_4n8li")
-goldGiven = 0
-damage = 11
-icon = ExtResource("4_02k67")
-unitName = "Alectryon"
-maxHP = 20
-currentHP = 20
-defense = 0
-isDead = false
-metadata/_custom_type_script = "uid://okpjvxfuet1p"
-
-[sub_resource type="Resource" id="Resource_r6p65"]
+[sub_resource type="Resource" id="Resource_quulj"]
 script = ExtResource("5_4n8li")
 goldGiven = 0
 damage = 14
-icon = ExtResource("4_02k67")
+aggression = 5
+icon = ExtResource("4_4n8li")
 unitName = "Alectryon"
-maxHP = 20
-currentHP = 20
-defense = 0
+maxHP = 25
+currentHP = 25
+defense = 8
 isDead = false
 metadata/_custom_type_script = "uid://okpjvxfuet1p"
 
-[sub_resource type="Resource" id="Resource_si52b"]
+[sub_resource type="Resource" id="Resource_ai436"]
 script = ExtResource("5_4n8li")
 goldGiven = 0
-damage = 11
-icon = ExtResource("4_02k67")
+damage = 14
+aggression = 5
+icon = ExtResource("4_4n8li")
 unitName = "Alectryon"
-maxHP = 20
-currentHP = 20
-defense = 0
+maxHP = 25
+currentHP = 25
+defense = 8
+isDead = false
+metadata/_custom_type_script = "uid://okpjvxfuet1p"
+
+[sub_resource type="Resource" id="Resource_q6l1g"]
+script = ExtResource("5_4n8li")
+goldGiven = 0
+damage = 14
+aggression = 5
+icon = ExtResource("4_4n8li")
+unitName = "Alectryon"
+maxHP = 25
+currentHP = 25
+defense = 8
+isDead = false
+metadata/_custom_type_script = "uid://okpjvxfuet1p"
+
+[sub_resource type="Resource" id="Resource_tuoy7"]
+script = ExtResource("5_4n8li")
+goldGiven = 0
+damage = 14
+aggression = 5
+icon = ExtResource("4_4n8li")
+unitName = "Alectryon"
+maxHP = 25
+currentHP = 25
+defense = 8
 isDead = false
 metadata/_custom_type_script = "uid://okpjvxfuet1p"
 
@@ -142,6 +146,7 @@ script = ExtResource("1_j7oq4")
 
 [node name="GridMap" type="GridMap" parent="AMap"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2)
+visible = false
 mesh_library = ExtResource("2_4fmwh")
 cell_size = Vector3(4, 4, 4)
 data = {
@@ -154,19 +159,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="monster_scene" parent="AMap/monster_node" instance=ExtResource("3_dbbqp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, -16)
-stats_resource = SubResource("Resource_e1cbu")
+stats_resource = SubResource("Resource_quulj")
 
 [node name="monster_scene3" parent="AMap/monster_node" instance=ExtResource("3_dbbqp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -12)
-stats_resource = SubResource("Resource_4w45t")
+stats_resource = SubResource("Resource_ai436")
 
 [node name="monster_scene4" parent="AMap/monster_node" instance=ExtResource("3_dbbqp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -12)
-stats_resource = SubResource("Resource_r6p65")
+stats_resource = SubResource("Resource_q6l1g")
 
 [node name="monster_scene5" parent="AMap/monster_node" instance=ExtResource("3_dbbqp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -36)
-stats_resource = SubResource("Resource_si52b")
+stats_resource = SubResource("Resource_tuoy7")
 
 [node name="island_gridmap" type="GridMap" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2)

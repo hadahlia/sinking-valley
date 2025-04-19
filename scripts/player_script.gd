@@ -125,7 +125,8 @@ func _input(event: InputEvent) -> void:
 		attack_tile()
 	
 	if Input.is_action_just_pressed("magic chalice"):
-		print("welp. this doesnt do anything yet")
+		use_heal()
+		#print("welp. this doesnt do anything yet")
 
 
 func _physics_process(delta: float) -> void:
@@ -145,6 +146,15 @@ func _physics_process(delta: float) -> void:
 #func check_collision(ray: RayCast3D) -> bool:
 	#return ray.is_colliding()
 
+func use_heal()->void:
+	var slots = get_tree().get_nodes_in_group("ItemSlots")
+	var heal_amt: int = 0
+	for s in slots:
+		heal_amt += s._get_item_healing()
+	stats.HealDamage(heal_amt)
+	set_hud()
+	print("heal!")
+
 func attack_tile():
 	
 	#print("attack!!")
@@ -163,7 +173,8 @@ func attack_tile():
 		var dmg :int = col.get_parent().stats_resource.TakeDamage(my_damage)
 		var monster_name := str(col.get_parent().stats_resource.unitName)
 		hud.send_event_message("You did " + str(dmg) + " damage to " + monster_name)
-		print(col.get_parent().stats_resource.currentHP)
+		hud.send_event_message(monster_name + " has " + str(col.get_parent().stats_resource.currentHP) + " HP left.")
+		#print(col.get_parent().stats_resource.currentHP)
 		col.get_parent().assess_life()
 	end_turn()
 		#took_turn = true
@@ -179,6 +190,7 @@ func set_hud()->void:
 		stats.defense += rdef
 	hud.set_dmg(temp_dmg)
 	hud.set_defense(stats.defense)
+	hud.set_health(stats.currentHP, stats.maxHP)
 
 func take_damage(amt: int)->void:
 	var dmg :int= stats.TakeDamage(amt)

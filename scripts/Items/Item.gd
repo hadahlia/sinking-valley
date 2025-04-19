@@ -5,6 +5,7 @@ class_name Item
 @export var picture : Texture2D
 @export_enum("Equipment", "Item") var TYPE : String
 
+@export var heal_amount : int
 @export var item_id : int
 
 # Item IDS

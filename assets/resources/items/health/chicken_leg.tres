@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://ktdnygl3nofs"]
+
+[ext_resource type="Script" uid="uid://by5v08epc23eb" path="res://scripts/Items/Item.gd" id="1_mrmnh"]
+[ext_resource type="Texture2D" uid="uid://cm2ltbaqtumxm" path="res://assets/textures/ChickenLegCharcoalSprite.png" id="1_sekpq"]
+
+[resource]
+script = ExtResource("1_mrmnh")
+name = "Chicken Leg"
+picture = ExtResource("1_sekpq")
+TYPE = "Item"
+heal_amount = 25
+item_id = 2
+metadata/_custom_type_script = "uid://by5v08epc23eb"

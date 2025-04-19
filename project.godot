@@ -58,6 +58,7 @@ DigMound=""
 EventMessager=""
 EquipSlots=""
 AttackSquare=""
+ItemSlots=""
 
 [importer_defaults]
 

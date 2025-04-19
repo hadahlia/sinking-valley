@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Equipment" load_steps=3 format=3 uid="uid://bxls0c14jwyjr"]
+
+[ext_resource type="Texture2D" uid="uid://d1htwcsmiu6w4" path="res://assets/textures/items/chalice_cup_grad.png" id="1_o3w7c"]
+[ext_resource type="Script" path="res://scripts/Items/Equipment.gd" id="2_6sg4n"]
+
+[resource]
+script = ExtResource("2_6sg4n")
+EquipmentType = "Armor"
+attackValue = 0
+defValue = 28
+name = "Gold Chalice"
+picture = ExtResource("1_o3w7c")
+TYPE = "Equipment"
+heal_amount = 0
+item_id = 0

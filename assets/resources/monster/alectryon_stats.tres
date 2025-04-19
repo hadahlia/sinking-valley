@@ -1,16 +1,17 @@
 [gd_resource type="Resource" script_class="Monster" load_steps=3 format=3 uid="uid://c1ehk1d5a1u0m"]
 
-[ext_resource type="Texture2D" uid="uid://c7an2i7igmcqn" path="res://assets/textures/entities/placeholder_chicken.png" id="1_11vn7"]
+[ext_resource type="Texture2D" uid="uid://bp3b7f5i3c705" path="res://assets/textures/entities/WarriorChickenSprite.png" id="1_11vn7"]
 [ext_resource type="Script" uid="uid://okpjvxfuet1p" path="res://scripts/Entities/Monster.gd" id="1_mxo1l"]
 
 [resource]
 script = ExtResource("1_mxo1l")
 goldGiven = 0
 damage = 14
+aggression = 5
 icon = ExtResource("1_11vn7")
 unitName = "Alectryon"
-maxHP = 20
-currentHP = 20
-defense = 0
+maxHP = 25
+currentHP = 25
+defense = 8
 isDead = false
 metadata/_custom_type_script = "uid://okpjvxfuet1p"
