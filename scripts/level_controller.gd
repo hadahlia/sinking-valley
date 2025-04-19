@@ -22,7 +22,7 @@ const temple_level = preload("res://scenes/temple_level.tscn")
 @onready var amap = get_tree().get_first_node_in_group("AMap")
 
 enum ELocations { ISLAND = 0, DUNGEON = 1, ISLAND_RET = 2}
-var location : int = 1
+var location : int = 0
 
 # GameRule
 #var turn_num : int = 0
@@ -40,21 +40,27 @@ func get_monsters() -> void:
 	
 	if mid == monster_count:
 		
-		gameturn_delay.start()
-		#end_turn()
+		
+		end_turn()
 
 func end_turn() -> void:
+	GameFlags.player_turn = !GameFlags.player_turn
+	
+	gameturn_delay.start()
+
+func turn_timeout()->void:
 	if !amap:
 		amap = get_tree().get_first_node_in_group("AMap")
 	amap.create_path_points()
 	#amap.generate_astar()
-	GameFlags.player_turn = !GameFlags.player_turn
-	#print(GameFlags.player_turn)
+	
+		#print(GameFlags.player_turn)
 	if amap and !GameFlags.player_turn:
 		
 		get_monsters()
 	else:
 		GameFlags.turn_id += 1
+	
 
 func _ready() -> void:
 	#SceneTransition.fade_in(2.0, Color.BLACK)
@@ -63,7 +69,7 @@ func _ready() -> void:
 	GameFlags.player_turn = true
 	player_scene.moved.connect(end_turn)
 	player_scene.door_emit.connect(switch_map)
-	gameturn_delay.timeout.connect(end_turn)
+	gameturn_delay.timeout.connect(turn_timeout)
 	GameFlags.turn_id = 0
 	#player_ref = get_tree().get_first_node_in_group("Player")
 	#player_scene.ready.connect(check_location)

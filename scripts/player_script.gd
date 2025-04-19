@@ -163,8 +163,10 @@ func use_heal()->void:
 func attack_tile():
 	
 	#print("attack!!")
-	if !cast_forward.is_colliding(): 
+	if !cast_forward.is_colliding():
+		GlobalAudio.play_sound(GlobalAudio.SFX_SWING)
 		end_turn()
+		
 		return
 	var col = cast_forward.get_collider()
 	if col.is_in_group("EnemyMonster"):
@@ -179,6 +181,7 @@ func attack_tile():
 		var monster_name := str(col.get_parent().stats_resource.unitName)
 		hud.send_event_message("You did " + str(dmg) + " damage to " + monster_name)
 		hud.send_event_message(monster_name + " has " + str(col.get_parent().stats_resource.currentHP) + " HP left.")
+		GlobalAudio.play_sound(GlobalAudio.ATK_CONNECT)
 		#print(col.get_parent().stats_resource.currentHP)
 		col.get_parent().assess_life()
 	end_turn()
@@ -200,6 +203,7 @@ func set_hud()->void:
 func take_damage(amt: int)->void:
 	var dmg :int= stats.TakeDamage(amt)
 	hud.send_event_message("You took " + str(dmg) + " damage!")
+	GlobalAudio.play_sound(GlobalAudio.SFX_HURT)
 	hud.set_health(stats.currentHP, stats.maxHP)
 	#print("took dmg")
 	if stats.currentHP == 0:

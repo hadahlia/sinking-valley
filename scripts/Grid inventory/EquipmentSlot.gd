@@ -21,6 +21,7 @@ func _drop_data(at_position, data):
 	var temp = item
 	item = data.item
 	data.item = temp
+	GlobalAudio.play_sound(GlobalAudio.INVENTORY_CLOSE)
 
 func _get_drag_data(at_position):
 	if(item):
