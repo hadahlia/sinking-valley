@@ -1,0 +1,69 @@
+[gd_scene load_steps=11 format=3 uid="uid://dqquhsv7i715j"]
+
+[ext_resource type="Script" uid="uid://b20kfbukifds3" path="res://scripts/actor_scripts/dig_mound.gd" id="1_ojakw"]
+[ext_resource type="PackedScene" uid="uid://lr4ctlntlrjg" path="res://assets/meshes/treasure_chest.tscn" id="6_8jcuk"]
+[ext_resource type="Resource" uid="uid://buemu8js22n8i" path="res://assets/resources/items/weapons/regal_sword.tres" id="6_mgdqo"]
+[ext_resource type="PackedScene" uid="uid://rlhx2wi3lgqa" path="res://scripts/Grid inventory/Slot.tscn" id="6_v3tv4"]
+[ext_resource type="StyleBox" uid="uid://dt2xyqvhauy2k" path="res://shaders/materials/slot_style_0.tres" id="7_ew2or"]
+[ext_resource type="Script" uid="uid://c6ye12lk1la45" path="res://scripts/Grid inventory/SlotReward.gd" id="8_21jyu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w2uoy"]
+size = Vector3(4.9, 5, 4.9)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7mmql"]
+size = Vector3(5, 5, 5)
+
+[sub_resource type="Animation" id="Animation_ithxi"]
+resource_name = "dig_mound"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uqfbc"]
+_data = {
+&"dig_mound": SubResource("Animation_ithxi")
+}
+
+[node name="treasure_chest_sword" type="Node3D"]
+script = ExtResource("1_ojakw")
+event_text = "You find something in the box..."
+is_door = false
+
+[node name="treasure_chest" parent="." instance=ExtResource("6_8jcuk")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+shape = SubResource("BoxShape3D_w2uoy")
+
+[node name="Area3D" type="Area3D" parent="." groups=["TreasureChest"]]
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+shape = SubResource("BoxShape3D_7mmql")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_uqfbc")
+}
+
+[node name="reward slot" type="CanvasLayer" parent="."]
+
+[node name="Slot" parent="reward slot" instance=ExtResource("6_v3tv4")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.5
+offset_top = -37.5
+offset_right = 37.5
+offset_bottom = 37.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("7_ew2or")
+script = ExtResource("8_21jyu")
+item = ExtResource("6_mgdqo")

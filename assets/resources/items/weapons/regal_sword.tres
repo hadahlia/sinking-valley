@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Equipment" load_steps=3 format=3 uid="uid://buemu8js22n8i"]
+
+[ext_resource type="Script" path="res://scripts/Items/Equipment.gd" id="1_nedem"]
+[ext_resource type="Texture2D" uid="uid://ftwtglf51nx1" path="res://assets/textures/items/SwordSpriteRegal0.png" id="1_npbps"]
+
+[resource]
+script = ExtResource("1_nedem")
+EquipmentType = "Weapon"
+attackValue = 27
+defValue = 0
+name = "Regalis Sword"
+picture = ExtResource("1_npbps")
+TYPE = "Equipment"
+heal_amount = 0
+item_id = 8

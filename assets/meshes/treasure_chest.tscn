@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://lr4ctlntlrjg"]
+
+[ext_resource type="PackedScene" uid="uid://ctbjtrh1t8mb3" path="res://assets/meshes/items/treasure_chest.glb" id="1_bojeg"]
+[ext_resource type="Material" uid="uid://2qwplm4v88d2" path="res://shaders/materials/chest_mat.tres" id="2_gfmwh"]
+
+[node name="treasure_chest" instance=ExtResource("1_bojeg")]
+
+[node name="chest_base" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_gfmwh")
+
+[node name="chest_top" parent="." index="1"]
+surface_material_override/0 = ExtResource("2_gfmwh")

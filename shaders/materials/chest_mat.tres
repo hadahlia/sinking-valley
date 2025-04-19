@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://2qwplm4v88d2"]
+
+[ext_resource type="Texture2D" uid="uid://cucrs3c065qkc" path="res://assets/textures/chest_base.png" id="1_rmiuc"]
+
+[resource]
+albedo_color = Color(1, 0.779, 0.22, 1)
+albedo_texture = ExtResource("1_rmiuc")
+metallic = 0.45
+metallic_specular = 0.34
+roughness = 0.86

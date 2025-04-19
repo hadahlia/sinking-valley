@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Equipment" load_steps=3 format=3 uid="uid://bw013htdwe7kh"]
+
+[ext_resource type="Script" path="res://scripts/Items/Equipment.gd" id="1_2yjfb"]
+[ext_resource type="Texture2D" uid="uid://ds8tajo6i5ujr" path="res://assets/textures/items/SwordSpriteDaemon0.png" id="1_uh6rv"]
+
+[resource]
+script = ExtResource("1_2yjfb")
+EquipmentType = "Weapon"
+attackValue = 18
+defValue = 0
+name = "Daemon Sword"
+picture = ExtResource("1_uh6rv")
+TYPE = "Equipment"
+heal_amount = 0
+item_id = 7

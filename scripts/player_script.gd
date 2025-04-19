@@ -152,6 +152,7 @@ func _physics_process(delta: float) -> void:
 	#return ray.is_colliding()
 
 func use_heal()->void:
+	if !GameFlags.player_turn: return
 	var slots = get_tree().get_nodes_in_group("ItemSlots")
 	var heal_amt: int = 0
 	for s in slots:
@@ -163,7 +164,7 @@ func use_heal()->void:
 	#print("heal!")
 
 func attack_tile():
-	
+	if !GameFlags.player_turn: return
 	#print("attack!!")
 	if !cast_forward.is_colliding():
 		GlobalAudio.play_sound(GlobalAudio.SFX_SWING)
@@ -243,6 +244,9 @@ func interact_tile():
 		else:
 			GameFlags.can_move = false
 			col.get_parent().dig()
+	if col.is_in_group("TreasureChest"):
+		GameFlags.can_move = false
+		col.get_parent().dig()
 		#col.get_parent().trigger()
 		#col.get_parent().stats_resource.TakeDamage(2)
 		#print(col.get_parent().stats_resource.currentHP)

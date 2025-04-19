@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://blxw41546bbo1"]
+[gd_scene load_steps=28 format=4 uid="uid://blxw41546bbo1"]
 
 [ext_resource type="Script" uid="uid://he75b54qr1uf" path="res://scripts/pathfinding.gd" id="1_j7oq4"]
 [ext_resource type="MeshLibrary" uid="uid://dj3ibhsaug4u" path="res://assets/meshlibs/pathtile.tres" id="2_4fmwh"]
@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://cwghya4t7r11h" path="res://scenes/interactables/doorway_actor.tscn" id="10_4fmwh"]
 [ext_resource type="PackedScene" uid="uid://bahf84moa3rqk" path="res://scenes/interactables/shovel.tscn" id="12_02k67"]
 [ext_resource type="PackedScene" uid="uid://j20twups6y4n" path="res://scenes/interactables/dig_mound.tscn" id="13_4n8li"]
+[ext_resource type="PackedScene" uid="uid://dqquhsv7i715j" path="res://scenes/interactables/treasure_chest_sword.tscn" id="15_q6l1g"]
+[ext_resource type="PackedScene" uid="uid://cfjut8r55dn6c" path="res://assets/meshes/obj_torch.tscn" id="16_tuoy7"]
 
 [sub_resource type="Resource" id="Resource_quulj"]
 script = ExtResource("5_4n8li")
@@ -103,12 +105,10 @@ ssil_enabled = true
 sdfgi_enabled = true
 sdfgi_use_occlusion = true
 glow_enabled = true
-fog_enabled = true
 fog_light_color = Color(0.1323, 0.27, 0.208035, 1)
 fog_light_energy = 1.1
 fog_density = 0.005
 fog_sky_affect = 0.202
-volumetric_fog_enabled = true
 volumetric_fog_density = 0.01
 volumetric_fog_emission = Color(0.67, 0.67, 0.67, 1)
 volumetric_fog_emission_energy = 2.5
@@ -232,3 +232,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 192, 0, 12)
 [node name="dig_mound" parent="objects" instance=ExtResource("13_4n8li")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 0)
 event_text = "You dig the dirt, revealing..."
+
+[node name="treasure_chest_sword" parent="objects" instance=ExtResource("15_q6l1g")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -44, 0, -212)
+
+[node name="obj_torch" parent="objects" instance=ExtResource("16_tuoy7")]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, -46, 1.5, -206)

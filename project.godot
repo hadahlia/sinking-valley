@@ -10,10 +10,12 @@ config_version=5
 
 [application]
 
-config/name="sinking valley"
+config/name="Aurea Island"
 run/main_scene="uid://m14atr2ob8io"
 config/features=PackedStringArray("4.4", "Forward Plus")
 run/max_fps=120
+boot_splash/bg_color=Color(0.262168, 0.0511632, 0.0902125, 1)
+boot_splash/show_image=false
 config/icon="res://icon.svg"
 
 [autoload]
@@ -60,6 +62,7 @@ EquipSlots=""
 AttackSquare=""
 ItemSlots=""
 PlayerSpawnRetIsland=""
+TreasureChest=""
 
 [importer_defaults]
 
