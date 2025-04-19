@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Monster" load_steps=3 format=3 uid="uid://061dgwhp04xa"]
+
+[ext_resource type="Texture2D" uid="uid://cenbw17vtl37m" path="res://assets/textures/GoatSprite.png" id="1_blnsv"]
+[ext_resource type="Script" uid="uid://okpjvxfuet1p" path="res://scripts/Entities/Monster.gd" id="1_hs601"]
+
+[resource]
+script = ExtResource("1_hs601")
+goldGiven = 0
+damage = 27
+aggression = 8
+icon = ExtResource("1_blnsv")
+unitName = "Tanngrisnir"
+maxHP = 33
+currentHP = 33
+defense = 9
+isDead = false
+metadata/_custom_type_script = "uid://okpjvxfuet1p"

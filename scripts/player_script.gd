@@ -157,8 +157,10 @@ func use_heal()->void:
 	for s in slots:
 		heal_amt += s._get_item_healing()
 	stats.HealDamage(heal_amt)
+	if heal_amt > 0:
+		GlobalAudio.play_sound(GlobalAudio.SFX_HEAL)
 	set_hud()
-	print("heal!")
+	#print("heal!")
 
 func attack_tile():
 	
@@ -245,6 +247,7 @@ func interact_tile():
 		#col.get_parent().stats_resource.TakeDamage(2)
 		#print(col.get_parent().stats_resource.currentHP)
 		#col.get_parent().assess_life()
+	GlobalAudio.play_sound(GlobalAudio.SFX_INTERACT_OK)
 
 func end_turn() -> void:
 	moved.emit()

@@ -34,7 +34,7 @@ _data = {
 
 [node name="dig_mound_helmet" type="Node3D"]
 script = ExtResource("1_f3vd1")
-event_text = "you took the shovel"
+event_text = "Your shovel hits something..."
 is_door = false
 
 [node name="dirt_mesh" type="MeshInstance3D" parent="."]
