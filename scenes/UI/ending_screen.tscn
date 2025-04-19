@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://dbrtoyptjhbje"]
+[gd_scene load_steps=2 format=3 uid="uid://dbrtoyptjhbje"]
+
+[ext_resource type="Script" uid="uid://dgx5rd0av1vae" path="res://scripts/ending_screen.gd" id="1_whbj1"]
 
 [node name="ending_screen" type="Control"]
 layout_mode = 3
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_whbj1")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -30,4 +33,7 @@ offset_right = 20.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "your did it"
+text = "your did it
+
+u can press space to go main menu"
+horizontal_alignment = 1

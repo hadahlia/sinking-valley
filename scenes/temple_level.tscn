@@ -1,8 +1,27 @@
-[gd_scene load_steps=6 format=4 uid="uid://b4uaub3oceldw"]
+[gd_scene load_steps=13 format=4 uid="uid://b4uaub3oceldw"]
 
+[ext_resource type="Script" uid="uid://he75b54qr1uf" path="res://scripts/pathfinding.gd" id="1_oiw17"]
 [ext_resource type="MeshLibrary" uid="uid://qtj22ami5aun" path="res://assets/meshlibs/meshlibrary_dungeon_set.tres" id="1_ubvjv"]
+[ext_resource type="MeshLibrary" uid="uid://dj3ibhsaug4u" path="res://assets/meshlibs/pathtile.tres" id="2_d0dhu"]
 [ext_resource type="Sky" uid="uid://dlmsbf00mp1d1" path="res://shaders/sky_pan.tres" id="2_gb06t"]
+[ext_resource type="PackedScene" uid="uid://bo8ihb4eyp5nv" path="res://scripts/Entities/monster_scene.tscn" id="3_mcq5y"]
 [ext_resource type="PackedScene" uid="uid://vm2hsyt05s4q" path="res://scenes/interactables/ending_door.tscn" id="3_n5jgq"]
+[ext_resource type="Texture2D" uid="uid://bp3b7f5i3c705" path="res://assets/textures/entities/WarriorChickenSprite.png" id="4_5dcuv"]
+[ext_resource type="PackedScene" uid="uid://cfjut8r55dn6c" path="res://assets/meshes/obj_torch.tscn" id="4_7n7l8"]
+[ext_resource type="Script" uid="uid://okpjvxfuet1p" path="res://scripts/Entities/Monster.gd" id="5_py7a5"]
+
+[sub_resource type="Resource" id="Resource_oiw17"]
+script = ExtResource("5_py7a5")
+goldGiven = 0
+damage = 14
+aggression = 5
+icon = ExtResource("4_5dcuv")
+unitName = "Alectryon"
+maxHP = 25
+currentHP = 25
+defense = 8
+isDead = false
+metadata/_custom_type_script = "uid://okpjvxfuet1p"
 
 [sub_resource type="VoxelGIData" id="VoxelGIData_gb06t"]
 _data = {
@@ -33,11 +52,11 @@ fog_enabled = true
 fog_light_color = Color(0.08, 0.32, 0.088, 1)
 fog_density = 0.009
 fog_sky_affect = 0.149
+volumetric_fog_enabled = true
 volumetric_fog_density = 0.01
-volumetric_fog_emission = Color(0.67, 0.67, 0.67, 1)
-volumetric_fog_emission_energy = 2.5
-volumetric_fog_length = 128.0
-volumetric_fog_detail_spread = 2.2
+volumetric_fog_albedo = Color(0.3, 1, 0.3, 1)
+volumetric_fog_emission = Color(0.38, 0.095, 0.095, 1)
+volumetric_fog_emission_energy = 2.0
 volumetric_fog_ambient_inject = 0.05
 volumetric_fog_sky_affect = 0.711
 adjustment_enabled = true
@@ -46,6 +65,25 @@ adjustment_contrast = 1.15
 adjustment_saturation = 1.2
 
 [node name="temple_level" type="Node3D" groups=["Levels"]]
+
+[node name="AMap" type="Node3D" parent="." groups=["AMap"]]
+script = ExtResource("1_oiw17")
+
+[node name="GridMap" type="GridMap" parent="AMap"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2)
+mesh_library = ExtResource("2_d0dhu")
+cell_size = Vector3(4, 4, 4)
+data = {
+"cells": PackedInt32Array(65537, 2, 0, 65536, 2, 0, 131071, 2, 0, 131069, 1, 0, 131070, 1, 0, 131071, 1, 0, 65536, 1, 0, 65537, 1, 0, 65538, 1, 0, 65539, 1, 0, 65539, 65535, 0, 65538, 65535, 0, 65537, 65535, 0, 65536, 65535, 0, 131071, 65535, 0, 131070, 65535, 0, 131069, 65535, 0, 131069, 0, 0, 131070, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65537, 65534, 0, 65536, 65534, 0, 131071, 65534, 0, 131071, 65533, 0, 65536, 65533, 0, 65537, 65533, 0, 65538, 65533, 0, 65539, 65533, 0, 65539, 65534, 0, 65539, 65532, 0, 65538, 65532, 0, 65537, 65532, 0, 65538, 65531, 0, 65539, 65531, 0, 65537, 65531, 0, 65537, 65530, 0, 65536, 65530, 0, 65536, 65531, 0, 65536, 65532, 0, 131071, 65532, 0, 131071, 65531, 0, 131071, 65530, 0, 131070, 65531, 0, 131069, 65531, 0, 131069, 65530, 0, 131069, 65532, 0, 131070, 65532, 0, 131070, 65533, 0, 131069, 65533, 0, 131069, 65534, 0, 131069, 65529, 0, 131070, 65529, 0, 131071, 65529, 0, 65536, 65529, 0, 65537, 65529, 0, 65538, 65529, 0, 65539, 65529, 0, 65539, 65530, 0, 65539, 65528, 0, 65538, 65528, 0, 65537, 65528, 0, 65536, 65528, 0, 131071, 65528, 0, 131070, 65528, 0, 131069, 65528, 0, 131069, 65527, 0, 131070, 65527, 0, 131071, 65527, 0, 65536, 65527, 0, 131071, 65526, 0, 65536, 65526, 0, 65537, 65526, 0, 65537, 65527, 0, 65538, 65527, 0, 65539, 65527, 0, 65539, 65526, 0, 65539, 65525, 0, 65538, 65525, 0, 65537, 65525, 0, 65536, 65525, 0, 131071, 65525, 0, 131070, 65525, 0, 131069, 65525, 0, 131069, 65526, 0, 131069, 65524, 0, 131070, 65524, 0, 131071, 65524, 0, 65536, 65524, 0, 65537, 65524, 0, 65538, 65524, 0, 65539, 65524, 0, 65538, 65523, 0, 65538, 65522, 0, 65537, 65522, 0, 65537, 65521, 0, 65537, 65520, 0, 65536, 65520, 0, 131071, 65520, 0, 131071, 65521, 0, 131071, 65522, 0, 65536, 65522, 0, 65538, 65520, 0, 65539, 65520, 0, 65539, 65521, 0, 65540, 65520, 0, 131068, 65526, 0, 131067, 65526, 0, 131066, 65526, 0, 131066, 65527, 0, 131066, 65528, 0, 131065, 65528, 0, 131064, 65528, 0, 131063, 65528, 0, 131063, 65527, 0, 131063, 65526, 0, 131063, 65525, 0, 131062, 65525, 0, 131062, 65526, 0, 131062, 65527, 0, 131061, 65525, 0, 131060, 65525, 0, 131055, 65525, 0, 131054, 65525, 0, 131053, 65525, 0, 131052, 65525, 0, 131052, 65526, 0, 131052, 65527, 0, 131053, 65527, 0, 131053, 65526, 0, 131054, 65526, 0, 131054, 65527, 0, 131055, 65527, 0, 131056, 65527, 0, 131057, 65527, 0, 131058, 65527, 0, 131059, 65527, 0, 131060, 65527, 0, 131061, 65527, 0, 131061, 65526, 0, 131059, 65525, 0, 131058, 65525, 0, 131057, 65525, 0, 131056, 65525, 0, 131056, 65526, 0, 131057, 65526, 0, 131058, 65526, 0, 131059, 65526, 0, 131060, 65526, 0, 131055, 65526, 0, 131059, 65514, 0, 131058, 65514, 0, 131057, 65514, 0, 131056, 65514, 0, 131055, 65514, 0, 131054, 65514, 0, 131053, 65514, 0, 131052, 65514, 0, 131051, 65514, 0, 131051, 65515, 0, 131051, 65516, 0, 131051, 65517, 0, 131051, 65518, 0, 131051, 65519, 0, 131051, 65520, 0, 131051, 65521, 0, 131051, 65522, 0, 131052, 65515, 0, 131052, 65516, 0, 131052, 65517, 0, 131052, 65518, 0, 131052, 65519, 0, 131052, 65520, 0, 131052, 65521, 0, 131052, 65522, 0, 131053, 65515, 0, 131053, 65516, 0, 131053, 65517, 0, 131053, 65518, 0, 131053, 65519, 0, 131053, 65520, 0, 131053, 65521, 0, 131053, 65522, 0, 131054, 65515, 0, 131054, 65516, 0, 131054, 65517, 0, 131054, 65518, 0, 131054, 65519, 0, 131054, 65520, 0, 131054, 65521, 0, 131054, 65522, 0, 131055, 65515, 0, 131055, 65516, 0, 131055, 65517, 0, 131055, 65518, 0, 131055, 65519, 0, 131055, 65520, 0, 131055, 65521, 0, 131055, 65522, 0, 131056, 65515, 0, 131056, 65516, 0, 131056, 65517, 0, 131056, 65518, 0, 131056, 65519, 0, 131056, 65520, 0, 131056, 65521, 0, 131056, 65522, 0, 131057, 65515, 0, 131057, 65516, 0, 131057, 65517, 0, 131057, 65518, 0, 131057, 65519, 0, 131057, 65520, 0, 131057, 65521, 0, 131057, 65522, 0, 131058, 65515, 0, 131058, 65516, 0, 131058, 65517, 0, 131058, 65518, 0, 131058, 65519, 0, 131058, 65520, 0, 131058, 65521, 0, 131058, 65522, 0, 131059, 65515, 0, 131059, 65516, 0, 131059, 65517, 0, 131059, 65518, 0, 131059, 65519, 0, 131059, 65520, 0, 131059, 65521, 0, 131059, 65522, 0, 131052, 65523, 0, 131052, 65524, 0)
+}
+metadata/_editor_floor_ = Vector3(0, 1, 0)
+
+[node name="monster_node" type="Node3D" parent="AMap"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="monster_scene" parent="AMap/monster_node" instance=ExtResource("3_mcq5y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68, 0, -44)
+stats_resource = SubResource("Resource_oiw17")
 
 [node name="temple_gridmap" type="GridMap" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2)
@@ -74,3 +112,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="ending_actor" parent="objects" instance=ExtResource("3_n5jgq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+
+[node name="obj_torch" parent="objects" instance=ExtResource("4_7n7l8")]
+transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, -8, 1.6, -6)

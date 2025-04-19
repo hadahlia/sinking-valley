@@ -8,5 +8,6 @@ albedo_color = Color(0.76, 0.12046, 0.00759999, 1)
 [node name="pathtile" type="Node3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
 mesh = SubResource("BoxMesh_g10q5")
 surface_material_override/0 = SubResource("StandardMaterial3D_g10q5")

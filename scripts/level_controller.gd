@@ -19,7 +19,7 @@ var from_temple_spawnpoint : Marker3D #unused, for now
 @onready var amap = get_tree().get_first_node_in_group("AMap")
 
 enum ELocations { ISLAND = 0, DUNGEON = 1}
-var location : int = 0
+var location : int = 1
 
 # GameRule
 #var turn_num : int = 0
