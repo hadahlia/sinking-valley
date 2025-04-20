@@ -68,13 +68,13 @@ func take_turn():
 		#intention = WANDERING
 	match intention:
 		CHASING:
-			#if (step_to.global_position - player.global_position).length() < 50:
+			if (step_to.global_position - player.global_position).length() < 20:
 			#var los : bool = line_of_sight_test()
 			#if los:
-			move_astar()
+				move_astar()
 			#else:
 				#print(":3")
-			
+			#pass
 			
 		WANDERING:
 			var ri : int = randi() % 5
@@ -135,26 +135,30 @@ func line_of_sight_test() -> bool:
 	#los.target_position = player.global_position
 	#los.hit_from_inside
 	#los.force_raycast_update()
-	var space_state = get_world_3d().direct_space_state
-	#if !space_state: return false
-	var query = PhysicsRayQueryParameters3D.create(step_to.global_position, player.global_position)
-	query.exclude = [self, step_to, player]
-	var result = space_state.intersect_ray(query)
-	if result:
-		return false
-		#print(result)
-	#if los.is_colliding():
-		#var col = los.get_collider()
-		#if col and col.is_in_group("Player"):
-		#return true
+	var c : bool = get_tree().create_timer(0.01).timeout.connect(func()->bool:
+		var space_state = get_world_3d().direct_space_state
+		#if !space_state: return false
+		var query = PhysicsRayQueryParameters3D.create(step_to.global_position, player.global_position)
+		query.exclude = [self, step_to, player]
+		var result = space_state.intersect_ray(query)
+		if result:
+			return false
+			#print(result)
+		#if los.is_colliding():
+			#var col = los.get_collider()
+			#if col and col.is_in_group("Player"):
+			#return true
 	
-	return true
+		return true
+		)
+	return c
+	
 
 func move_astar() -> void:
 	#player = get_tree().get_first_node_in_group("Player")
 	path = amap.get_astar_avoid_units(self.step_to.global_position, player.global_position)
 	#print(path)
-	if path.size() > 10: return
+	if path.size() >= 10: return
 	if path.size() > 2:
 		var target: Vector3 = Vector3(path[1].x * STEP_SIZE, step_to.global_position.y, path[1].y * STEP_SIZE)
 		#var target_length = (target - step_to.global_position).length()

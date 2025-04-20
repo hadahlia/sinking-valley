@@ -14,7 +14,7 @@ config/name="Aurea Island"
 run/main_scene="uid://m14atr2ob8io"
 config/features=PackedStringArray("4.4", "Forward Plus")
 run/max_fps=120
-boot_splash/bg_color=Color(0.262168, 0.0511632, 0.0902125, 1)
+boot_splash/bg_color=Color(0.025, 0.25, 0.0925, 1)
 boot_splash/show_image=false
 config/icon="res://icon.svg"
 

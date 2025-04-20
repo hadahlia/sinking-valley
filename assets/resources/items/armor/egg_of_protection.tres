@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Equipment" load_steps=3 format=3 uid="uid://b5ead68yu8awj"]
+
+[ext_resource type="Script" path="res://scripts/Items/Equipment.gd" id="1_4478d"]
+[ext_resource type="Texture2D" uid="uid://lp5acaifj4a7" path="res://assets/textures/GoldenEggSprite.png" id="1_ns864"]
+
+[resource]
+script = ExtResource("1_4478d")
+EquipmentType = "Armor"
+attackValue = 0
+defValue = 45
+name = "Egg of Protection"
+picture = ExtResource("1_ns864")
+TYPE = "Equipment"
+heal_amount = 0
+item_id = 0

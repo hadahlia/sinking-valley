@@ -118,6 +118,7 @@ surface_material_override/0 = ExtResource("2_funum")
 shape = SubResource("ConcavePolygonShape3D_a6va5")
 
 [node name="floor_" parent="." index="1"]
+gi_mode = 0
 surface_material_override/0 = ExtResource("3_oyjta")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="floor_" index="0"]
@@ -126,6 +127,7 @@ surface_material_override/0 = ExtResource("3_oyjta")
 shape = SubResource("ConcavePolygonShape3D_psgw3")
 
 [node name="floor_ceiling_" parent="." index="2"]
+gi_mode = 2
 surface_material_override/0 = ExtResource("3_oyjta")
 surface_material_override/1 = ExtResource("2_funum")
 
@@ -135,6 +137,7 @@ surface_material_override/1 = ExtResource("2_funum")
 shape = SubResource("ConcavePolygonShape3D_r1m51")
 
 [node name="pit_" parent="." index="3"]
+gi_mode = 0
 surface_material_override/0 = ExtResource("5_g1juh")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="pit_" index="0"]
@@ -144,6 +147,7 @@ shape = SubResource("ConcavePolygonShape3D_cgm7w")
 
 [node name="floor_sand" type="MeshInstance3D" parent="." index="4"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+gi_mode = 0
 mesh = SubResource("ArrayMesh_4tlpu")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("4_h2nhn")

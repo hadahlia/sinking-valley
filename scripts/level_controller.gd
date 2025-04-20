@@ -35,9 +35,9 @@ func get_monsters() -> void:
 	var mid : int = 0
 	for m in monsters:
 		#if m is EntityMonster:
-			#get_tree().create_timer(0.05).timeout.connect(func()->void:
+		#get_tree().create_timer(0.05).timeout.connect(func()->void:
 		m.take_turn()
-				#)
+			#)
 			
 		mid += 1
 	
@@ -47,7 +47,11 @@ func get_monsters() -> void:
 		#end_turn()
 
 func end_turn() -> void:
-	
+	if !amap:
+		amap = get_tree().get_first_node_in_group("AMap")
+		get_tree().create_timer(0.05).timeout.connect(func()->void:
+			amap.create_path_points()
+			)
 	
 	#amap.generate_astar()
 		#print(GameFlags.player_turn)
@@ -55,9 +59,6 @@ func end_turn() -> void:
 	GameFlags.player_turn = !GameFlags.player_turn
 	
 	if !GameFlags.player_turn:
-		if !amap:
-			amap = get_tree().get_first_node_in_group("AMap")
-		amap.create_path_points()
 		
 		#get_tree().create_timer(0.05).timeout.connect(func()->void:
 		get_monsters()
@@ -84,6 +85,9 @@ func _ready() -> void:
 	GameFlags.turn_id = 0
 	#player_ref = get_tree().get_first_node_in_group("Player")
 	#player_scene.ready.connect(check_location)
+	#amap.tree_entered.connect(func()->void:
+		#amap.create_path_points()
+		#)
 	check_location()
 
 func switch_map()->void:

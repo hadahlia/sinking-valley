@@ -7,8 +7,9 @@
 script = ExtResource("1_owo5y")
 EquipmentType = "Armor"
 attackValue = 0
-defValue = 15
+defValue = 13
 name = "Scraped Helmet"
 picture = ExtResource("1_weqlj")
 TYPE = "Equipment"
+heal_amount = 0
 item_id = 5

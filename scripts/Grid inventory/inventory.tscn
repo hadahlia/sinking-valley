@@ -17,21 +17,20 @@ script = ExtResource("1_3f168")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer"]
-visible = false
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -216.0
-offset_top = -196.0
+offset_left = -296.0
+offset_top = -260.0
 offset_right = -40.0
 offset_bottom = 134.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_constants/h_separation = 8
 theme_override_constants/v_separation = 8
-columns = 2
+columns = 3
 
 [node name="Slot" parent="CanvasLayer/GridContainer" instance=ExtResource("1_08tj3")]
 layout_mode = 2
@@ -76,6 +75,48 @@ size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("3_3f168")
 
 [node name="Slot8" parent="CanvasLayer/GridContainer" instance=ExtResource("1_08tj3")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("3_3f168")
+
+[node name="Slot9" parent="CanvasLayer/GridContainer" instance=ExtResource("1_08tj3")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("3_3f168")
+
+[node name="Slot10" parent="CanvasLayer/GridContainer" instance=ExtResource("1_08tj3")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("3_3f168")
+
+[node name="Slot11" parent="CanvasLayer/GridContainer" instance=ExtResource("1_08tj3")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("3_3f168")
+
+[node name="Slot12" parent="CanvasLayer/GridContainer" instance=ExtResource("1_08tj3")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("3_3f168")
+
+[node name="Slot13" parent="CanvasLayer/GridContainer" instance=ExtResource("1_08tj3")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("3_3f168")
+
+[node name="Slot14" parent="CanvasLayer/GridContainer" instance=ExtResource("1_08tj3")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("3_3f168")
+
+[node name="Slot15" parent="CanvasLayer/GridContainer" instance=ExtResource("1_08tj3")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
