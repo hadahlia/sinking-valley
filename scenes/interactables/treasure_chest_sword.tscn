@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://dqquhsv7i715j"]
 
-[ext_resource type="Script" uid="uid://b20kfbukifds3" path="res://scripts/actor_scripts/dig_mound.gd" id="1_ojakw"]
+[ext_resource type="Script" uid="uid://ei04o4fr40yn" path="res://scripts/actor_scripts/treasure_chest.gd" id="1_8jcuk"]
 [ext_resource type="PackedScene" uid="uid://lr4ctlntlrjg" path="res://assets/meshes/treasure_chest.tscn" id="6_8jcuk"]
 [ext_resource type="Resource" uid="uid://buemu8js22n8i" path="res://assets/resources/items/weapons/regal_sword.tres" id="6_mgdqo"]
 [ext_resource type="PackedScene" uid="uid://rlhx2wi3lgqa" path="res://scripts/Grid inventory/Slot.tscn" id="6_v3tv4"]
@@ -22,9 +22,8 @@ _data = {
 }
 
 [node name="treasure_chest_sword" type="Node3D"]
-script = ExtResource("1_ojakw")
+script = ExtResource("1_8jcuk")
 event_text = "You find something in the box..."
-is_door = false
 
 [node name="treasure_chest" parent="." instance=ExtResource("6_8jcuk")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)

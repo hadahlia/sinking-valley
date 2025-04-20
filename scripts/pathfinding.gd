@@ -9,9 +9,10 @@ const grid_y: float = 2.0
 const grid_step : float = 4.0
 
 #var all_points = {}
-var astar : AStar2D = AStar2D.new()
+@onready var astar : AStar2D = AStar2D.new()
 
 var units_array := []
+var cells_array :Array= []
 
 func _ready() -> void:
 
@@ -49,13 +50,14 @@ func get_cell_positions() -> Array:
 
 func create_path_points() -> void:
 	astar.clear()
-	var used_cell_pos = get_cell_positions()
+	if cells_array.is_empty():
+		cells_array = board.get_used_cells()
 	#print(used_cell_pos)
-	for cell in used_cell_pos:
+	for cell in cells_array:
 		var ind :int = astar.get_available_point_id()
 		astar.add_point(ind, Vector2(cell.x, cell.z))
 	
-	for cell in used_cell_pos:
+	for cell in cells_array:
 		connect_cardinals(cell)
 
 func add_units() -> void:

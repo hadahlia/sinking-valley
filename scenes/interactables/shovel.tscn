@@ -27,7 +27,6 @@ size = Vector3(5, 5, 5)
 [node name="shovel_" type="Node3D"]
 script = ExtResource("1_hratn")
 event_text = "you took the shovel"
-is_door = false
 
 [node name="dirt_mesh" type="MeshInstance3D" parent="."]
 mesh = ExtResource("2_8v3gx")

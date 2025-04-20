@@ -1,10 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://lxtnnc7nixed"]
+[gd_scene load_steps=5 format=3 uid="uid://lxtnnc7nixed"]
 
 [ext_resource type="Script" uid="uid://cc0u8dhvxbcbc" path="res://scripts/Grid inventory/inventory.gd" id="1_3f168"]
 [ext_resource type="PackedScene" uid="uid://rlhx2wi3lgqa" path="res://scripts/Grid inventory/Slot.tscn" id="1_08tj3"]
 [ext_resource type="StyleBox" uid="uid://dt2xyqvhauy2k" path="res://shaders/materials/slot_style_0.tres" id="3_3f168"]
-[ext_resource type="Resource" uid="uid://c246y8obvmlls" path="res://assets/resources/items/weapons/adventure_sword.tres" id="5_3f168"]
-[ext_resource type="Resource" uid="uid://ktdnygl3nofs" path="res://assets/resources/items/health/chicken_leg.tres" id="5_oqdvf"]
 [ext_resource type="PackedScene" uid="uid://b4uahcrdgflpf" path="res://scripts/Grid inventory/EquipmentSlot.tscn" id="6_3f168"]
 
 [node name="Inventory" type="Control"]
@@ -40,14 +38,12 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("3_3f168")
-item = ExtResource("5_3f168")
 
 [node name="Slot2" parent="CanvasLayer/GridContainer" instance=ExtResource("1_08tj3")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("3_3f168")
-item = ExtResource("5_oqdvf")
 
 [node name="Slot3" parent="CanvasLayer/GridContainer" instance=ExtResource("1_08tj3")]
 layout_mode = 2

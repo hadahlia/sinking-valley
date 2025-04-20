@@ -35,7 +35,6 @@ _data = {
 [node name="dig_mound" type="Node3D"]
 script = ExtResource("1_ithxi")
 event_text = "you took the shovel"
-is_door = false
 
 [node name="dirt_mesh" type="MeshInstance3D" parent="."]
 mesh = ExtResource("2_28v6x")

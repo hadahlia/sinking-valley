@@ -33,8 +33,10 @@ var prev_pos : Vector3
 
 # pathing stuff
 var path : Array = []
-var path_id : int = 0
+#var path_id : int = 0
 #var personal_astar := AStar2D.new()
+
+#var moved : bool = false
 
 @onready var amap = get_tree().get_first_node_in_group("AMap")
 @onready var player : CharacterBody3D = get_tree().get_first_node_in_group("Player")
@@ -49,7 +51,8 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	
 	body.global_position = lerp(body.global_position, step_to.global_position, LERP_SPEED * delta)
-	#if GameFlags.player_turn: return
+	if GameFlags.player_turn: return
+	
 	if !ground.is_colliding() and prev_pos != Vector3.ZERO:
 		#print("correctingggg")
 		step_to.global_position = prev_pos
@@ -65,9 +68,10 @@ func take_turn():
 		#intention = WANDERING
 	match intention:
 		CHASING:
-			var los : bool = line_of_sight_test()
-			if los:
-				move_astar()
+			#if (step_to.global_position - player.global_position).length() < 50:
+			#var los : bool = line_of_sight_test()
+			#if los:
+			move_astar()
 			#else:
 				#print(":3")
 			
@@ -132,6 +136,7 @@ func line_of_sight_test() -> bool:
 	#los.hit_from_inside
 	#los.force_raycast_update()
 	var space_state = get_world_3d().direct_space_state
+	#if !space_state: return false
 	var query = PhysicsRayQueryParameters3D.create(step_to.global_position, player.global_position)
 	query.exclude = [self, step_to, player]
 	var result = space_state.intersect_ray(query)
@@ -149,6 +154,7 @@ func move_astar() -> void:
 	#player = get_tree().get_first_node_in_group("Player")
 	path = amap.get_astar_avoid_units(self.step_to.global_position, player.global_position)
 	#print(path)
+	if path.size() > 10: return
 	if path.size() > 2:
 		var target: Vector3 = Vector3(path[1].x * STEP_SIZE, step_to.global_position.y, path[1].y * STEP_SIZE)
 		#var target_length = (target - step_to.global_position).length()

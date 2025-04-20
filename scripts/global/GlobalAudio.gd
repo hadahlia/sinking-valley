@@ -32,7 +32,7 @@ func play_music(stream:AudioStream):
 	var inst = AudioStreamPlayer.new()
 	inst.add_to_group("musics")
 	inst.stream = stream
-	inst.volume_db -= 10
+	inst.volume_db = -10
 	#inst.volume_db -= 3
 	#inst.finished.connect(remove_audio.bind(inst))
 	add_child(inst)

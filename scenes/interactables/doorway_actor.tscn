@@ -1,12 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://cwghya4t7r11h"]
+[gd_scene load_steps=7 format=3 uid="uid://cwghya4t7r11h"]
 
 [ext_resource type="Script" uid="uid://h56wh5xdsp4l" path="res://scripts/actors/interactable.gd" id="1_by06o"]
+[ext_resource type="Texture2D" uid="uid://5gko0n0mpxr2" path="res://assets/textures/DoorSprite.png" id="2_hvlj7"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_7mmql"]
 size = Vector3(4, 4, 3)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7mmql"]
 albedo_color = Color(1, 0.321569, 0.121569, 1)
+albedo_texture = ExtResource("2_hvlj7")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_offset = Vector3(0, -0.065, 0)
+uv1_triplanar = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7mmql"]
 size = Vector3(5, 5, 5)
@@ -16,6 +21,7 @@ size = Vector3(4.9, 5, 4.9)
 
 [node name="doorway_actor" type="Node3D"]
 script = ExtResource("1_by06o")
+is_door = true
 
 [node name="mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)

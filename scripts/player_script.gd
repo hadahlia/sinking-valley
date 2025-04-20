@@ -142,7 +142,7 @@ func _physics_process(delta: float) -> void:
 	head.global_position.x = lerpf(head.global_position.x, step_to.global_position.x, MOVESPEED * delta_time)
 	head.global_position.z = lerpf(head.global_position.z, step_to.global_position.z, MOVESPEED * delta_time)
 	
-	if !GameFlags.can_move or !GameFlags.player_turn : return
+	if !GameFlags.player_turn or !GameFlags.can_move: return
 	
 	
 	handle_turn()
@@ -160,6 +160,7 @@ func use_heal()->void:
 	stats.HealDamage(heal_amt)
 	if heal_amt > 0:
 		GlobalAudio.play_sound(GlobalAudio.SFX_HEAL)
+		took_turn = true
 	set_hud()
 	#print("heal!")
 
@@ -187,8 +188,8 @@ func attack_tile():
 		GlobalAudio.play_sound(GlobalAudio.ATK_CONNECT)
 		#print(col.get_parent().stats_resource.currentHP)
 		col.get_parent().assess_life()
-	end_turn()
-		#took_turn = true
+	#end_turn()
+	took_turn = true
 
 func set_hud()->void:
 	var temp_dmg : int = 0

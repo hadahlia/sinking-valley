@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dm2wfl175fnol"]
+[gd_scene load_steps=4 format=3 uid="uid://dm2wfl175fnol"]
 
 [ext_resource type="Script" uid="uid://drlbpnx1n457i" path="res://scripts/death_screen.gd" id="1_2n4oe"]
 [ext_resource type="FontFile" uid="uid://urm2qwhg7j7k" path="res://assets/textures/font/m5x7.ttf" id="1_jcrgr"]
+[ext_resource type="Texture2D" uid="uid://cnqn5ekbpss5j" path="res://assets/textures/DeathScreen.png" id="2_g4w52"]
 
 [node name="death_screen" type="Control"]
 layout_mode = 3
@@ -19,31 +20,34 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.08, 0.0056, 0.0056, 1)
+color = Color(0, 0, 0, 1)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -256.0
-offset_top = -220.0
-offset_right = 256.0
-offset_bottom = 188.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_g4w52")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -256.0
+offset_top = -152.0
+offset_right = 256.0
+grow_horizontal = 2
+grow_vertical = 0
 theme_override_fonts/normal_font = ExtResource("1_jcrgr")
 theme_override_font_sizes/normal_font_size = 64
-text = "THOU ART DEAD
-
-THERE IS NO ESCAPE
-
-
-
-
-SPACE TO RESTART"
+text = "SPACE TO RESTART?"
 fit_content = true
 scroll_active = false
 scroll_following = true

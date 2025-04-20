@@ -22,7 +22,7 @@ config/icon="res://icon.svg"
 
 GlobalAudio="*res://scripts/global/GlobalAudio.gd"
 SceneManager="*res://scripts/global/SceneManager.gd"
-GameFlags="*res://scripts/global/GameFlags.gd"
+GameFlags="res://scripts/global/GameFlags.gd"
 
 [dotnet]
 
@@ -156,6 +156,11 @@ inventory={
 3d_physics/layer_3="INTERACTABLE"
 3d_physics/layer_5="AREAS_INTERACTABLE"
 3d_physics/layer_6="ATTACKABLE"
+
+[physics]
+
+3d/run_on_separate_thread=true
+3d/physics_engine="Jolt Physics"
 
 [rendering]
 

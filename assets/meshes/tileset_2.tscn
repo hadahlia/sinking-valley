@@ -109,6 +109,7 @@ size = Vector3(2, 4.5, 2)
 [node name="tileset_2" instance=ExtResource("1_wkak8")]
 
 [node name="wall_" parent="." index="0"]
+cast_shadow = 0
 surface_material_override/0 = ExtResource("2_funum")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="wall_" index="0"]
