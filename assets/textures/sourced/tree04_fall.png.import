@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b4my0yjfoqi0t"
 path.bptc="res://.godot/imported/tree04_fall.png-cbb0777b34e7f56e7098fda8fcc77b43.bptc.ctex"
+path.astc="res://.godot/imported/tree04_fall.png-cbb0777b34e7f56e7098fda8fcc77b43.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/sourced/tree04_fall.png"
-dest_files=["res://.godot/imported/tree04_fall.png-cbb0777b34e7f56e7098fda8fcc77b43.bptc.ctex"]
+dest_files=["res://.godot/imported/tree04_fall.png-cbb0777b34e7f56e7098fda8fcc77b43.bptc.ctex", "res://.godot/imported/tree04_fall.png-cbb0777b34e7f56e7098fda8fcc77b43.astc.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bx6mduj3t2s1v"
 path.bptc="res://.godot/imported/bush2_spring1.png-bcf515f8ae3021d7c88d17ad7d0137c7.bptc.ctex"
+path.astc="res://.godot/imported/bush2_spring1.png-bcf515f8ae3021d7c88d17ad7d0137c7.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/sourced/bush2_spring1.png"
-dest_files=["res://.godot/imported/bush2_spring1.png-bcf515f8ae3021d7c88d17ad7d0137c7.bptc.ctex"]
+dest_files=["res://.godot/imported/bush2_spring1.png-bcf515f8ae3021d7c88d17ad7d0137c7.bptc.ctex", "res://.godot/imported/bush2_spring1.png-bcf515f8ae3021d7c88d17ad7d0137c7.astc.ctex"]
 
 [params]
 

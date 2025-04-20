@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://5gko0n0mpxr2"
 path.bptc="res://.godot/imported/DoorSprite.png-73a2efcfb6b0de4fc350afe8c3a9db0e.bptc.ctex"
+path.astc="res://.godot/imported/DoorSprite.png-73a2efcfb6b0de4fc350afe8c3a9db0e.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/DoorSprite.png"
-dest_files=["res://.godot/imported/DoorSprite.png-73a2efcfb6b0de4fc350afe8c3a9db0e.bptc.ctex"]
+dest_files=["res://.godot/imported/DoorSprite.png-73a2efcfb6b0de4fc350afe8c3a9db0e.bptc.ctex", "res://.godot/imported/DoorSprite.png-73a2efcfb6b0de4fc350afe8c3a9db0e.astc.ctex"]
 
 [params]
 

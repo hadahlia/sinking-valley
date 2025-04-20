@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dpte6ojw1v20"
 path.bptc="res://.godot/imported/bush6_spring4.png-8899de7c24fabb9b346b01692545065f.bptc.ctex"
+path.astc="res://.godot/imported/bush6_spring4.png-8899de7c24fabb9b346b01692545065f.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/sourced/bush6_spring4.png"
-dest_files=["res://.godot/imported/bush6_spring4.png-8899de7c24fabb9b346b01692545065f.bptc.ctex"]
+dest_files=["res://.godot/imported/bush6_spring4.png-8899de7c24fabb9b346b01692545065f.bptc.ctex", "res://.godot/imported/bush6_spring4.png-8899de7c24fabb9b346b01692545065f.astc.ctex"]
 
 [params]
 

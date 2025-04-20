@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://mlahhe6e4gi1"
 path.bptc="res://.godot/imported/helmet_placeholder.png-9e08c833f066d367ade2b6762c72086c.bptc.ctex"
+path.astc="res://.godot/imported/helmet_placeholder.png-9e08c833f066d367ade2b6762c72086c.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/items/helmet_placeholder.png"
-dest_files=["res://.godot/imported/helmet_placeholder.png-9e08c833f066d367ade2b6762c72086c.bptc.ctex"]
+dest_files=["res://.godot/imported/helmet_placeholder.png-9e08c833f066d367ade2b6762c72086c.bptc.ctex", "res://.godot/imported/helmet_placeholder.png-9e08c833f066d367ade2b6762c72086c.astc.ctex"]
 
 [params]
 

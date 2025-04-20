@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bfm0wtwfkrhki"
 path.bptc="res://.godot/imported/chalice_cup.png-387ecc3edb1be863a0cdd60fb1d42d86.bptc.ctex"
+path.astc="res://.godot/imported/chalice_cup.png-387ecc3edb1be863a0cdd60fb1d42d86.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/items/chalice_cup.png"
-dest_files=["res://.godot/imported/chalice_cup.png-387ecc3edb1be863a0cdd60fb1d42d86.bptc.ctex"]
+dest_files=["res://.godot/imported/chalice_cup.png-387ecc3edb1be863a0cdd60fb1d42d86.bptc.ctex", "res://.godot/imported/chalice_cup.png-387ecc3edb1be863a0cdd60fb1d42d86.astc.ctex"]
 
 [params]
 

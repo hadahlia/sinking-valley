@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ob2x7p6gbkib"
 path.bptc="res://.godot/imported/water_placeholder.png-87e988d8b40bc3bbd16f7c52950587d6.bptc.ctex"
+path.astc="res://.godot/imported/water_placeholder.png-87e988d8b40bc3bbd16f7c52950587d6.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/water_placeholder.png"
-dest_files=["res://.godot/imported/water_placeholder.png-87e988d8b40bc3bbd16f7c52950587d6.bptc.ctex"]
+dest_files=["res://.godot/imported/water_placeholder.png-87e988d8b40bc3bbd16f7c52950587d6.bptc.ctex", "res://.godot/imported/water_placeholder.png-87e988d8b40bc3bbd16f7c52950587d6.astc.ctex"]
 
 [params]
 

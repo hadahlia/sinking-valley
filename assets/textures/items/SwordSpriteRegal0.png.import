@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ftwtglf51nx1"
 path.bptc="res://.godot/imported/SwordSpriteRegal0.png-a9287a3c0573ef9322a998089392e3c9.bptc.ctex"
+path.astc="res://.godot/imported/SwordSpriteRegal0.png-a9287a3c0573ef9322a998089392e3c9.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/items/SwordSpriteRegal0.png"
-dest_files=["res://.godot/imported/SwordSpriteRegal0.png-a9287a3c0573ef9322a998089392e3c9.bptc.ctex"]
+dest_files=["res://.godot/imported/SwordSpriteRegal0.png-a9287a3c0573ef9322a998089392e3c9.bptc.ctex", "res://.godot/imported/SwordSpriteRegal0.png-a9287a3c0573ef9322a998089392e3c9.astc.ctex"]
 
 [params]
 

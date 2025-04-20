@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bxaw5xg4ocijr"
 path.bptc="res://.godot/imported/dirt_mound_value.png-2aa9cadd2c069d10a65c2ff4a1169b05.bptc.ctex"
+path.astc="res://.godot/imported/dirt_mound_value.png-2aa9cadd2c069d10a65c2ff4a1169b05.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/items/dirt_mound_value.png"
-dest_files=["res://.godot/imported/dirt_mound_value.png-2aa9cadd2c069d10a65c2ff4a1169b05.bptc.ctex"]
+dest_files=["res://.godot/imported/dirt_mound_value.png-2aa9cadd2c069d10a65c2ff4a1169b05.bptc.ctex", "res://.godot/imported/dirt_mound_value.png-2aa9cadd2c069d10a65c2ff4a1169b05.astc.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://u0vjubwl1t0g"
 path.bptc="res://.godot/imported/PedraJamCracked2.png-cc1819b87f1e2acd5115520c3c5bf25e.bptc.ctex"
+path.astc="res://.godot/imported/PedraJamCracked2.png-cc1819b87f1e2acd5115520c3c5bf25e.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/PedraJamCracked2.png"
-dest_files=["res://.godot/imported/PedraJamCracked2.png-cc1819b87f1e2acd5115520c3c5bf25e.bptc.ctex"]
+dest_files=["res://.godot/imported/PedraJamCracked2.png-cc1819b87f1e2acd5115520c3c5bf25e.bptc.ctex", "res://.godot/imported/PedraJamCracked2.png-cc1819b87f1e2acd5115520c3c5bf25e.astc.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d0kk7r5udi5ce"
 path.bptc="res://.godot/imported/ChickenLegSprite.png-2a3661d47834c05026f97454fbefbee4.bptc.ctex"
+path.astc="res://.godot/imported/ChickenLegSprite.png-2a3661d47834c05026f97454fbefbee4.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/ChickenLegSprite.png"
-dest_files=["res://.godot/imported/ChickenLegSprite.png-2a3661d47834c05026f97454fbefbee4.bptc.ctex"]
+dest_files=["res://.godot/imported/ChickenLegSprite.png-2a3661d47834c05026f97454fbefbee4.bptc.ctex", "res://.godot/imported/ChickenLegSprite.png-2a3661d47834c05026f97454fbefbee4.astc.ctex"]
 
 [params]
 

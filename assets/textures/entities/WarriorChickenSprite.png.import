@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bp3b7f5i3c705"
 path.bptc="res://.godot/imported/WarriorChickenSprite.png-2a9283ba1be7696968bbb118195b313e.bptc.ctex"
+path.astc="res://.godot/imported/WarriorChickenSprite.png-2a9283ba1be7696968bbb118195b313e.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/entities/WarriorChickenSprite.png"
-dest_files=["res://.godot/imported/WarriorChickenSprite.png-2a9283ba1be7696968bbb118195b313e.bptc.ctex"]
+dest_files=["res://.godot/imported/WarriorChickenSprite.png-2a9283ba1be7696968bbb118195b313e.bptc.ctex", "res://.godot/imported/WarriorChickenSprite.png-2a9283ba1be7696968bbb118195b313e.astc.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c5pn0qrm0youq"
 path.bptc="res://.godot/imported/CeilingSprite_n.png-0c370a01d6a903d2ccdf5c9d30c51ab8.bptc.ctex"
+path.astc="res://.godot/imported/CeilingSprite_n.png-0c370a01d6a903d2ccdf5c9d30c51ab8.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/normals/CeilingSprite_n.png"
-dest_files=["res://.godot/imported/CeilingSprite_n.png-0c370a01d6a903d2ccdf5c9d30c51ab8.bptc.ctex"]
+dest_files=["res://.godot/imported/CeilingSprite_n.png-0c370a01d6a903d2ccdf5c9d30c51ab8.bptc.ctex", "res://.godot/imported/CeilingSprite_n.png-0c370a01d6a903d2ccdf5c9d30c51ab8.astc.ctex"]
 
 [params]
 

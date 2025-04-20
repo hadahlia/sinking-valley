@@ -24,6 +24,10 @@ GlobalAudio="*res://scripts/global/GlobalAudio.gd"
 SceneManager="*res://scripts/global/SceneManager.gd"
 GameFlags="res://scripts/global/GameFlags.gd"
 
+[display]
+
+window/stretch/aspect="keep_height"
+
 [dotnet]
 
 project/assembly_name="sinking valley"
@@ -159,12 +163,12 @@ inventory={
 
 [physics]
 
-3d/run_on_separate_thread=true
-3d/physics_engine="Jolt Physics"
+3d/physics_engine="GodotPhysics3D"
 
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+textures/vram_compression/import_etc2_astc=true
 textures/default_filters/use_nearest_mipmap_filter=true
 textures/default_filters/anisotropic_filtering_level=3
 textures/decals/filter=1

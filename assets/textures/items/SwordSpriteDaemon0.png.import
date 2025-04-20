@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ds8tajo6i5ujr"
 path.bptc="res://.godot/imported/SwordSpriteDaemon0.png-47b622506cd02bcdb706729d82306af3.bptc.ctex"
+path.astc="res://.godot/imported/SwordSpriteDaemon0.png-47b622506cd02bcdb706729d82306af3.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/items/SwordSpriteDaemon0.png"
-dest_files=["res://.godot/imported/SwordSpriteDaemon0.png-47b622506cd02bcdb706729d82306af3.bptc.ctex"]
+dest_files=["res://.godot/imported/SwordSpriteDaemon0.png-47b622506cd02bcdb706729d82306af3.bptc.ctex", "res://.godot/imported/SwordSpriteDaemon0.png-47b622506cd02bcdb706729d82306af3.astc.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bsvwmygykpkkw"
 path.bptc="res://.godot/imported/PedraJam2.png-5895d779f0be59a6b1022bc7cb6e2327.bptc.ctex"
+path.astc="res://.godot/imported/PedraJam2.png-5895d779f0be59a6b1022bc7cb6e2327.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/PedraJam2.png"
-dest_files=["res://.godot/imported/PedraJam2.png-5895d779f0be59a6b1022bc7cb6e2327.bptc.ctex"]
+dest_files=["res://.godot/imported/PedraJam2.png-5895d779f0be59a6b1022bc7cb6e2327.bptc.ctex", "res://.godot/imported/PedraJam2.png-5895d779f0be59a6b1022bc7cb6e2327.astc.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bqvcfp3tyv747"
 path.bptc="res://.godot/imported/FooterHud.png-3ef319268b830bc083ac3aa03f4d6737.bptc.ctex"
+path.astc="res://.godot/imported/FooterHud.png-3ef319268b830bc083ac3aa03f4d6737.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/FooterHud.png"
-dest_files=["res://.godot/imported/FooterHud.png-3ef319268b830bc083ac3aa03f4d6737.bptc.ctex"]
+dest_files=["res://.godot/imported/FooterHud.png-3ef319268b830bc083ac3aa03f4d6737.bptc.ctex", "res://.godot/imported/FooterHud.png-3ef319268b830bc083ac3aa03f4d6737.astc.ctex"]
 
 [params]
 

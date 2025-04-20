@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c18jreh06w64c"
 path.bptc="res://.godot/imported/SandTile.png-9f70dbe0403b9b7131e2b3f7044fd4a9.bptc.ctex"
+path.astc="res://.godot/imported/SandTile.png-9f70dbe0403b9b7131e2b3f7044fd4a9.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/SandTile.png"
-dest_files=["res://.godot/imported/SandTile.png-9f70dbe0403b9b7131e2b3f7044fd4a9.bptc.ctex"]
+dest_files=["res://.godot/imported/SandTile.png-9f70dbe0403b9b7131e2b3f7044fd4a9.bptc.ctex", "res://.godot/imported/SandTile.png-9f70dbe0403b9b7131e2b3f7044fd4a9.astc.ctex"]
 
 [params]
 

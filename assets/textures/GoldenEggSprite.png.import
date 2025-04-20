@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://lp5acaifj4a7"
 path.bptc="res://.godot/imported/GoldenEggSprite.png-18f942fda87d9a836d5dc608a7b2eb96.bptc.ctex"
+path.astc="res://.godot/imported/GoldenEggSprite.png-18f942fda87d9a836d5dc608a7b2eb96.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/GoldenEggSprite.png"
-dest_files=["res://.godot/imported/GoldenEggSprite.png-18f942fda87d9a836d5dc608a7b2eb96.bptc.ctex"]
+dest_files=["res://.godot/imported/GoldenEggSprite.png-18f942fda87d9a836d5dc608a7b2eb96.bptc.ctex", "res://.godot/imported/GoldenEggSprite.png-18f942fda87d9a836d5dc608a7b2eb96.astc.ctex"]
 
 [params]
 

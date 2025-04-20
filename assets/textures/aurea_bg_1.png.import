@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cyffprop2eoa4"
 path.bptc="res://.godot/imported/aurea_bg_1.png-53d114a01a3355929b03c387a06dd6bc.bptc.ctex"
+path.astc="res://.godot/imported/aurea_bg_1.png-53d114a01a3355929b03c387a06dd6bc.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/aurea_bg_1.png"
-dest_files=["res://.godot/imported/aurea_bg_1.png-53d114a01a3355929b03c387a06dd6bc.bptc.ctex"]
+dest_files=["res://.godot/imported/aurea_bg_1.png-53d114a01a3355929b03c387a06dd6bc.bptc.ctex", "res://.godot/imported/aurea_bg_1.png-53d114a01a3355929b03c387a06dd6bc.astc.ctex"]
 
 [params]
 
