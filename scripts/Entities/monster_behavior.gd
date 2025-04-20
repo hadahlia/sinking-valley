@@ -158,7 +158,7 @@ func move_astar() -> void:
 	#player = get_tree().get_first_node_in_group("Player")
 	path = amap.get_astar_avoid_units(self.step_to.global_position, player.global_position)
 	#print(path)
-	if path.size() >= 10: return
+	#if path.size() >= 10: return
 	if path.size() > 2:
 		var target: Vector3 = Vector3(path[1].x * STEP_SIZE, step_to.global_position.y, path[1].y * STEP_SIZE)
 		#var target_length = (target - step_to.global_position).length()

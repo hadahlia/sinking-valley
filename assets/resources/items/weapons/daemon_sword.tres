@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_2yjfb")
 EquipmentType = "Weapon"
-attackValue = 18
+attackValue = 10
 defValue = 0
 name = "Daemon Sword"
 picture = ExtResource("1_uh6rv")

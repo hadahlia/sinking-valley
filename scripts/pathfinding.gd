@@ -15,7 +15,9 @@ var units_array := []
 var cells_array :Array= []
 
 func _ready() -> void:
+	true_ready()
 
+func true_ready():
 	create_path_points()
 	add_units()
 
@@ -50,8 +52,9 @@ func get_cell_positions() -> Array:
 
 func create_path_points() -> void:
 	astar.clear()
-	if cells_array.is_empty():
-		cells_array = board.get_used_cells()
+	
+	#if cells_array.is_empty():
+	cells_array = get_cell_positions()
 	#print(used_cell_pos)
 	for cell in cells_array:
 		var ind :int = astar.get_available_point_id()
@@ -61,6 +64,7 @@ func create_path_points() -> void:
 		connect_cardinals(cell)
 
 func add_units() -> void:
+	units_array.clear()
 	var units := get_tree().get_nodes_in_group("EnemyMonster")
 	for unit in units:
 		units_array.append(unit)
@@ -88,7 +92,7 @@ func get_astar_avoid_units(start: Vector3, end: Vector3) -> PackedVector2Array:
 	var s_id : int = astar.get_closest_point(s_grid)
 	var e_id : int = astar.get_closest_point(e_grid)
 	set_unit_points_disabled(true)
-	var astar_path := astar.get_point_path(s_id, e_id, false)
+	var astar_path := astar.get_point_path(s_id, e_id, true)
 	set_unit_points_disabled(false)
 	#print("get astar avoid units!")
 	return astar_path

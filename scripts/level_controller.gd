@@ -47,11 +47,7 @@ func get_monsters() -> void:
 		#end_turn()
 
 func end_turn() -> void:
-	if !amap:
-		amap = get_tree().get_first_node_in_group("AMap")
-		get_tree().create_timer(0.05).timeout.connect(func()->void:
-			amap.create_path_points()
-			)
+	
 	
 	#amap.generate_astar()
 		#print(GameFlags.player_turn)
@@ -129,8 +125,17 @@ func switch_map()->void:
 	
 
 func instance_map(level) -> void:
+	
 	var c = level.instantiate()
+	c.ready.connect(func()->void:
+		if !amap:
+			amap = get_tree().get_first_node_in_group("AMap")
+			get_tree().create_timer(0.05).timeout.connect(func()->void:
+				amap.true_ready()
+			)
+		)
 	add_child(c)
+	
 
 func check_location() -> void:
 	

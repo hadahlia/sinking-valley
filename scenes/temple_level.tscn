@@ -247,8 +247,8 @@ damage = 27
 aggression = 12
 icon = ExtResource("6_58l4s")
 unitName = "Tanngrisnir"
-maxHP = 331
-currentHP = 331
+maxHP = 131
+currentHP = 131
 defense = 20
 isDead = false
 metadata/_custom_type_script = "uid://okpjvxfuet1p"
@@ -279,9 +279,11 @@ sdfgi_use_occlusion = true
 sdfgi_read_sky_light = false
 sdfgi_cascades = 6
 glow_enabled = true
+fog_enabled = true
 fog_light_color = Color(0.08, 0.32, 0.088, 1)
 fog_density = 0.009
 fog_sky_affect = 0.149
+volumetric_fog_enabled = true
 volumetric_fog_density = 0.01
 volumetric_fog_albedo = Color(0.3, 1, 0.3, 1)
 volumetric_fog_emission = Color(0.38, 0.095, 0.095, 1)
@@ -335,7 +337,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76, 0, -152)
 stats_resource = SubResource("Resource_n17ce")
 
 [node name="monster_scene11" parent="AMap/monster_node" instance=ExtResource("3_mcq5y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -181)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -180)
 stats_resource = SubResource("Resource_ox5iq")
 
 [node name="monster_scene2" parent="AMap/monster_node" instance=ExtResource("3_mcq5y")]

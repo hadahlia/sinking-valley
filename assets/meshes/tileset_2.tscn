@@ -1,9 +1,11 @@
-[gd_scene load_steps=28 format=4 uid="uid://yv0rsplr1aei"]
+[gd_scene load_steps=31 format=4 uid="uid://yv0rsplr1aei"]
 
 [ext_resource type="PackedScene" uid="uid://0m41bmwuc2gx" path="res://assets/meshes/tileset_2.glb" id="1_wkak8"]
 [ext_resource type="Material" uid="uid://cb5cp4erwpan0" path="res://shaders/materials/mat_bricks1.tres" id="2_funum"]
 [ext_resource type="Material" uid="uid://dklkdijybwb3d" path="res://shaders/materials/mat_floor.tres" id="3_oyjta"]
 [ext_resource type="Material" uid="uid://c0prm6taecfry" path="res://shaders/materials/mat_sand.tres" id="4_h2nhn"]
+[ext_resource type="Texture2D" uid="uid://d2x2udhiiyyg1" path="res://assets/textures/CeilingSprite.png" id="4_r1m51"]
+[ext_resource type="Texture2D" uid="uid://c5pn0qrm0youq" path="res://assets/textures/normals/CeilingSprite_n.png" id="5_cgm7w"]
 [ext_resource type="Material" uid="uid://cpae81ha6262b" path="res://shaders/materials/mat_void_unlit.tres" id="5_g1juh"]
 [ext_resource type="Material" uid="uid://cxvu36oo3rbu8" path="res://shaders/materials/tree_1tres.tres" id="6_g1juh"]
 [ext_resource type="Material" uid="uid://qwe1gtcl5ahx" path="res://shaders/materials/bush1.tres" id="7_4tlpu"]
@@ -18,6 +20,11 @@ data = PackedVector3Array(1, 0.6667, -1, -1, 0.6667, 1, -1, 0.6667, -1, 1, 0.666
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_psgw3"]
 data = PackedVector3Array(-1, 0, 1, 1, 0, -1, 1, 0, 1, -1, 0, 1, -1, 0, -1, 1, 0, -1, -1, -2, 1, 1, -2, -1, -1, -2, -1, -1, -2, 1, 1, -2, 1, 1, -2, -1, 1, 0, 1, 1, -2, -1, 1, -2, 1, 1, 0, 1, 1, 0, -1, 1, -2, -1, -1, 0, -1, -1, -2, 1, -1, -2, -1, -1, 0, -1, -1, 0, 1, -1, -2, 1, 1, 0, -1, -1, -2, -1, 1, -2, -1, 1, 0, -1, -1, 0, -1, -1, -2, -1, -1, 0, 1, 1, -2, 1, -1, -2, 1, -1, 0, 1, 1, 0, 1, 1, -2, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_356iw"]
+albedo_texture = ExtResource("4_r1m51")
+normal_enabled = true
+normal_texture = ExtResource("5_cgm7w")
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_r1m51"]
 data = PackedVector3Array(-1, 0, 1, 1, 0, -1, 1, 0, 1, -1, 0, 1, -1, 0, -1, 1, 0, -1, -1, -4, 1, 1, -4, -1, -1, -4, -1, -1, -4, 1, 1, -4, 1, 1, -4, -1, 1, 0, 1, 1, -4, -1, 1, -4, 1, 1, 0, 1, 1, 0, -1, 1, -4, -1, -1, 0, -1, -1, -4, 1, -1, -4, -1, -1, 0, -1, -1, 0, 1, -1, -4, 1, 1, 0, -1, -1, -4, -1, 1, -4, -1, 1, 0, -1, -1, 0, -1, -1, -4, -1, -1, 0, 1, 1, -4, 1, -1, -4, 1, -1, 0, 1, 1, 0, 1, 1, -4, 1, -1, 5, 1, 1, 5, -1, 1, 5, 1, -1, 5, 1, -1, 5, -1, 1, 5, -1, -1, 4, 1, 1, 4, -1, -1, 4, -1, -1, 4, 1, 1, 4, 1, 1, 4, -1, -1, 5, 1, -1, 4, -1, -1, 5, -1, -1, 5, 1, -1, 4, 1, -1, 4, -1, -1, 5, -1, 1, 4, -1, 1, 5, -1, -1, 5, -1, -1, 4, -1, 1, 4, -1, 1, 5, 1, -1, 4, 1, -1, 5, 1, 1, 5, 1, 1, 4, 1, -1, 4, 1, 1, 5, -1, 1, 4, 1, 1, 5, 1, 1, 5, -1, 1, 4, -1, 1, 4, 1)
@@ -129,7 +136,7 @@ shape = SubResource("ConcavePolygonShape3D_psgw3")
 [node name="floor_ceiling_" parent="." index="2"]
 gi_mode = 2
 surface_material_override/0 = ExtResource("3_oyjta")
-surface_material_override/1 = ExtResource("2_funum")
+surface_material_override/1 = SubResource("StandardMaterial3D_356iw")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="floor_ceiling_" index="0"]
 
